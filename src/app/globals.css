@@ -17,3 +17,8 @@
   font-display: swap;
   src: url(../../public/fonts/hollirood.ttf);
 }
+
+body {
+  background-color: #151515;
+  color: white;
+}
