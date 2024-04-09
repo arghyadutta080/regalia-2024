@@ -6,9 +6,13 @@ import { login } from "@/utils/functions/login";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
 import DropdownCustom from "./Dropdown";
+import { clickSound, hoverSound } from "@/utils/functions";
+import toast, { Toaster } from "react-hot-toast";
+import CustomToast from "./CustomToast";
+import { MdDone } from "react-icons/md";
 
 const Navbar = () => {
   const searchParams = useSearchParams();
@@ -121,7 +125,15 @@ const Navbar = () => {
     // Show the dashboard and refresh the router
     setShowDashboard(true);
     router.refresh();
+    toast.custom(
+      <CustomToast
+        message="Logged in successfully!"
+        icon={<MdDone className="bg-green-400 text-white" size={15} />}
+      />,
+    );
   };
+
+  
 
   return (
     <>
@@ -129,11 +141,14 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
-          } flex flex-row items-center justify-between overflow-hidden  border-regalia py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:justify-around 2xl:gap-20 2xl:px-10 
+          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:justify-around 2xl:gap-20 2xl:px-10 
         `}
         >
-          <div className="flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold text-regalia ">
-            <Link href={"/"}>REGALIA</Link>
+          <Toaster position="bottom-right" />
+          <div className="text-regalia flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold ">
+            <Link href={"/"} onMouseEnter={hoverSound} onClick={clickSound}>
+              REGALIA
+            </Link>
           </div>
           <div className="flex flex-row-reverse items-center justify-between gap-4 md:flex-row">
             <div
@@ -143,30 +158,32 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span
-                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
+                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
             ${isMenuOpen ? "translate-y-2 rotate-45" : ""}
             `}
               ></span>
               <span
-                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
+                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
             ${isMenuOpen ? "translate-x-44 " : "translate-x-0"}
             `}
               ></span>
               <span
-                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
+                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
             ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}
             `}
               ></span>
             </div>
             {user && (
               <Link
+                onMouseEnter={hoverSound}
                 href={"/profile"}
                 onClick={() => {
+                  clickSound();
                   setIsMenuOpen(false);
                 }}
                 className={`block rounded-full border-4 md:hidden ${
                   pathname === "/profile" &&
-                  " rounded-full border-4 border-regalia"
+                  " border-regalia rounded-full border-4"
                 }`}
               >
                 <Image
@@ -179,14 +196,16 @@ const Navbar = () => {
               </Link>
             )}
             <ul
-              className={`fixed top-[3.8rem]  z-[100] w-full rounded-b-xl border-regalia bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-start md:bg-transparent md:pb-0 md:pl-0 xl:items-center  ${
+              className={`border-regalia fixed  top-[3.8rem] z-[100] w-full rounded-b-xl bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-start md:bg-transparent md:pb-0 md:pl-0 xl:items-center  ${
                 isMenuOpen ? "right-0 block" : " right-[-790px]"
               }`}
             >
               {navRoutes.map((link, index) => (
                 <Link
+                  onMouseEnter={hoverSound}
                   href={link.path}
                   onClick={() => {
+                    clickSound();
                     setIsMenuOpen(false);
                   }}
                   key={index}
@@ -220,8 +239,10 @@ const Navbar = () => {
                 )}
               {user && showDashboard && (
                 <Link
+                  onMouseEnter={hoverSound}
                   href={"/dashboard"}
                   onClick={() => {
+                    clickSound();
                     setIsMenuOpen(false);
                   }}
                 >
@@ -237,8 +258,10 @@ const Navbar = () => {
               <div className=" block flex-row items-center md:hidden xl:flex">
                 {user && showCoordinatorDashboard && (
                   <Link
+                    onMouseEnter={hoverSound}
                     href={"/coordinator"}
                     onClick={() => {
+                      clickSound();
                       setIsMenuOpen(false);
                     }}
                   >
@@ -254,8 +277,10 @@ const Navbar = () => {
 
                 {user && showConvenorDashboard && (
                   <Link
+                    onMouseEnter={hoverSound}
                     href={"/coordinator"}
                     onClick={() => {
+                      clickSound();
                       setIsMenuOpen(false);
                     }}
                   >
@@ -270,8 +295,10 @@ const Navbar = () => {
                 )}
                 {user && showRegisterDashboard && (
                   <Link
+                    onMouseEnter={hoverSound}
                     href={"/registrar"}
                     onClick={() => {
+                      clickSound();
                       setIsMenuOpen(false);
                     }}
                   >
@@ -287,8 +314,10 @@ const Navbar = () => {
 
                 {user && showAdminDashboard && (
                   <Link
+                    onMouseEnter={hoverSound}
                     href={"/admin"}
                     onClick={() => {
+                      clickSound();
                       setIsMenuOpen(false);
                     }}
                   >
@@ -306,13 +335,15 @@ const Navbar = () => {
               <div className="flex flex-row items-center gap-5  md:ml-5 ">
                 {user && (
                   <Link
+                    onMouseEnter={hoverSound}
                     href={"/profile"}
                     onClick={() => {
+                      clickSound();
                       setIsMenuOpen(false);
                     }}
                     className={`hidden rounded-full border-4 md:block ${
                       pathname === "/profile" &&
-                      "rounded-full border-4 border-regalia"
+                      "border-regalia rounded-full border-4"
                     }`}
                   >
                     <Image
@@ -325,13 +356,15 @@ const Navbar = () => {
                   </Link>
                 )}
                 <button
+                  onMouseEnter={hoverSound}
                   onClick={() => {
                     {
+                      clickSound();
                       user ? handleLogout() : handleLogin();
                       setIsMenuOpen(false);
                     }
                   }}
-                  className="rounded-full border-2 border-regalia bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-regalia hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
+                  className="border-regalia hover:bg-regalia rounded-full border-2 bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
                 >
                   {user ? (
                     <>
