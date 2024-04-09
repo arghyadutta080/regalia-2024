@@ -3,6 +3,7 @@ import "./globals.css";
 import { constructMetaData } from "@/utils";
 import { Footer, Navbar } from "@/components/common";
 import SessionProvider from "@/components/common/SessionProvider";
+import Cursor from "@/components/common/Cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <SessionProvider />
+        <Cursor />
       </body>
     </html>
   );

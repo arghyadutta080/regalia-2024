@@ -28,6 +28,12 @@
 body {
   background-color: #151515;
   color: white;
+  scroll-behavior: smooth;
+  cursor: url(../../public/cursor.png), auto;
+}
+
+.cursor-pointer {
+  cursor: url(../../public/cursor-pointer.png), pointer; /* Custom cursor for elements with class "cursor-pointer" */
 }
 
 ::-webkit-scrollbar {
@@ -48,8 +54,4 @@ body {
 
 input[type="radio"] {
   accent-color: #c9a747;
-}
-
-body {
-  scroll-behavior: smooth;
 }

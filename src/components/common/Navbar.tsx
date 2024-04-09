@@ -230,7 +230,7 @@ const Navbar = () => {
                   key={index}
                 >
                   <li
-                    className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
+                    className={`font-retrolight my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
                       pathname === link.path && "text-regalia"
                     }`}
                   >
