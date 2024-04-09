@@ -17,8 +17,30 @@
   font-display: swap;
   src: url(../../public/fonts/hollirood.ttf);
 }
+@font-face {
+  font-family: "Retrolight";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../../public/fonts/Retrolight 400.otf);
+}
 
 body {
   background-color: #151515;
   color: white;
+}
+
+@layer utilities {
+  .regalia {
+    background-image: linear-gradient(
+      181.68deg,
+      #ae8625 2.03%,
+      rgba(247, 239, 138, 0.812834) 35.58%,
+      rgba(210, 172, 71, 0.482811) 85.9%,
+      #edc967 114.06%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }

@@ -1,9 +1,8 @@
 import { Inter } from "next/font/google";
-
 import "./globals.css";
 import { constructMetaData } from "@/utils";
 import { Footer, Navbar } from "@/components/common";
-
+import SessionProvider from "@/components/common/SessionProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +19,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        </body>
+        <SessionProvider />
+      </body>
     </html>
   );
 }
