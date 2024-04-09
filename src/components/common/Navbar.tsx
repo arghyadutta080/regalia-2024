@@ -155,14 +155,14 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
-          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:justify-around 2xl:gap-20 2xl:px-5 
+          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center min-[1700px]:justify-around 2xl:gap-20 2xl:px-5 
         `}
         >
           <Toaster position="bottom-right" />
-          <div className="text-regalia flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold ">
+          <div className="text-regalia flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold hover:text">
             <Link
               href={"/"}
-              onMouseEnter={hoverSound}
+              // onMouseEnter={hoverSound}
               onClick={clickSound}
               className="flex flex-row items-end"
             >
