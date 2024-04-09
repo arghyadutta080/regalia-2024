@@ -140,6 +140,15 @@ const Navbar = () => {
     }
   };
 
+  //Custom toast code (Please refere this)
+  // const TestToast = ()=>{
+  //   toast.custom(<CustomToast
+  //   message="Error Occured ! Please try again later !"
+  //   icon={<MdError className="bg-red-600 text-white" size={15} />}
+  // />)
+  // console.log("Hello")
+  // }
+
   return (
     <>
       <div className="sticky left-0 top-0 z-[100] w-screen overflow-x-hidden font-hollirood lg:w-full ">

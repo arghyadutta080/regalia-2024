@@ -22,7 +22,7 @@ const DropdownCustom = ({
   showRegisterDashboard: boolean;
 }) => {
   const pathname = usePathname();
-
+ 
   return (
     <div className="z-[110] inline-block  text-left">
       <div>
@@ -41,6 +41,7 @@ const DropdownCustom = ({
                 <Link href={"/coordinator"}
                 onClick={() => {
                   setIsMenuOpen(false);
+                  setMoreOpen(false);
                 }}
                 >
                   <li
@@ -57,6 +58,7 @@ const DropdownCustom = ({
                 <Link href={"/coordinator"}
                 onClick={() => {
                   setIsMenuOpen(false);
+                  setMoreOpen(false);
                 }}
                 >
                   <li
@@ -72,6 +74,7 @@ const DropdownCustom = ({
                 <Link href={"/registrar"}
                 onClick={() => {
                   setIsMenuOpen(false);
+                  setMoreOpen(false);
                 }}
                 >
                   <li
