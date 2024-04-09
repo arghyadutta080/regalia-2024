@@ -30,17 +30,25 @@ body {
   color: white;
 }
 
-@layer utilities {
-  .regalia {
-    background-image: linear-gradient(
-      181.68deg,
-      #ae8625 2.03%,
-      rgba(247, 239, 138, 0.812834) 35.58%,
-      rgba(210, 172, 71, 0.482811) 85.9%,
-      #edc967 114.06%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9a747;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a747;
+}
+
+input[type="radio"] {
+  accent-color: #c9a747;
+}
+body {
+  scroll-behavior: smooth;
 }

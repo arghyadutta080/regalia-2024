@@ -17,7 +17,7 @@ const config: Config = {
       },
       colors: {
         regalia:
-          "linear-gradient(181.68deg, #AE8625 2.03%, rgba(247, 239, 138, 0.812834) 35.58%, rgba(210, 172, 71, 0.482811) 85.9%, #EDC967 114.06%)",
+          "#c9a747",
       },
     },
   },
