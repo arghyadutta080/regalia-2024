@@ -127,10 +127,10 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
-          } flex flex-row md:flex  items-center justify-between 2xl:justify-around 2xl:px-10 2xl:gap-20 overflow-hidden border-[#c9a747] py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:mb-14 
+          } flex flex-row items-center  justify-between overflow-hidden border-[#c9a747] py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:mb-14 md:flex 2xl:justify-around 2xl:gap-20 2xl:px-10 
         `}
         >
-          <div className="flex cursor-pointer items-center font-hollirood text-3xl font-bold text-[#c9a747] ">
+          <div className="flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold text-[#c9a747] ">
             <Link href={"/"}>REGALIA</Link>
           </div>
           <div className="flex flex-row-reverse items-center justify-between gap-4 md:flex-row">
@@ -158,7 +158,7 @@ const Navbar = () => {
             </div>
 
             <ul
-              className={`fixed top-[3.25rem]  z-[100] w-full rounded-b-xl border-[#c9a747] bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-center md:bg-transparent md:pb-0 md:pl-0  ${
+              className={`fixed top-14  z-[100] w-full rounded-b-xl border-[#c9a747] bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-center md:bg-transparent md:pb-0 md:pl-0  ${
                 isMenuOpen ? "right-0 block" : " right-[-790px]"
               }`}
             >
@@ -183,7 +183,7 @@ const Navbar = () => {
                 <Link href={"/dashboard"}>
                   <li
                     className={`font-retrolight my-2  rounded-xl px-2 py-1 pt-2 text-sm font-semibold  duration-200  ease-linear hover:text-yellow-400 md:my-0 md:ml-2 md:text-xs md:hover:scale-105 lg:ml-4  lg:text-sm 2xl:text-[18px] ${
-                      pathname === '/dashboard' && "text-[#c9a747]"
+                      pathname === "/dashboard" && "text-[#c9a747]"
                     }`}
                   >
                     Dashboard
@@ -194,7 +194,7 @@ const Navbar = () => {
                 <Link href={"/coordinator"}>
                   <li
                     className={`font-retrolight my-2  rounded-xl px-2 py-1 pt-2 text-sm font-semibold  duration-200  ease-linear hover:text-yellow-400 md:my-0 md:ml-2 md:text-xs md:hover:scale-105 lg:ml-4  lg:text-sm 2xl:text-[18px] ${
-                      pathname === 'coordinator' && "text-[#c9a747]"
+                      pathname === "coordinator" && "text-[#c9a747]"
                     }`}
                   >
                     Coordinator
@@ -206,7 +206,7 @@ const Navbar = () => {
                 <Link href={"/coordinator"}>
                   <li
                     className={`font-retrolight my-2  rounded-xl px-2 py-1 pt-2 text-sm font-semibold  duration-200  ease-linear hover:text-yellow-400 md:my-0 md:ml-2 md:text-xs md:hover:scale-105 lg:ml-4  lg:text-sm 2xl:text-[18px] ${
-                      pathname === 'coordinator' && "text-[#c9a747]"
+                      pathname === "coordinator" && "text-[#c9a747]"
                     }`}
                   >
                     Convenor
@@ -214,10 +214,10 @@ const Navbar = () => {
                 </Link>
               )}
               {user && showRegisterDashboard && (
-                <Link href={"/register"}>
+                <Link href={"/registrar"}>
                   <li
                     className={`font-retrolight my-2  rounded-xl px-2 py-1 pt-2 text-sm font-semibold  duration-200  ease-linear hover:text-yellow-400 md:my-0 md:ml-2 md:text-xs md:hover:scale-105 lg:ml-4  lg:text-sm 2xl:text-[18px] ${
-                      pathname === '/registrar' && "text-[#c9a747]"
+                      pathname === "/registrar" && "text-[#c9a747]"
                     }`}
                   >
                     Registrar
@@ -227,14 +227,14 @@ const Navbar = () => {
 
               {user && showAdminDashboard && (
                 <Link
-                  href={"/admin-dashboard"}
+                  href={"/admin"}
                   onClick={() => {
                     setIsMenuOpen(false);
                   }}
                 >
                   <li
                     className={`font-retrolight my-2  rounded-xl px-2 py-1 pt-2 text-sm font-semibold  duration-200  ease-linear hover:text-yellow-400 md:my-0 md:ml-2 md:text-xs md:hover:scale-105 lg:ml-4  lg:text-sm 2xl:text-[18px] ${
-                      pathname === '/admin' && "text-[#c9a747]"
+                      pathname === "/admin" && "text-[#c9a747]"
                     }`}
                   >
                     Admin
@@ -243,7 +243,13 @@ const Navbar = () => {
               )}
               <div className="flex flex-row items-center gap-5  md:ml-5 ">
                 {user && (
-                  <Link href={"/registration"}>
+                  <Link
+                    href={"/profile"}
+                    className={`${
+                      pathname === "/profile" &&
+                      "rounded-full border-4 border-[#c9a747]"
+                    }`}
+                  >
                     <Image
                       src={userImg}
                       alt="user"
@@ -259,7 +265,7 @@ const Navbar = () => {
                       user ? handleLogout() : handleLogin();
                     }
                   }}
-                  className="rounded-full border-2 border-[#c9a747] bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-[#c9a747] hover:text-black md:text-xs lg:px-6 2xl:px-10 lg:text-[10px] 2xl:text-[18px]"
+                  className="rounded-full border-2 border-[#c9a747] bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-[#c9a747] hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
                 >
                   {user ? (
                     <>

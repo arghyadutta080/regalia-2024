@@ -13,7 +13,7 @@ export const navRoutes = [
     },
     {
       name: "Team",
-      path: "/team/swc",
+      path: "/team",
     },
     {
       name: "Contact Us",
