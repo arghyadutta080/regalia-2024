@@ -12,7 +12,7 @@ import DropdownCustom from "./Dropdown";
 import { clickSound, hoverSound } from "@/utils/functions";
 import toast, { Toaster } from "react-hot-toast";
 import CustomToast from "./CustomToast";
-import { MdDone } from "react-icons/md";
+import { MdDone, MdError } from "react-icons/md";
 
 const Navbar = () => {
   const searchParams = useSearchParams();
@@ -39,6 +39,13 @@ const Navbar = () => {
     router.refresh();
 
     setUser(undefined);
+
+    toast.custom(
+      <CustomToast
+        message="Logged out successfully!"
+        icon={<MdDone className="bg-green-400 text-white" size={15} />}
+      />,
+    );
   };
 
   useEffect(() => {
@@ -120,20 +127,18 @@ const Navbar = () => {
   }, [user]);
 
   const handleLogin = async () => {
-    await login();
+    try {
+      await login();
 
-    // Show the dashboard and refresh the router
-    setShowDashboard(true);
-    router.refresh();
-    toast.custom(
+      setShowDashboard(true);
+      router.refresh();
+    } catch (error) {
       <CustomToast
-        message="Logged in successfully!"
-        icon={<MdDone className="bg-green-400 text-white" size={15} />}
-      />,
-    );
+        message="Error Occured ! Please try again later !"
+        icon={<MdError className="bg-red-600 text-white" size={15} />}
+      />;
+    }
   };
-
-  
 
   return (
     <>
@@ -146,7 +151,12 @@ const Navbar = () => {
         >
           <Toaster position="bottom-right" />
           <div className="text-regalia flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold ">
-            <Link href={"/"} onMouseEnter={hoverSound} onClick={clickSound}>
+            <Link
+              href={"/"}
+              onMouseEnter={hoverSound}
+              onClick={clickSound}
+              className="flex flex-row items-end"
+            >
               REGALIA
             </Link>
           </div>

@@ -6,7 +6,6 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
   const next = searchParams.get("next") ?? "/";
-
   if (code) {
     const cookieStore = cookies();
     const supabase = createServerClient(
@@ -19,6 +18,7 @@ export async function GET(request: Request) {
           },
           set(name: string, value: string, options: CookieOptions) {
             cookieStore.set({ name, value, ...options });
+            
           },
           remove(name: string, options: CookieOptions) {
             cookieStore.delete({ name, ...options });

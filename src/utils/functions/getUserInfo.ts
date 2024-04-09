@@ -1,8 +1,8 @@
 import { supabase } from "@/lib/supabase-client";
 
-
 export async function getUserInfo() {
   const { data, error } = await supabase.auth.getSession();
+
   const userDetails = await supabase
     .from("users")
     .select()
