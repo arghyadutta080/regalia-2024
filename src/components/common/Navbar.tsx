@@ -155,7 +155,7 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
-          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:justify-around 2xl:gap-20 2xl:px-10 
+          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:justify-around 2xl:gap-20 2xl:px-5 
         `}
         >
           <Toaster position="bottom-right" />
