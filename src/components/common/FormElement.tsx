@@ -20,7 +20,7 @@ const FormElement = ({
   ) => void;
 }) => {
   return (
-    <div className="flex flex-row items-center gap-1 md:gap-5 flex-wrap justify-start">
+    <div className="flex flex-row items-center  gap-1 md:gap-5 flex-wrap justify-start">
       <label htmlFor={id} className="font-semibold text-base md:text-lg">
         {name} :
       </label>
@@ -32,7 +32,7 @@ const FormElement = ({
         name={id}
         disabled={disabled}
         id={id}
-        className={`w-[${width}] border-regalia text-regalia bg-body border px-2 py-1 max-md:w-full rounded-xl `}
+        className={`w-[${width}] border-regalia font-sans text-regalia bg-body border px-2 py-1 max-md:w-full rounded-xl `}
       />
     </div>
   );

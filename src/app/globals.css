@@ -67,22 +67,6 @@ input[type="radio"] {
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: white;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2d3493;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #f8714b;
-}
-
 .avatar {
   animation: zoom-in-zoom-out 4s ease-out infinite;
 }

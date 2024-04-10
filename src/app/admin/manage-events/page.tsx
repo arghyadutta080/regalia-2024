@@ -44,9 +44,9 @@ const page = () => {
             placeholder="Search for Events"
             value={eventName}
             onChange={(e) => setEventName(e.target.value)}
-            className="w-full  border-2 border-black rounded-full py-4 px-4"
+            className="w-full bg-body  border-2 border-regalia rounded-full py-3 px-4"
           />
-          <IoSearchSharp className="w-10 h-10" />
+          <IoSearchSharp className="w-10 h-10 text-regalia" />
         </div>
         <div className="flex flex-row items-center flex-wrap w-[60%] md:full gap-2 md:gap-5 justify-center">
         <button className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm ">

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import parse from "html-react-parser";
 import Link from "next/link";
 
 import { useRouter } from "next/navigation";
@@ -35,7 +35,7 @@ const EventPreviewCard = ({ event }: { event: any }) => {
 
   return (
     <>
-      <div className="border-2 border-black rounded-xl flex flex-col-reverse lg:flex-row  items-center lg:items-start px-5 py-5 gap-10 justify-between w-[95%] mx-1 md:w-[80%]">
+      <div className="border-2 border-regalia rounded-xl flex flex-col-reverse lg:flex-row  items-center lg:items-start px-5 py-5 gap-10 justify-between w-[95%] mx-1 md:w-[80%]">
         <div className="flex flex-col items-start gap-5 font-semibold">
           <div className="flex flex-col  w-full justify-between">
             <h1 className="text-3xl  tracking-wider">{event.event_name}</h1>
@@ -49,14 +49,11 @@ const EventPreviewCard = ({ event }: { event: any }) => {
                 type="checkbox"
                 className="sr-only peer"
               />
-              <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-black dark:peer-focus:ring-black rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-black"></div>
+              <div className="relative w-11 h-6 bg-regalia peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] before:bg-regalia after:bg-black after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-regalia"></div>
             </label>
           </div>
-
-          <h1>Category: {event.event_categories.name}</h1>
           <div className="flex flex-row items-center gap-2 md:gap-10 w-full justify-between flex-wrap">
-            <h1>Date: {event.date}</h1>
-            <h1>Time: {event.time}</h1>
+            <h1>{parse(event?.schedule)}</h1>
           </div>
           <div className="flex flex-row items-center gap-2 w-full justify-between flex-wrap">
             <h1>Fees: {event.registration_fees} /-</h1>
@@ -64,8 +61,7 @@ const EventPreviewCard = ({ event }: { event: any }) => {
           </div>
 
           <div className="flex flex-col items-start gap-2 w-full justify-between flex-wrap">
-            <h1>Minimum Team Size : {event.min_team_member} /-</h1>
-            <h1>Maximum Team Size : {event.max_team_member} /-</h1>
+           <h1>Team Size : {event.min_team_member} - {event.max_team_member}</h1>
           </div>
 
           <div>
@@ -78,18 +74,18 @@ const EventPreviewCard = ({ event }: { event: any }) => {
           <div className="flex flex-row  items-center justify-center max-md:gap-5 md:justify-between flex-wrap w-full">
             <button
               onClick={() => setIsOpen(true)}
-              className="border-2 border-black px-5 py-1 rounded-full bg-black text-white hover:bg-white hover:text-black"
+              className="border-2 border-black px-5 py-1 rounded-full bg-regalia text-black hover:bg-black hover:border-regalia hover:text-regalia"
             >
               View Rules
             </button>
             <Link href={`/admin-dashboard/manage-events/${event.id}`}>
-              <button className="border-2 border-black px-5 py-1 rounded-full bg-black text-white hover:bg-white hover:text-black">
+              <button className="border-2 border-black px-5 py-1 rounded-full bg-regalia text-black hover:bg-black hover:border-regalia hover:text-regalia">
                 Edit Event
               </button>
             </Link>
             <button
               onClick={() => setConfirmOpen(true)}
-              className="border-2 border-black px-5 py-1 rounded-full bg-black text-white hover:bg-white hover:text-black"
+              className="border-2 border-black px-5 py-1 rounded-full bg-red-500 text-black hover:bg-white hover:text-black"
             >
               Delete
             </button>
