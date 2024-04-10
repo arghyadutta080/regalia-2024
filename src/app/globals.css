@@ -54,3 +54,35 @@ body {
 input[type="radio"] {
   accent-color: #c9a747;
 }
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d3493;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f8714b;
+}
+
+.avatar {
+  animation: zoom-in-zoom-out 4s ease-out infinite;
+}
