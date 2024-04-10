@@ -1,28 +1,62 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Hero = () => {
   return (
-    <div className='relative mt-5  w-full flex flex-row  max-lg:items-center font-annabel  gap-10'>
-        <Image src={"/assets/home/hero.svg"}
-        height={200}
-        width={1000}
-        alt=''
-        />
-        <div className='absolute -bottom-[4rem] xl:bottom-40 max-xl:mx-auto max-xl:w-full max-xl:text-center xl:right-36 flex flex-col'>
-            <div className='text-3xl md:text-5xl xl:text-5xl xl:flex flex-row xl:self-end'>2k24</div>
-        <h1 className='text-4xl  lg:text-9xl text-white '>Regalia</h1>
+    <div className="flex flex-col items-center font-annabel">
+      <div className="relative mt-5  flex w-full flex-row  gap-10   max-lg:items-center">
+        <Image src={"/assets/home/hero.svg"} height={200} width={1000} alt="" />
+        <div className=" absolute -bottom-[4rem] hidden flex-col items-start gap-4 max-xl:mx-auto max-xl:w-full max-xl:text-center xl:bottom-60 xl:right-36 xl:flex">
+          <div className="flex flex-row items-end gap-10">
+            <Link href={"https://rcciit.org/"} target="_blank">
+              <Image
+                src="/assets/home/rcc.svg"
+                height={40}
+                width={250}
+                alt="rcc"
+              />
+            </Link>
+            <h1 className=" font-hollirood text-4xl">presents</h1>
+          </div>
+          <div className=" flex flex-col">
+            <div className="flex-row text-3xl md:text-5xl xl:flex xl:self-end xl:text-5xl">
+              2k24
+            </div>
+            <h1 className="text-4xl  text-white lg:text-9xl ">Regalia</h1>
+          </div>
         </div>
-       
-     <Image src={"/assets/home/guitar.svg"}
-        height={240}
-        width={400}
-        
-        alt=''
-        className='w-40  md:w-72 lg:w-96 absolute md:top-20 lg:top-0 right-0'
-        />
-    </div>
-  )
-}
 
-export default Hero
+        <Image
+          src={"/assets/home/guitar.svg"}
+          height={240}
+          width={400}
+          alt=""
+          className="absolute  right-0 w-40 md:top-20 md:w-72 lg:top-0 lg:w-96"
+        />
+      </div>
+      <div className="-mt-5 flex flex-row flex-wrap items-center justify-evenly gap-10 xl:hidden">
+        {/* <div className="flex flex-col gap-1">
+        <Link href={"https://rcciit.org/"} target="_blank">
+              <Image
+                src="/assets/home/rcc.svg"
+                height={40}
+                width={100}
+                alt="rcc"
+              />
+            </Link>
+            <h1 className=" text-xl">Presents</h1>
+        </div>
+      */}
+        <div className="  flex flex-col ">
+          <div className="flex-row text-3xl md:text-5xl xl:flex xl:self-end xl:text-5xl">
+            2k24
+          </div>
+          <h1 className="text-4xl md:text-6xl text-white lg:text-9xl ">Regalia</h1>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
