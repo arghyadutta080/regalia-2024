@@ -154,12 +154,14 @@ const Navbar = () => {
       <div className="sticky left-0 top-0 z-[100] w-screen overflow-x-hidden font-hollirood lg:w-full ">
         <div
           className={`${
-            scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
-          } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center min-[1700px]:justify-around 2xl:gap-20 2xl:px-5 
+            scrolling || isMenuOpen
+              ? "bg-body rounded-xl border-b border-regalia"
+              : "bg-transparent"
+          } flex flex-row items-center justify-between overflow-hidden  border-regalia py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:gap-20 2xl:px-5 min-[1700px]:justify-around 
         `}
         >
           <Toaster position="bottom-right" />
-          <div className="text-regalia flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold hover:text">
+          <div className="hover:text flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold text-regalia">
             <Link
               href={"/"}
               // onMouseEnter={hoverSound}
@@ -177,17 +179,17 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span
-                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
+                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
             ${isMenuOpen ? "translate-y-2 rotate-45" : ""}
             `}
               ></span>
               <span
-                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
+                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
             ${isMenuOpen ? "translate-x-44 " : "translate-x-0"}
             `}
               ></span>
               <span
-                className={`bg-regalia block h-[2px] w-7 transition-all duration-500
+                className={`block h-[2px] w-7 bg-regalia transition-all duration-500
             ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""}
             `}
               ></span>
@@ -202,7 +204,7 @@ const Navbar = () => {
                 }}
                 className={`block rounded-full border-4 md:hidden ${
                   pathname === "/profile" &&
-                  " border-regalia rounded-full border-4"
+                  " rounded-full border-4 border-regalia"
                 }`}
               >
                 <Image
@@ -215,7 +217,7 @@ const Navbar = () => {
               </Link>
             )}
             <ul
-              className={`border-regalia fixed  top-[3.8rem] z-[100] w-full rounded-b-xl bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-start md:bg-transparent md:pb-0 md:pl-0 xl:items-center  ${
+              className={`fixed top-[3.8rem]  z-[100] w-full rounded-b-xl border-regalia bg-[#151515] pb-6 pl-4 transition-all duration-500 ease-in max-md:border-b-2 max-md:border-t md:static md:z-auto md:flex md:w-auto md:items-start md:bg-transparent md:pb-0 md:pl-0 xl:items-center  ${
                 isMenuOpen ? "right-0 block" : " right-[-790px]"
               }`}
             >
@@ -230,7 +232,7 @@ const Navbar = () => {
                   key={index}
                 >
                   <li
-                    className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
+                    className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
                       pathname === link.path && "text-regalia"
                     }`}
                   >
@@ -266,7 +268,7 @@ const Navbar = () => {
                   }}
                 >
                   <li
-                    className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                    className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                       pathname === "/dashboard" && "text-regalia"
                     }`}
                   >
@@ -285,7 +287,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -304,7 +306,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -322,7 +324,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/registrar" && "text-regalia"
                       }`}
                     >
@@ -341,7 +343,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/admin" && "text-regalia"
                       }`}
                     >
@@ -351,7 +353,7 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="flex flex-row items-center gap-5  md:ml-5 ">
+              <div className="flex cursor-pointer flex-row items-center gap-5  md:ml-5 ">
                 {user && (
                   <Link
                     onMouseEnter={hoverSound}
@@ -362,7 +364,7 @@ const Navbar = () => {
                     }}
                     className={`hidden rounded-full border-4 md:block ${
                       pathname === "/profile" &&
-                      "border-regalia rounded-full border-4"
+                      "rounded-full border-4 border-regalia"
                     }`}
                   >
                     <Image
@@ -383,7 +385,7 @@ const Navbar = () => {
                       setIsMenuOpen(false);
                     }
                   }}
-                  className="border-regalia hover:bg-regalia rounded-full border-2 bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
+                  className="cursor-pointer rounded-full border-2 border-regalia bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-regalia hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
                 >
                   {user ? (
                     <>

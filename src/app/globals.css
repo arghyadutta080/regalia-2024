@@ -28,6 +28,11 @@
 body {
   background-color: #151515;
   color: white;
+  scroll-behavior: smooth;
+  cursor: url(../../public/cursor.png), auto;
+}
+.cursor-pointer {
+  cursor: url(../../public/cursor-pointer.png), pointer;
 }
 
 ::-webkit-scrollbar {
@@ -50,6 +55,18 @@ input[type="radio"] {
   accent-color: #c9a747;
 }
 
-body {
-  scroll-behavior: smooth;
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.avatar {
+  animation: zoom-in-zoom-out 4s ease-out infinite;
 }
