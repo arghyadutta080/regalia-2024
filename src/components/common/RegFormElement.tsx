@@ -22,8 +22,8 @@ const RegFormElement = ({
     placeholder?: string;
   }) => {
   return (
-    <div className="flex flex-col w-full px-3  items-start gap-0 md:gap-5 flex-wrap justify-start">
-    <label htmlFor={id} className="font-semibold text-xs md:text-sm">
+    <div className="flex flex-col w-full px-3  items-start gap-0 md:gap-3 flex-wrap justify-start">
+    <label htmlFor={id} className="font-semibold text-xs md:text-lg">
       {name} :
     </label>
     <input

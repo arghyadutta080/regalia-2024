@@ -16,12 +16,12 @@ const FormElement = ({
   width?: string;
   disabled?: boolean;
   onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
 }) => {
   return (
-    <div className="flex flex-row items-center  gap-1 md:gap-5 flex-wrap justify-start">
-      <label htmlFor={id} className="font-semibold text-base md:text-lg">
+    <div className="flex flex-row flex-wrap  items-center justify-start gap-1 md:gap-5">
+      <label htmlFor={id} className="text-base font-semibold md:text-lg">
         {name} :
       </label>
       <input
@@ -32,7 +32,7 @@ const FormElement = ({
         name={id}
         disabled={disabled}
         id={id}
-        className={`w-[${width}] border-regalia font-sans text-regalia bg-body border px-2 py-1 max-md:w-full rounded-xl `}
+        className={`w-[${width}] rounded-xl border-x-0 border-b border-t-0 border-regalia bg-body px-2 py-1 font-sans text-regalia max-md:w-full `}
       />
     </div>
   );
