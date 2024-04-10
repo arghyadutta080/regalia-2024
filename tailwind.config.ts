@@ -19,6 +19,12 @@ const config: Config = {
         regalia:
           "#c9a747",
       },
+      cursor: {
+        auto: "url(../../public/cursor.png), auto",
+        pointer: "url(../../public/cursor-pointer.png), pointer"
+      }
+   
+      
     },
   },
   plugins: [flowbite.plugin(),],

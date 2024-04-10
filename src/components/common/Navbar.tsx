@@ -266,7 +266,7 @@ const Navbar = () => {
                   }}
                 >
                   <li
-                    className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                    className={`font-retrolight cursor-pointer my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                       pathname === "/dashboard" && "text-regalia"
                     }`}
                   >
@@ -285,7 +285,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`font-retrolight cursor-pointer my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -304,7 +304,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`font-retrolight my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -322,7 +322,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`font-retrolight my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/registrar" && "text-regalia"
                       }`}
                     >
@@ -341,7 +341,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`font-retrolight my-2 rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`font-retrolight my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/admin" && "text-regalia"
                       }`}
                     >
@@ -351,7 +351,7 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="flex flex-row items-center gap-5  md:ml-5 ">
+              <div className="flex flex-row items-center gap-5 cursor-pointer  md:ml-5 ">
                 {user && (
                   <Link
                     onMouseEnter={hoverSound}
@@ -383,7 +383,7 @@ const Navbar = () => {
                       setIsMenuOpen(false);
                     }
                   }}
-                  className="border-regalia hover:bg-regalia rounded-full border-2 bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
+                  className="border-regalia hover:bg-regalia cursor-pointer rounded-full border-2 bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
                 >
                   {user ? (
                     <>

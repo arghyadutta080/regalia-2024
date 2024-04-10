@@ -16,12 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className + "cursor-auto"}>
       <Navbar />
         {children}
         <Footer />
         <SessionProvider />
-        <Cursor />
+      
       </body>
     </html>
   );

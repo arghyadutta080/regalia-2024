@@ -32,10 +32,6 @@ body {
   cursor: url(../../public/cursor.png), auto;
 }
 
-.cursor-pointer {
-  cursor: url(../../public/cursor-pointer.png), pointer; /* Custom cursor for elements with class "cursor-pointer" */
-}
-
 ::-webkit-scrollbar {
   width: 12px;
 }
