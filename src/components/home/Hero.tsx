@@ -25,8 +25,9 @@ const Hero = () => {
                   alt="rcc"
                 />
               </Link>
-              <h1 className=" font-hollirood text-4xl">presents</h1>
+             
             </div>
+            <h1 className=" font-hollirood text-4xl">presents</h1>
           </FadeIn>
           <FadeIn
             from="bottom"

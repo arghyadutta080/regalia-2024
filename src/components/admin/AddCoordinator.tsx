@@ -11,11 +11,11 @@ import FormElement from "../common/FormElement";
 const AddCoordinator = ({
   isOpen,
   onClose,
-  role,
+
 }: {
   isOpen: boolean;
   onClose: () => void;
-  role: string;
+
 }) => {
   const [inputs, setInputs] = useState({
     phone: "",
@@ -42,23 +42,15 @@ const AddCoordinator = ({
       const res = await supabase
         .from("events")
         .select("id, event_name")
-        .eq("fest_name", "Techtrix");
+        .eq("fest_name", "Regalia").eq("year",2024);
       setEvents(res.data?.map((event: any) => event.event_name));
     };
-    const getCategories = async () => {
-      const res = await supabase.from("event_categories").select("id,name");
-      setCategories(res.data?.map((event: any) => event.name));
-    };
     getEventDetails();
-    getCategories();
+    
   }, [isOpen]);
 
   const submitCoordinator = async () => {
-    
-
-    role === "Convenor"
-      ? await addConvenor(inputs)
-      : await addCoordinator(inputs);
+    await addCoordinator(inputs);
     toast.success("Coordinator Added !");
     onClose();
   };
@@ -68,7 +60,7 @@ const AddCoordinator = ({
         <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[50]">
           <div className="bg-body border-y-2  border-regalia w-[90%] md:w-1/3 p-4 rounded-lg relative   flex flex-col items-start  ">
             <div className="w-full flex flex-row mb-2 items-center justify-between">
-              <h2 className="text-lg font-semibold">{role} Addition</h2>
+              <h2 className="text-lg font-semibold">Coordinator Addition</h2>
 
               <h2
                 onClick={onClose}
@@ -85,13 +77,13 @@ const AddCoordinator = ({
 
             <div className="flex flex-col items-start gap-2 my-2 w-full">
               <SelectInput
-                options={role !== "Convenor" ? events : categories}
+                options={events}
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
-                value={role !== "Convenor" ? inputs.event : inputs.category}
-                name={role !== "Convenor" ? "Event" : "Category"}
-                id={role !== "Convenor" ? "event" : "category"}
+                value={inputs.event}
+                name={"Event"}
+                id={"event"}
               />
               <FormElement
                 name="Phone"

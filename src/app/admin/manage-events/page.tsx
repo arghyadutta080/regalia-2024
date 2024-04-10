@@ -1,21 +1,21 @@
 "use client";
-import AddCoordinator from '@/components/admin/AddCoordinator'
-import EventPreview from '@/components/admin/EventPreview'
-import RegistrarModal from '@/components/admin/RegistrarModal'
-import Heading from '@/components/common/Heading'
-import { getEvents } from '@/utils/functions/getEvent'
-import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
-import { FaPlus } from 'react-icons/fa'
-import { IoSearchSharp } from 'react-icons/io5'
+import AddCoordinator from "@/components/admin/AddCoordinator";
+import EventPreview from "@/components/admin/EventPreview";
+import RegistrarModal from "@/components/admin/RegistrarModal";
+import Heading from "@/components/common/Heading";
+import { getEvents } from "@/utils/functions/getEvent";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { IoSearchSharp } from "react-icons/io5";
 
 const page = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isConvenorOpen, setIsConvenorOpen] = useState(false);
+  const [isSecurityOpen, setIsSecurityOpen] = useState(false);
   const [isRegistrarOpen, setIsRegistrarOpen] = useState(false);
   const onClose = () => {
     setIsOpen(false);
-    setIsConvenorOpen(false);
+    setIsSecurityOpen(false);
   };
   const [events, setEvents] = useState<any>([]);
   useEffect(() => {
@@ -29,71 +29,66 @@ const page = () => {
   const [filteredEvent, setFilteredEvent] = useState<any>([]);
   useEffect(() => {
     setFilteredEvent(
-     events && events.filter((event: any) =>
-        event.event_name.toLowerCase().includes(eventName.toLowerCase())
-      )
+      events &&
+        events.filter((event: any) =>
+          event.event_name.toLowerCase().includes(eventName.toLowerCase()),
+        ),
     );
   }, [eventName, events]);
   return (
-    <div className="flex flex-col items-center mx-auto gap-5 ">
+    <div className="mx-auto flex flex-col items-center gap-5 ">
       <Heading text="Manage Events" />
-      <div className="flex flex-col  md:flex-row w-full md:w-[90%]  gap-2 mx-auto items-center justify-center flex-wrap">
-        <div className="w-[90%] px-2 md:w-[60%] flex flex-row  items-center gap-2">
+      <div className="mx-auto flex  w-full flex-col flex-wrap  items-center justify-center gap-2 md:w-[90%] md:flex-row">
+        <div className="flex w-[90%] flex-row items-center gap-2  px-2 md:w-[60%]">
           <input
             type="text"
             placeholder="Search for Events"
             value={eventName}
             onChange={(e) => setEventName(e.target.value)}
-            className="w-full bg-body  border-2 border-regalia rounded-full py-3 px-4"
+            className="bg-body w-full  rounded-full border-2 border-regalia px-4 py-3"
           />
-          <IoSearchSharp className="w-10 h-10 text-regalia" />
+          <IoSearchSharp className="h-10 w-10 text-regalia" />
         </div>
-        <div className="flex flex-row items-center flex-wrap w-[60%] md:full gap-2 md:gap-5 justify-center">
-        <button className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm ">
-          <FaPlus />
-          <Link href={"/admin/manage-events/add-event"}>
-            Add Event
-          </Link>
-        </button>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
-        >
-          <FaPlus />
-          Add Coordinator
-        </button>
-        <button
-          onClick={() => setIsRegistrarOpen(true)}
-          className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
-        >
-          <FaPlus />
-          Add Registrar
-        </button>
+        <div className="md:full flex w-[60%] flex-row flex-wrap items-center justify-center gap-2 md:gap-5">
+          <button className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia ">
+            <FaPlus />
+            <Link href={"/admin/manage-events/add-event"}>Add Event</Link>
+          </button>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+          >
+            <FaPlus />
+            Add Coordinator
+          </button>
+          <button
+            onClick={() => setIsRegistrarOpen(true)}
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+          >
+            <FaPlus />
+            Add Registrar
+          </button>
 
-        <button
-          onClick={() => setIsConvenorOpen(true)}
-          className="flex flex-row cursor-pointer items-center font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
-        >
-          <FaPlus />
-          Add Convenor
-        </button>
+          <button
+            onClick={() => setIsSecurityOpen(true)}
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+          >
+            <FaPlus />
+            Add Security
+          </button>
         </div>
-       
+
         <EventPreview events={filteredEvent} />
       </div>
-      {isOpen ? (
-        <AddCoordinator isOpen={isOpen} onClose={onClose} role="Coordinator" />
-      ) : null}
-      {isConvenorOpen ? (
-        <AddCoordinator
-          isOpen={isConvenorOpen}
-          onClose={onClose}
-          role="Convenor"
-        />
-      ) : null}
-      <RegistrarModal isOpen={isRegistrarOpen} onClose={()=>setIsRegistrarOpen(false)} />
-    </div>
-  )
-}
 
-export default page
+      <AddCoordinator isOpen={isOpen} onClose={onClose} />
+
+      <RegistrarModal
+        isOpen={isRegistrarOpen}
+        onClose={() => setIsRegistrarOpen(false)}
+      />
+    </div>
+  );
+};
+
+export default page;
