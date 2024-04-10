@@ -31,6 +31,9 @@ body {
   scroll-behavior: smooth;
   cursor: url(../../public/cursor.png), auto;
 }
+.cursor-pointer {
+  cursor: url(../../public/cursor-pointer.png), pointer;
+}
 
 ::-webkit-scrollbar {
   width: 12px;

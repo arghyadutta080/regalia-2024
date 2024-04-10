@@ -29,7 +29,7 @@ const page = () => {
   const [filteredEvent, setFilteredEvent] = useState<any>([]);
   useEffect(() => {
     setFilteredEvent(
-      events.filter((event: any) =>
+     events && events.filter((event: any) =>
         event.event_name.toLowerCase().includes(eventName.toLowerCase())
       )
     );
@@ -49,22 +49,22 @@ const page = () => {
           <IoSearchSharp className="w-10 h-10" />
         </div>
         <div className="flex flex-row items-center flex-wrap w-[60%] md:full gap-2 md:gap-5 justify-center">
-        <button className="flex flex-row items-center font-semibold border-2 border-black px-3 py-1 hover:bg-white hover:text-black rounded-xl bg-black text-white gap-2 text-sm ">
+        <button className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm ">
           <FaPlus />
-          <Link href={"/admin-dashboard/manage-events/add-event"}>
+          <Link href={"/admin/manage-events/add-event"}>
             Add Event
           </Link>
         </button>
         <button
           onClick={() => setIsOpen(true)}
-          className="flex flex-row items-center font-semibold border-2 border-black px-3 py-1 hover:bg-white hover:text-black rounded-xl bg-black text-white gap-2 text-sm "
+          className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
         >
           <FaPlus />
           Add Coordinator
         </button>
         <button
           onClick={() => setIsRegistrarOpen(true)}
-          className="flex flex-row items-center font-semibold border-2 border-black px-3 py-1 hover:bg-white hover:text-black rounded-xl bg-black text-white gap-2 text-sm "
+          className="flex flex-row items-center cursor-pointer font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
         >
           <FaPlus />
           Add Registrar
@@ -72,7 +72,7 @@ const page = () => {
 
         <button
           onClick={() => setIsConvenorOpen(true)}
-          className="flex flex-row items-center font-semibold border-2 border-black px-3 py-1 hover:bg-white hover:text-black rounded-xl bg-black text-white gap-2 text-sm "
+          className="flex flex-row cursor-pointer items-center font-semibold border-2 border-regalia px-3 py-1 hover:bg-black hover:text-regalia hover:border-regalia rounded-xl bg-regalia text-black gap-2 text-sm "
         >
           <FaPlus />
           Add Convenor

@@ -154,7 +154,7 @@ const Navbar = () => {
       <div className="sticky left-0 top-0 z-[100] w-screen overflow-x-hidden font-hollirood lg:w-full ">
         <div
           className={`${
-            scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
+            scrolling || isMenuOpen ? "border-b rounded-xl border-regalia bg-body" : "bg-transparent"
           } border-regalia flex flex-row items-center justify-between  overflow-hidden py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center min-[1700px]:justify-around 2xl:gap-20 2xl:px-5 
         `}
         >

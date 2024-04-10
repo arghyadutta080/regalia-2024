@@ -23,13 +23,13 @@ const SelectInput = ({
       <select
         name={id}
         id={id}
-        className={`py-4 px-4 w-[${
+        className={`py-2 px-4 w-[${
           width ? width : "100%"
-        }] rounded-xl border border-black font-semibold`}
+        }] rounded-xl border bg-body border-regalia text-regalia active:border-regalia  focus:border-regalia font-semibold`}
         onChange={onChange}
       >
         <option id={id} value=""></option>
-        {options.map((option: any, index: number) => {
+        {options && options.map((option: any, index: number) => {
           return (
             <option key={index} value={option}>
               {option}
