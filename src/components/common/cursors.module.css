@@ -1,0 +1,21 @@
+.blob {
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  animation: rotatei 10s infinite;
+  opacity: 0.3;
+}
+
+@keyframes rotatei {
+  from {
+    rotate: 0deg;
+  }
+
+  50% {
+    scale: 1 1.2;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}

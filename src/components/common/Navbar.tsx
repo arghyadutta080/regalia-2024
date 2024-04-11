@@ -154,7 +154,9 @@ const Navbar = () => {
       <div className="sticky left-0 top-0 z-[100] w-screen overflow-x-hidden font-hollirood lg:w-full ">
         <div
           className={`${
-            scrolling || isMenuOpen ? "bg-transparent" : "bg-transparent"
+            scrolling || isMenuOpen
+              ? "bg-body rounded-xl border-b border-regalia"
+              : "bg-transparent"
           } flex flex-row items-center justify-between overflow-hidden  border-regalia py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:gap-20 2xl:px-5 min-[1700px]:justify-around 
         `}
         >
@@ -228,7 +230,7 @@ const Navbar = () => {
                   key={index}
                 >
                   <li
-                    className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
+                    className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm xl:mt-0 2xl:text-[18px] ${
                       pathname === link.path && "text-regalia"
                     }`}
                   >
@@ -264,7 +266,7 @@ const Navbar = () => {
                   }}
                 >
                   <li
-                    className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                    className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                       pathname === "/dashboard" && "text-regalia"
                     }`}
                   >
@@ -283,7 +285,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -302,7 +304,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "coordinator" && "text-regalia"
                       }`}
                     >
@@ -320,7 +322,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/registrar" && "text-regalia"
                       }`}
                     >
@@ -339,7 +341,7 @@ const Navbar = () => {
                     }}
                   >
                     <li
-                      className={`my-2 rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
                         pathname === "/admin" && "text-regalia"
                       }`}
                     >
@@ -349,7 +351,7 @@ const Navbar = () => {
                 )}
               </div>
 
-              <div className="flex flex-row items-center gap-5  md:ml-5 ">
+              <div className="flex cursor-pointer flex-row items-center gap-5  md:ml-5 ">
                 {user && (
                   <Link
                     // onMouseEnter={hoverSound}
@@ -381,7 +383,7 @@ const Navbar = () => {
                       setIsMenuOpen(false);
                     }
                   }}
-                  className="rounded-full border-2 border-regalia bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-regalia hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
+                  className="cursor-pointer rounded-full border-2 border-regalia bg-transparent px-5 py-2 text-sm font-bold text-white duration-300 hover:bg-regalia hover:text-black md:text-xs lg:px-6 lg:text-[10px] 2xl:px-10 2xl:text-[18px]"
                 >
                   {user ? (
                     <>
