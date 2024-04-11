@@ -6,7 +6,9 @@ import Heading from "../common/Heading";
 
 const About = () => {
   return (
-    <div className="relative mx-auto flex h-[60vh] w-full  flex-col items-center gap-5 ">
+    <div className="relative mx-auto flex h-[60vh] w-full  flex-col items-center gap-5 "
+    id="about"
+    >
       <div className="relative mx-auto flex h-auto w-full flex-row items-center justify-center gap-5">
         <div className="absolute -top-20 left-0">
           <Image
