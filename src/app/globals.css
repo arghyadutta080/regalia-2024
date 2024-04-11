@@ -159,3 +159,13 @@ input[type="radio"] {
   top: 0;
   bottom: 0;
 }
+
+.footer-color {
+  background: linear-gradient(
+    270.02deg,
+    rgba(174, 134, 37, 0.8) 27.45%,
+    rgba(247, 239, 138, 0.650267) 61.88%,
+    rgba(210, 172, 71, 0.386249) 113.53%,
+    rgba(237, 201, 103, 0.8) 142.42%
+  );
+}
