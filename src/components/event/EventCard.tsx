@@ -4,6 +4,7 @@ import { BackgroundGradient } from "../ui/background-gradient";
 import Image from "next/image";
 import Link from "next/link";
 import { clickSound } from "@/utils/functions";
+import { FadeIn } from "react-slide-fade-in";
 
 type Props = {
   title: string;
@@ -14,6 +15,12 @@ type Props = {
 export function EventCard({ title, image, hoverImage }: Props) {
   return (
     <div className="relative z-[20] mb-10 md:mb-0">
+        <FadeIn
+              from="bottom"
+              positionOffset={200}
+              triggerOffset={0}
+              delayInMilliseconds={80}
+            >
       <Link
         //  href={`/events/${title.toLowerCase()}`}
         href={"/events"}
@@ -34,6 +41,7 @@ export function EventCard({ title, image, hoverImage }: Props) {
           </p>
         </BackgroundGradient>
       </Link>
+      </FadeIn>
     </div>
   );
 }
