@@ -1,18 +1,27 @@
-import Link from 'next/link'
-import React from 'react'
+"use client";
+import { EventCard } from "@/components/event/EventCard";
+import Header from "@/components/event/Header";
+import { events } from "@/utils/constants/Events";
 
-const page = () => {
+
+export default function CardHoverEffectDemo() {
   return (
-    <div className="text-center text-[#c9a747] font-hollirood text-xl gap-2 md:text-3xl font-semibold items-center flex flex-col justify-center w-full mx-auto min-h-[80vh]">
-    <h1>Regalia 2024 is Loading !</h1>
-    <Link
-      href={"/"}
-      className="mt-10 border-2 border-[#c9a747] rounded-full hover:bg-[#c9a747] hover:text-white duration-300 text-[#c9a747] font-bold text-md md:text-xl px-5 py-1  md:px-10 md:py-2"
-    >
-      Go Home
-    </Link>
-  </div>
-  )
+    <div className="mx-auto max-w-full md:px-20">
+      <Header />
+      <div className="oveflow-x-hidden flex min-h-[60vh] flex-col items-center gap-10">
+        <div className=" flex flex-col items-center  justify-center gap-5">
+          <div className="mt-5 pb-24 flex flex-row flex-wrap justify-center gap-10 md:gap-32">
+            {events.map((event, index) => (
+              <EventCard
+                key={index}
+                title={event.title}
+                image={event.image}
+                hoverImage={event.hoverImage}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default page

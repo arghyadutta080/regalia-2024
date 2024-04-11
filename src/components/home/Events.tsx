@@ -5,10 +5,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Heading from "../common/Heading";
-
+import { events } from "@/utils/constants/Events";
 import EventCard from "./EventCard";
 import Image from "next/image";
-import { events } from "@/utils/constants/Events";
 
 const Events = () => {
   const router = useRouter();
