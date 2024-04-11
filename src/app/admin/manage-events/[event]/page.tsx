@@ -18,7 +18,7 @@ import { BeatLoader, FadeLoader, PuffLoader } from "react-spinners";
 import "react-quill/dist/quill.snow.css";
 import ConfirmModal from "@/components/admin/ConfirmModal";
 
-const page = () => {
+const Page = () => {
   const eventId = useParams().event.toLocaleString();
   const [loading, setLoading] = useState<boolean>(true);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(true);
@@ -236,6 +236,7 @@ const page = () => {
                 inputs.links.map((link: linkType, index: number) => {
                   return (
                     <LinkChip
+                    key={index}
                       name={link.title}
                       link={link.url}
                       index={index}
@@ -391,4 +392,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

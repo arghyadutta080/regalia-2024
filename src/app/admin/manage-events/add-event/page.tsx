@@ -13,7 +13,7 @@ import { TbSquareRoundedPlusFilled } from "react-icons/tb";
 import "react-quill/dist/quill.snow.css";
 import { FadeLoader } from "react-spinners";
 
-const page = () => {
+const Page = () => {
   const router = useRouter();
   const ReactQuill = useMemo(
     () => dynamic(() => import("react-quill"), { ssr: false }),
@@ -178,6 +178,7 @@ const page = () => {
               inputs.links.map((link: linkType, index: number) => {
                 return (
                   <LinkChip
+                  key={index}
                     name={link.title}
                     link={link.url}
                     index={index}
@@ -293,4 +294,4 @@ const page = () => {
 };
 
 
-export default page;
+export default Page;

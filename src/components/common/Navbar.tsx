@@ -256,7 +256,7 @@ const Navbar = () => {
                     />
                   </div>
                 )}
-              {user && showDashboard && (
+              {/* {user && showDashboard && (
                 <Link
                   // onMouseEnter={hoverSound}
                   href={"/dashboard"}
@@ -273,7 +273,7 @@ const Navbar = () => {
                     Dashboard
                   </li>
                 </Link>
-              )}
+              )} */}
               <div className=" block flex-row items-center md:hidden xl:flex">
                 {user && showCoordinatorDashboard && (
                   <Link

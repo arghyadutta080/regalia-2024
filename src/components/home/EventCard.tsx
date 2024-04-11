@@ -6,7 +6,7 @@ import Link from "next/link";
 const EventCard = ({ event }: { event: any }) => {
   return (
     <>
-      <Link href={`/events/${event.id}`}>
+      {/* <Link href={`/events/${event.id}`}> */}
         <div
           className="card relative z-[20] w-[300px] font-hollirood cursor-pointer overflow-hidden rounded-md transition-all duration-500
         ease-in-out hover:scale-110 md:h-[250px] md:w-[350px]
@@ -27,7 +27,7 @@ const EventCard = ({ event }: { event: any }) => {
             <div className="flex flex-row justify-between gap-5  px-5 pt-3"></div>
           </div>
         </div>
-      </Link>
+      {/* </Link> */}
     </>
   );
 };
