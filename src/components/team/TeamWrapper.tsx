@@ -9,7 +9,7 @@ type Props = {
 const TeamWrapper = ({children}: Props) => {
   return (
     <div className="mx-auto flex flex-col items-center gap-5">
-      <div className="font-annabel text-4xl font-bold text-yellow-400 mt-10 text-center">
+      <div className="font-annabel text-4xl font-bold text-regalia mt-10 mb-5 text-center">
         Organizing Team: <span className=' font-hollirood'> REGALIA 2024</span>
       </div>
       <div className="mx-auto mt-5 flex w-full flex-row flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-10 ">

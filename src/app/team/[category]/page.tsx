@@ -1,6 +1,5 @@
 import { MemberCard } from '@/components/team/MemberCard'
 import { teams } from '@/utils/constants/team'
-import Image from 'next/image'
 import React from 'react'
 
 type Params = {
