@@ -243,7 +243,7 @@ const Navbar = () => {
                   showCoordinatorDashboard ||
                   showRegisterDashboard) && (
                   <div className="relative hidden md:mt-2 md:block xl:mt-0 xl:hidden">
-                    <DropdownCustom
+                    {/* <DropdownCustom
                       moreOpen={moreOpen}
                       setMoreOpen={setMoreOpen}
                       setIsMenuOpen={setIsMenuOpen}
@@ -252,7 +252,7 @@ const Navbar = () => {
                       showConvenorDashboard={showConvenorDashboard}
                       showRegisterDashboard={showRegisterDashboard}
                       user={user}
-                    />
+                    /> */}
                   </div>
                 )}
               {/* {user && showDashboard && (

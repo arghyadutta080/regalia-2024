@@ -13,7 +13,7 @@ type Props = {
 
 export function EventCard({ title, image, hoverImage }: Props) {
   return (
-    <div className="mb-10 md:mb-0">
+    <div className="relative z-[20] mb-10 md:mb-0">
       <Link
         //  href={`/events/${title.toLowerCase()}`}
         href={"/events"}
@@ -27,7 +27,7 @@ export function EventCard({ title, image, hoverImage }: Props) {
             width={200}
             height={200}
             style={{ objectFit: "fill", borderRadius: "22px" }}
-            className=" h-96 w-auto object-cover"
+            className=" h-96 w-auto object-cover "
           />
           <p className="absolute mt-5 w-full text-center font-hollirood text-xl text-yellow-400 ">
             {title}
