@@ -5,8 +5,8 @@ import { navRoutes } from "@/utils/constants/navRoutes";
 import { login } from "@/utils/functions/login";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
 import DropdownCustom from "./Dropdown";
 import { clickSound, hoverSound } from "@/utils/functions";
@@ -15,7 +15,6 @@ import CustomToast from "./CustomToast";
 import { MdDone, MdError } from "react-icons/md";
 
 const Navbar = () => {
-  const searchParams = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [userImg, setUserImg] = useState("");
