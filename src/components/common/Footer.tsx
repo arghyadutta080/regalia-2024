@@ -58,10 +58,29 @@ const SocialsGroup = () => {
   )
 }
 
+
+const Foot = ()=>{
+  return(
+    <div className="bg-body font-hollirood tracking-widest flex flex-row items-center gap-2 font-semibold justify-around flex-wrap py-2 text-xs md:text-sm text-white w-full text-center">
+    <div>
+      © 2024 &nbsp;
+      <Link href="/" className="neon hover:cursor-pointer font-retrolight">
+        Regalia™
+      </Link>
+      . All Rights Reserved.
+    </div>
+    <p>
+      Made with <span className="text-red-600 text-xl">&hearts;</span> by <Link className="hover:cursor-pointer" href={"/team/tech"}>Regalia
+      tech team</Link>
+    </p>
+  </div>
+  )
+}
+
 const Footer = () => {
   return (
-    <div className="footer-color relative  flex flex-col items-center gap-2 py-10">
-      <div className="flex flex-row items-center justify-center w-[80%] py-5">
+    <div className="footer-color relative  flex flex-col items-center gap-2 pt-5">
+      <div className="flex flex-row items-center justify-center w-[80%] 2xl:w-[40%] pt-5 pb-10">
       <div className="relative">
         <div className="flex flex-row items-center">
         <Image
@@ -69,7 +88,7 @@ const Footer = () => {
           height={500}
           width={1000}
           alt=""
-          className="relative w-80   lg:w-[80%]"
+          className="relative w-80 right-8 lg:right-0  lg:w-[80%]"
         />
         
         </div>
@@ -89,7 +108,7 @@ const Footer = () => {
         width={300}
         height={400}
         alt=""
-        className="-mt-10 md:-mt-5 lg:-mt-10 w-24 lg:-ml-32 lg:w-72 xl:w-80"
+        className="-mt-10 md:-mt-5 lg:-mt-10 w-24 lg:-ml-12 xl:-ml-20 lg:w-72 xl:w-80"
       />
       </div>
      
@@ -103,6 +122,7 @@ const Footer = () => {
       }
      </div>
      <SocialsGroup />
+     <Foot />
     </div>
   );
 };

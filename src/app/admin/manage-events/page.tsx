@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 
-const page = () => {
+const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSecurityOpen, setIsSecurityOpen] = useState(false);
   const [isRegistrarOpen, setIsRegistrarOpen] = useState(false);
@@ -91,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

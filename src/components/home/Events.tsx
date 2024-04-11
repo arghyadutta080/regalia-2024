@@ -25,7 +25,7 @@ const Events = () => {
                   onMouseEnter={() => setHover(true)}
                   onMouseOut={() => setHover(false)}
                   key={index}
-                  onClick={() => router.push(`/events/${event.title}`)}
+                  // onClick={() => router.push(`/events/${event.title}`)}
                 >
                   <img
                     src={` ${!hover ? event.hoverImage : event.image} `}
@@ -43,11 +43,11 @@ const Events = () => {
                           {event.title}
                         </h2>
                       </div>
-                      <Link href={`/events/${event.title}`}>
+                      {/* <Link href={`/events/${event.title}`}> */}
                         <button className="pb-5 tracking-widest duration-300 hover:scale-105 hover:text-green-300">
                           {`Know More >>`}
                         </button>
-                      </Link>
+                      {/* </Link> */}
                     </span>
                   </div>
                 </li>
