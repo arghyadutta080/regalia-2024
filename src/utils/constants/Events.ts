@@ -1,30 +1,30 @@
 
 
-export const eventcards: any[] = [
+export const events: any[] = [
     {
-      title: "the annual tech fest",
+      title: "Nrittyam",
       image: "/assets/events/Nrittyam.svg",
-      hoverImage: "/assests/events/Nrittyam hover.svg",
+      hoverImage: "/assets/events/Nrittyam hover.svg",
     },
     {
-      title: "Automata",
-      image: "/assets/events/Nrittyam.svg",
-      hoverImage: "/assests/events/Nrittyam hover.svg",
+      title: "Sargam",
+      image: "/assets/events/Sargam.svg", 
+      hoverImage: "/assets/events/Sargam hover.svg",
     },
     {
-      title: "Gaming",
-      image: "/assets/events/Nrittyam.svg", 
-      hoverImage: "/assests/events/Nrittyam hover.svg",
+      title: "Band Bash",
+      image: "/assets/events/Bandbash.svg",
+      hoverImage: "/assets/events/Bandbash hover.svg",
     },
     {
-      title: "Flagship",
-      image: "/assets/events/Nrittyam.svg",
-      hoverImage: "/assests/events/Nrittyam hover.svg",
+      title: "Cape-Diem",
+      image: "/assets/events/CarpeDiem.svg",
+      hoverImage: "/assets/events/CarpeDiem hover.svg",
       
     },
     {
-      title: "Robotics",
-      image: "/assets/events/Nrittyam.svg",
-      hoverImage: "/assests/events/Nrittyam hover.svg",
+      title: "Kashish-e-Haya",
+      image: "/assets/events/Kashish-e-Haya.svg",
+      hoverImage: "/assets/events/Kashish-e-haya hover.svg",
     },
   ];
