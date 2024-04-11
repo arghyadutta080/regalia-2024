@@ -16,7 +16,7 @@ const About = () => {
             alt=""
           />
         </div>
-        <div className="absolute top-20 flex h-full  w-[90%] flex-col items-center gap-10 text-start font-hollirood text-sm tracking-widest md:right-10 md:w-[70%]  md:text-lg lg:right-20 lg:w-[50%] lg:text-xl ">
+        <div className="absolute top-20 flex h-full  w-[80%] flex-col items-center gap-10 text-start font-hollirood text-sm tracking-widest md:right-10 md:w-[70%]  md:text-lg lg:right-20 lg:w-[50%] lg:text-xl ">
           <Heading text="About" />
           <p className="flex flex-row self-end">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
