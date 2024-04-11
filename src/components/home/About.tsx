@@ -6,7 +6,8 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center font-annabel">
+    <div className="flex flex-row justify-center mx-auto w-full py-10 min-h-[40vh] items-center font-annabel relative">
+      
         <div className="flex flex-col items-center justify-center h-full w-full md:w-1/2 xl:w-1/2 px-16">
           <h1
             className="text-6xl font-semibold text-white py-3 text-left"
@@ -22,15 +23,15 @@ const About = () => {
           </h2>
           
         </div>
-        {/* <div className="my-8">
+        <div className="my-8">
         <Image
           src={"/assets/home/about_guitar.png"}
           height={240}
-          width={400}
+          width={250}
           alt=""
-          className="absolute  left-0 w-40 md:top-784 md:w-72 lg:top-50 lg:w-96"
+          className="absolute  left-0  md:top-0 lg:top-50 "
         />
-        </div> */}
+        </div>
       
       
     </div>
