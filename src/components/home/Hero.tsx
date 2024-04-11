@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <div className="flex flex-col items-center font-annabel">
       <div className="relative mt-5  flex w-full flex-row  gap-10   max-lg:items-center">
-        <Image src={"/assets/home/hero.svg"} height={200} width={1000} alt="" />
+        <Image src={"/assets/home/hero.svg"} height={500} width={1000} alt="" />
         <div className=" absolute -bottom-[4rem] hidden flex-col items-start gap-4 max-xl:mx-auto max-xl:w-full max-xl:text-center xl:bottom-60 xl:right-36 xl:flex">
           <FadeIn
             from="left"

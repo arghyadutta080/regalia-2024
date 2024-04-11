@@ -8,7 +8,7 @@ import Events from "@/components/home/Events"
 const Home = () => {
  
   return (
-    <main className='min-h-screen'>
+    <main className='min-h-screen flex flex-col gap-10'>
    <Hero />
    <About />
    <Events/>

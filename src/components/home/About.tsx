@@ -2,38 +2,33 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import Heading from "../common/Heading";
 
 const About = () => {
   return (
-    <div className="flex flex-row justify-center mx-auto w-full py-10 min-h-[40vh] items-center font-annabel relative">
-      
-        <div className="flex flex-col items-center justify-center h-full w-full md:w-1/2 xl:w-1/2 px-16">
-          <h1
-            className="text-6xl font-semibold text-white py-3 text-left"
-            style={{
-              letterSpacing: "1px",
-              textShadow: "2px 5px 0px rgba(118,99,99,1)",
-            }}
-          >
-            About
-          </h1>
-          <h2 className="text-lg  text-white py-2 text-justify">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.            .
-          </h2>
-          
+    <div className="relative mx-auto flex h-[60vh] w-full  flex-col items-center gap-5 ">
+      <div className="relative mx-auto flex h-auto w-full flex-row items-center justify-center gap-5">
+        <div className="absolute -top-20 left-0">
+          <Image
+            src={"/assets/home/about_guitar.svg"}
+            width={340}
+            height={240}
+            alt=""
+          />
         </div>
-        <div className="my-8">
-        <Image
-          src={"/assets/home/about_guitar.png"}
-          height={240}
-          width={250}
-          alt=""
-          className="absolute  left-0  md:top-0 lg:top-50 "
-        />
+        <div className="absolute top-20 flex h-full  w-[90%] flex-col items-center gap-10 text-start font-hollirood text-sm tracking-widest md:right-10 md:w-[70%]  md:text-lg lg:right-20 lg:w-[50%] lg:text-xl ">
+          <Heading text="About" />
+          <p className="flex flex-row self-end">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
         </div>
-      
-      
+      </div>
     </div>
   );
 };
