@@ -3,7 +3,7 @@ import { EventCard } from "@/components/event/EventCard";
 import Header from "@/components/event/Header";
 import { events } from "@/utils/constants/Events";
 import { getAllEvents } from "@/utils/functions/getAllEvents";
-import { useEffect, useMemo, useState } from "react";
+import {  useMemo, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
 
