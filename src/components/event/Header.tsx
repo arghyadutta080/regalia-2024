@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { SparklesCore } from "../ui/sparkles";
 import SparkleComponent from "../ui/SparkleComponent";
 
 export default function Header() {
