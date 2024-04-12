@@ -2,7 +2,7 @@
 
 export const events: any[] = [
     {
-      title: "Nrittyam",
+      title: "Nrityam",
       id: "nrittyam",
       image: "/assets/events/Nrittyam.svg",
       hoverImage: "/assets/events/Nrittyam hover.svg",
@@ -14,13 +14,13 @@ export const events: any[] = [
       hoverImage: "/assets/events/Sargam hover.svg",
     },
     {
-      title: "Band Bash",
+      title: "BAND BASH",
       id: "band-bash",
       image: "/assets/events/Bandbash.svg",
       hoverImage: "/assets/events/Bandbash hover.svg",
     },
     {
-      title: "Carpe-Diem",
+      title: "Carpe Diem",
       image: "/assets/events/CarpeDiem.svg",
       hoverImage: "/assets/events/CarpeDiem hover.svg",
       

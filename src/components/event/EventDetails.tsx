@@ -10,7 +10,7 @@ import Link from "next/link";
 import EventRegForm from "./EventRegForm";
 import { useUser } from "@/lib/store/user";
 import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
-import { login } from "@/utils/functions";
+import { clickSound, login } from "@/utils/functions";
 import { useRouter } from "next/navigation";
 
 type preview = {
@@ -49,9 +49,9 @@ const EventDetails = ({ eventDetails }: any) => {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="mt-12 font-hollirood text-3xl text-regalia dark:text-white md:mt-0">
+            <h1 className="mt-12 font-hollirood text-3xl text-regalia dark:text-white md:mt-0 md:text-4xl">
               Explore <br />
-              <span className=" mt-1 text-3xl font-bold leading-none md:text-4xl  lg:text-5xl">
+              <span className=" mt-1 text-3xl font-bold leading-none md:text-5xl lg:text-7xl">
                 {eventDetails.event_name}
               </span>
             </h1>
@@ -129,6 +129,7 @@ const EventDetails = ({ eventDetails }: any) => {
                         if (!user) {
                           login();
                         }
+                        clickSound()
                         setOpenRegister(true);
                       }}
                     >
@@ -143,6 +144,7 @@ const EventDetails = ({ eventDetails }: any) => {
                  className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
                   onClick={
                    () => {
+                    clickSound()
                     router.push("/dashboard")
                    }
                   }

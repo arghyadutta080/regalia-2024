@@ -243,7 +243,7 @@ const Navbar = () => {
                   showCoordinatorDashboard ||
                   showRegisterDashboard) && (
                   <div className="relative hidden md:mt-2 md:block xl:mt-0 xl:hidden">
-                    {/* <DropdownCustom
+                    <DropdownCustom
                       moreOpen={moreOpen}
                       setMoreOpen={setMoreOpen}
                       setIsMenuOpen={setIsMenuOpen}
@@ -252,10 +252,10 @@ const Navbar = () => {
                       showConvenorDashboard={showConvenorDashboard}
                       showRegisterDashboard={showRegisterDashboard}
                       user={user}
-                    /> */}
+                    />
                   </div>
                 )}
-              {/* {user && showDashboard && (
+              {user && showDashboard && (
                 <Link
                   // onMouseEnter={hoverSound}
                   href={"/dashboard"}
@@ -272,7 +272,7 @@ const Navbar = () => {
                     Dashboard
                   </li>
                 </Link>
-              )} */}
+              )}
               <div className=" block flex-row items-center md:hidden xl:flex">
                 {user && showCoordinatorDashboard && (
                   <Link

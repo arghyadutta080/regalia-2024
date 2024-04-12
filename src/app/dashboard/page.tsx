@@ -192,13 +192,18 @@ const Page = () => {
         <div className="mx-auto flex min-h-[80vh] w-full flex-col items-center justify-center">
           <PuffLoader color="" size={30} />
         </div>
-      ) :   teamData?.length > 0 &&
+      ) :   (teamData?.length > 0 ?
             teamData?.map((team: any, index: number) => {
               return(<>
               <EventRegCard key={index} teams={team} />
             
               </> );
-            })}
+            }) : <div className="flex flex-col items-center justfiy-center font-hollirood gap-5 mt-20 mx-auto">
+                <h1 className="font-semibold text-xl">No Registrations Yet !</h1>
+                <EventButton  name="Register" onClick={()=>{
+          router.push("/events")
+        }}  />
+            </div>   )}
         </div>
     
     </div>

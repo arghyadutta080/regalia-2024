@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import FormElement from "../common/FormElement";
 import Link from "next/link";
+import { clickSound } from "@/utils/functions";
+import { BeatLoader, PuffLoader } from "react-spinners";
 
 
 const EventRegForm = ({
@@ -19,6 +21,7 @@ const EventRegForm = ({
   }) => {
     const router = useRouter();
     const eventId = eventDetails?.id;
+    const [disabled, setDisabled] = useState<boolean>(false);
     const [inputs, setInputs] = useState<any>({
       teamName: "",
       transactionId: "",
@@ -123,6 +126,8 @@ const EventRegForm = ({
     const [teamErrors, setTeamErrors] = useState<any>({});
     let teamMemberCountError = "";
     const handleSubmit = async () => {
+      clickSound();
+      setDisabled(true);
       try {
         const res = validateReg(
           inputs,
@@ -153,11 +158,13 @@ const EventRegForm = ({
             return;
           }
         }
-     
+     setDisabled(false);
       } catch (err) {
         console.log(err);
         toast.error("Registration Failed !");
+        setDisabled(false);
       }
+      setDisabled(false);
     };
   
     return (
@@ -428,10 +435,15 @@ const EventRegForm = ({
                     Close
                   </button>
                   <button
+                  disabled={disabled}
                     className="border-2 mt-3 font-hollirood tracking-widest border-regalia  px-5 py-1 rounded-full font-semibold bg-regalia text-black hover:bg-black hover:border-regalia hover:text-regalia" // hover:bg-white hover:text-black
                     onClick={handleSubmit}
                   >
-                    Submit
+                    {
+                      disabled ? 
+                      <BeatLoader color="black" size={20} />
+                      : "Submit"
+                    }
                   </button>
                 </div>
               ) : (

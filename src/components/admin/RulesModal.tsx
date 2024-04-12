@@ -28,7 +28,7 @@ const RulesModal = ({
               </h2>
             </div>
             <div
-              className=" overflow-y-auto my-1 py-2 px-1 w-full"
+              className=" overflow-y-auto my-1 py-2 px-1 w-full font-hollirood tracking-widest"
             >
               {parse(rules!)}
             </div>

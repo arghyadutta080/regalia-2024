@@ -8,13 +8,13 @@ import { PuffLoader } from "react-spinners";
 
 
 export default function CardHoverEffectDemo() {
-  const [events, setEvents] = useState<any>([]);
+  const [eventData, setEventData] = useState<any>([]);
   const [loading, setLoading] = useState(true);
 
   useMemo(()=>{
     const fetchEvents = async()=>{
       const data = await getAllEvents();
-      setEvents(data!);
+      setEventData(data!);
       setLoading(false);
 
     }
@@ -27,13 +27,13 @@ export default function CardHoverEffectDemo() {
         <PuffLoader color="" size={30} />
         </div>  : <div className="oveflow-x-hidden flex min-h-[60vh] flex-col items-center gap-10">
         <div className=" flex flex-col items-center  justify-center gap-5">
-           <div className="mt-5 pb-24 flex flex-row flex-wrap justify-center gap-10 md:gap-32">
+           <div className="mt-5 pb-24 flex flex-row flex-wrap justify-center gap-10 md:gap-16">
             {events && events?.length > 0 && events.map((event:any, index:number) => (
               <EventCard
                 key={index}
-                title={event.event_name}
-                image={event.event_image_url}
-                hoverImage={event.event_image_url}
+                title={event.title}
+                image={event.hoverImage}
+                hoverImage={event.hoverImage}
               />
             ))}
           </div>

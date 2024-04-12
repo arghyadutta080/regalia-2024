@@ -9,6 +9,7 @@ import { events } from "@/utils/constants/Events";
 
 import Image from "next/image";
 import { EventCard } from "../event/EventCard";
+import { clickSound } from "@/utils/functions";
 
 const Events = () => {
   const router = useRouter();
@@ -26,7 +27,10 @@ const Events = () => {
                 onMouseEnter={() => setHover(true)}
                 onMouseOut={() => setHover(false)}
                 key={index}
-                // onClick={() => router.push(`/events/${event.title}`)}
+                 onClick={() => {
+                  clickSound();
+                  router.push(`/events/${event.title}`)}}
+                 className="hover:cursor-pointer"
               >
                 <img
                   src={` ${!hover ? event.hoverImage : event.image} `}
@@ -44,11 +48,11 @@ const Events = () => {
                         {event.title}
                       </h2>
                     </div>
-                    {/* <Link href={`/events/${event.title}`}> */}
+                    <Link href={`/events/${event.title}`}>
                     <button className="pb-5 tracking-widest duration-300 hover:scale-105 hover:text-green-300">
                       {`Know More >>`}
                     </button>
-                    {/* </Link> */}
+                    </Link>
                   </span>
                 </div>
               </li>
