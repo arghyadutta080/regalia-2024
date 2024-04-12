@@ -9,6 +9,7 @@ export async function middleware(req: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
+ 
   const url = new URL(req.nextUrl);
   if (!session) {
     if (
@@ -30,19 +31,22 @@ export async function middleware(req: NextRequest) {
       .from("roles")
       .select("role")
       .eq("id", session?.user.id);
+      
     let superAdmin = false;
     let eventCoordinator = false;
     let convenor = false;
     let registrar = false;
-    for (const obj of userRoles!.data!) {
-      if (obj.role === "super_admin") {
-        superAdmin = true;
-      } else if (obj.role === "event_coordinator") {
-        eventCoordinator = true;
-      } else if (obj.role === "convenor") {
-        convenor = true;
-      } else if (obj.role === "registrar") {
-        registrar = true;
+    if (userRoles && userRoles.data) {
+      for (const obj of userRoles.data) {
+        if (obj.role === "super_admin") {
+          superAdmin = true;
+        } else if (obj.role === "event_coordinator") {
+          eventCoordinator = true;
+        } else if (obj.role === "convenor") {
+          convenor = true;
+        } else if (obj.role === "registrar") {
+          registrar = true;
+        }
       }
     }
 

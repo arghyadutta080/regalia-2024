@@ -10,9 +10,10 @@ type Props = {
   title: string;
   image: string;
   hoverImage: string;
+  eventId: string;
 };
 
-export function EventCard({ title, image, hoverImage }: Props) {
+export function EventCard({ title, image, hoverImage , eventId }: Props) {
   return (
     <div className="relative z-[20] mb-10 md:mb-0">
         <FadeIn
@@ -22,8 +23,8 @@ export function EventCard({ title, image, hoverImage }: Props) {
               delayInMilliseconds={80}
             >
       <Link
-          href={`/events/${title.toLowerCase()}`}
-    
+          as={`/events/${title}`}
+          href={`/events/${eventId}`}
         className=" cursor-pointer"
         onClick={clickSound}
       >

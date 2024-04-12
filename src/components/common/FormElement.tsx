@@ -21,7 +21,7 @@ const FormElement = ({
 }) => {
   return (
     <div className="flex flex-row flex-wrap  items-center justify-start gap-1 md:gap-5">
-      <label htmlFor={id} className="text-base font-semibold md:text-lg">
+      <label htmlFor={id} className="text-base font-hollirood tracking-widest font-semibold md:text-lg">
         {name} :
       </label>
       <input

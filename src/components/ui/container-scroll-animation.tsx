@@ -40,7 +40,7 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="relative flex h-[70rem] justify-center p-2 md:h-[70rem] md:p-20"
+      className="relative flex h-auto justify-center p-2 md:h-[60rem] lg:h-[70rem] md:p-20"
       ref={containerRef}
     >
       <div
@@ -87,7 +87,7 @@ export const Card = ({
         rotateX: rotate,
         scale,
       }}
-      className="mx-auto -mt-40 md:-mt-14  h-auto w-full max-w-5xl rounded-[30px]"
+      className="mx-auto -mt-56 md:-mt-12 lg:-mt-14   w-full max-w-5xl rounded-[30px]"
     >
       <div className=" h-full w-full  overflow-hidden rounded-2xl bg-[#151515] dark:bg-zinc-900 md:rounded-2xl md:p-16 ">
         {children}

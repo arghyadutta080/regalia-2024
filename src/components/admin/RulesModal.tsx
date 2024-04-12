@@ -14,7 +14,7 @@ const RulesModal = ({
         <div className="fixed  inset-0 flex items-center font-retrolight tracking-widest justify-center bg-black bg-opacity-50 z-[50]">
           <div
             className={`bg-body border-y-2 border-regalia p-4 rounded-lg ${
-              rules.length < 700 ? "h-auto" : "h-[80%]"
+              rules.length < 200 ? "h-auto" : "h-[60vh]"
             } w-[90%] flex flex-col items-start md:w-[50%] lg:w-[35%] `}
           >
             <div className="w-full flex flex-row mb-2 items-center justify-between">
@@ -28,7 +28,7 @@ const RulesModal = ({
               </h2>
             </div>
             <div
-              className="h-full overflow-y-auto my-1 py-2 px-1 w-full"
+              className=" overflow-y-auto my-1 py-2 px-1 w-full"
             >
               {parse(rules!)}
             </div>
