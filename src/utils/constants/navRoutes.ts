@@ -11,10 +11,10 @@ export const navRoutes = [
       name: "Gallery",
       path: "/gallery",
     },
-    // {
-    //   name: "Team",
-    //   path: "/team/swc",
-    // },
+    {
+      name: "Team",
+      path: "/team/swc",
+    },
     {
       name: "Contact",
       path: "/contacts",
