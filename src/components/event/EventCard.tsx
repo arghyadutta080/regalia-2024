@@ -22,8 +22,8 @@ export function EventCard({ title, image, hoverImage }: Props) {
               delayInMilliseconds={80}
             >
       <Link
-        //  href={`/events/${title.toLowerCase()}`}
-        href={"/events"}
+          href={`/events/${title.toLowerCase()}`}
+    
         className=" cursor-pointer"
         onClick={clickSound}
       >
