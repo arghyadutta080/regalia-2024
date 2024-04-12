@@ -16,9 +16,6 @@ type preview = {
 const EventDetails = ({ eventDetails }: any) => {
   const [openRules, setOpenRules] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
-  const onRegister = () => {
-    console.log("Do register");
-  };
  
   return (
     <>
@@ -37,13 +34,13 @@ const EventDetails = ({ eventDetails }: any) => {
         <BackgroundGradient className="h-full w-full rounded-[22px] bg-[#151515]">
           <div>
             <div className=" flex flex-row max-md:flex-wrap-reverse w-full md:items-start lg:items-center justify-center gap-5 px-10 py-5">
-              <div className="items-left w-full md:w-5/6 flex flex-col justify-center gap-5">
+              <div className="items-left w-full md:w-[5/6] lg:w-[70%] flex flex-col justify-center gap-5">
                 <h1 className="text-center tracking-widest font-retrolight text-3xl font-bold text-yellow-400 md:pb-6">
                   {eventDetails.event_name}
                 </h1>
                 <div className="flex flex-col-reverse justify-between gap-5 text-lg md:flex-row">
                   <div className=" space-y-5">
-                    <div className="items-left flex text-sm font-hollirood tracking-widest flex-col justify-center gap-5">
+                    <div className="items-left flex text-sm md:text-xs lg:text-sm font-hollirood tracking-widest flex-col justify-center gap-5">
                       {parse(eventDetails.desc)}
                     </div>
 
@@ -90,7 +87,7 @@ const EventDetails = ({ eventDetails }: any) => {
                     })}
                 </div>
               </div>
-              <div className="flex flex-col max-md:mt-0 max-lg:mt-10 w-full md:w-[1/6] mx-auto h-full">
+              <div className="flex flex-col max-md:mt-0 max-lg:mt-10 w-full md:w-[1/6] lg:w-[30%] mx-auto h-full">
                   <Image
                     src={eventDetails.event_image_url}
                     alt="hero"

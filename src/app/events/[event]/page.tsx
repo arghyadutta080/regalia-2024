@@ -17,7 +17,7 @@ const page = ({ params }: Params) => {
   useMemo(() => {
     const getEventData = async () => {
       const data = await fetchEvent(eventName);
-      setEventData(data);
+      setEventData(data!);
       setLoading(false);
     };
     getEventData();
@@ -29,9 +29,14 @@ const page = ({ params }: Params) => {
         <div className="mx-auto flex min-h-[80vh] w-full flex-col items-center justify-center">
           <PuffLoader color="" size={30} />
         </div>
-      ) : (
+      ) : (eventData != null ? (
         <EventDetails eventDetails={eventData} />
-      )}
+      ) :
+      <div className="mx-auto flex min-h-[80vh] font-hollirood font-semibold text-2xl w-full flex-col items-center justify-center">
+     <h1>Something Went Wrong !</h1>
+    </div>
+    )
+      }
     </div>
   );
 };

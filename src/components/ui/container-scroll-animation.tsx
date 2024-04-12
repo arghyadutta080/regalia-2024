@@ -31,7 +31,7 @@ export const ContainerScroll = ({
   };
 
   const rotateDimensions = () => {
-    return isMobile ? [20, -175] : [30, -75];
+    return isMobile ? [20, -20] : [30, -30];
   }
 
   const rotate = useTransform(scrollYProgress, [0, 1], rotateDimensions());
