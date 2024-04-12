@@ -5,8 +5,8 @@ import { navRoutes } from "@/utils/constants/navRoutes";
 import { login } from "@/utils/functions/login";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
 import DropdownCustom from "./Dropdown";
 import { clickSound, hoverSound } from "@/utils/functions";
@@ -15,7 +15,6 @@ import CustomToast from "./CustomToast";
 import { MdDone, MdError } from "react-icons/md";
 
 const Navbar = () => {
-  const searchParams = useSearchParams();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [userImg, setUserImg] = useState("");
@@ -244,7 +243,7 @@ const Navbar = () => {
                   showCoordinatorDashboard ||
                   showRegisterDashboard) && (
                   <div className="relative hidden md:mt-2 md:block xl:mt-0 xl:hidden">
-                    <DropdownCustom
+                    {/* <DropdownCustom
                       moreOpen={moreOpen}
                       setMoreOpen={setMoreOpen}
                       setIsMenuOpen={setIsMenuOpen}
@@ -253,7 +252,7 @@ const Navbar = () => {
                       showConvenorDashboard={showConvenorDashboard}
                       showRegisterDashboard={showRegisterDashboard}
                       user={user}
-                    />
+                    /> */}
                   </div>
                 )}
               {/* {user && showDashboard && (
