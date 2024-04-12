@@ -27,11 +27,11 @@ export const ContainerScroll = ({
   }, []);
 
   const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.03, 1];
+    return isMobile ? [0.7, 0.9] : [1.1, 1];
   };
 
   const rotateDimensions = () => {
-    return isMobile ? [20, 0] : [30, -35];
+    return isMobile ? [20, -175] : [30, -75];
   }
 
   const rotate = useTransform(scrollYProgress, [0, 1], rotateDimensions());
@@ -40,11 +40,11 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="relative flex h-[60rem] items-center justify-center p-2 md:h-[80rem] md:p-20"
+      className="relative flex h-[70rem] justify-center p-2 md:h-[70rem] md:p-20"
       ref={containerRef}
     >
       <div
-        className="relative w-full py-10 md:py-40"
+        className="relative w-full "
         style={{
           perspective: "1000px",
         }}
@@ -87,7 +87,7 @@ export const Card = ({
         rotateX: rotate,
         scale,
       }}
-      className="mx-auto -mt-12 h-[55.5rem] md:h-[53.7rem] w-full max-w-5xl rounded-[30px]"
+      className="mx-auto -mt-40 md:-mt-14  h-auto w-full max-w-5xl rounded-[30px]"
     >
       <div className=" h-full w-full  overflow-hidden rounded-2xl bg-[#151515] dark:bg-zinc-900 md:rounded-2xl md:p-16 ">
         {children}

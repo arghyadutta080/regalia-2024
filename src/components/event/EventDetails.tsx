@@ -42,7 +42,7 @@ const EventDetails = ({ eventDetails }: Props) => {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="font-hollirood text-4xl text-regalia dark:text-white mt-40 md:mt-0">
+            <h1 className="font-hollirood text-4xl text-regalia dark:text-white mt-12 md:mt-0">
               Explore <br />
               <span className=" mt-1 text-[3.7rem] font-bold leading-none md:text-[6rem]">
                 {eventDetails.eventname}

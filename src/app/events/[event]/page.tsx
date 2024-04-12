@@ -33,7 +33,7 @@ const page = ({ params }: Params) => {
   };
 
   return (
-    <div className="flex flex-col overflow-hidden mb-20">
+    <div className="flex flex-col overflow-hidden  mb-20">
       <EventDetails eventDetails={eventDetails}/>
     </div>
   );
