@@ -63,6 +63,7 @@ const Events = () => {
           {events.map((event, index) => (
             <div key={index}>
               <EventCard
+              link={`/events/${event.title}`}
                 title={event.title}
                 image={event.image}
                 hoverImage={event.hoverImage}

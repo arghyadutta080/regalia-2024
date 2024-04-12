@@ -30,6 +30,7 @@ export default function CardHoverEffectDemo() {
            <div className="mt-5 pb-24 flex flex-row flex-wrap justify-center gap-10 md:gap-16">
             {events && events?.length > 0 && events.map((event:any, index:number) => (
               <EventCard
+              link={`/events/${event.title}`}
                 key={index}
                 title={event.title}
                 image={event.hoverImage}
