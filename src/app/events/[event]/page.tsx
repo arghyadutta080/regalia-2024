@@ -1,7 +1,6 @@
 "use client";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import Image from "next/image";
 import React from "react";
+import EventDetails from "@/components/event/EventDetails";
 
 type Params = {
   params: {
@@ -9,9 +8,9 @@ type Params = {
   };
 };
 
-const page = ({ params: { event } }: Params) => {
+const page = ({ params }: Params) => {
   const eventDetails = {
-    eventId: event.replace(/%20/g, "-").toLowerCase(),
+    eventId: params.event.replace(/%20/g, "-").toLowerCase(),
     eventname: "Carpe Diem",
     desc: "<h3>Carpe Diem is an event to showcase your creativity and talent. It is a solo dancing, acting, beat boxing, reciting, instrument playing and rapping competition.</h3>",
     schedule:
@@ -19,8 +18,8 @@ const page = ({ params: { event } }: Params) => {
     regFees: "400",
     prizePool: "1000",
     teamSize: {
-      min: "1",
-      max: "4",
+      min: 1,
+      max: 4,
     },
     rules:
       "<p>• The participants will have 3 mins to showcase their creativity. If the time exceeds, the participant will be disqualified.</p><p><br></p><p>• Any type of art form will be accepted except singing ( For singing, we have another event, Sargam )</p><p><br></p><p>• It will be a solo performance</p><p><br></p><p>• If the participant want to play any instrument, then it is instructed to bring it during the event.</p><p><br></p><p>• For dancing, the participant will bring the soundtrack.</p><p><br></p><p>• Any form of vulgar activity won't be entertained during the performance .</p><p><br></p><p>• Flammable objects, Gulal, slippery things, water can not be used as props.</p>",
@@ -34,31 +33,8 @@ const page = ({ params: { event } }: Params) => {
   };
 
   return (
-    <div className="flex flex-col overflow-hidden">
-      <ContainerScroll
-        titleComponent={
-          <>
-            <h1 className="font-hollirood text-4xl text-regalia dark:text-white">
-              Explore <br />
-              <span className="mb-5 mt-1 text-4xl font-bold leading-none md:text-[6rem]">
-                {eventDetails.eventname}
-              </span>
-              <span className="mb-5 mt-1 text-4xl font-bold leading-none md:text-[6rem]">
-                {" "}
-              </span>
-            </h1>
-          </>
-        }
-      >
-        <Image
-          src={`/linear.webp`}
-          alt="hero"
-          height={720}
-          width={1400}
-          className="mx-auto h-full rounded-2xl object-cover object-left-top"
-          draggable={false}
-        />
-      </ContainerScroll>
+    <div className="flex flex-col overflow-hidden mb-20">
+      <EventDetails eventDetails={eventDetails}/>
     </div>
   );
 };
