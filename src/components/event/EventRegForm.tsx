@@ -145,12 +145,15 @@ const EventRegForm = ({
           onClose();
           router.push("/dashboard");
         }
-        if (res.errors || res.teamErrors) {
-          setGeneralErrors(res.errors);
-          setTeamErrors(res.teamErrors);
-          toast.error("Fill all the fields accurately !");
-          return;
+        else{
+          if (res.errors || res.teamErrors) {
+            setGeneralErrors(res.errors);
+            setTeamErrors(res.teamErrors);
+            toast.error("Fill all the fields accurately !");
+            return;
+          }
         }
+     
       } catch (err) {
         console.log(err);
         toast.error("Registration Failed !");

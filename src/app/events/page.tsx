@@ -31,7 +31,6 @@ export default function CardHoverEffectDemo() {
             {events && events?.length > 0 && events.map((event:any, index:number) => (
               <EventCard
                 key={index}
-                eventId={event.id}
                 title={event.event_name}
                 image={event.event_image_url}
                 hoverImage={event.event_image_url}

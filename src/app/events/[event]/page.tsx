@@ -10,7 +10,7 @@ type Params = {
   };
 };
 
-const page = ({ params }: Params) => {
+const Page = ({ params }: Params) => {
   const eventName = decodeURIComponent(params.event.toString());
   const [loading, setLoading] = useState<boolean>(true);
   const [eventData, setEventData] = useState<any>(null);
@@ -41,4 +41,4 @@ const page = ({ params }: Params) => {
   );
 };
 
-export default page;
+export default Page;
