@@ -79,7 +79,7 @@ const QrReader = (props: {
 
   return (
     // Make the video section take up the whole div
-    <div className="qr-reader h-full">
+    <div className="qr-reader h-full flex flex-col justify-center items-center w-full mx-auto">
       {/* QR */}
       <video 
       className="h-full"
