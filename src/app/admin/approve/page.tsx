@@ -4,12 +4,14 @@
 import ApproveModal from "@/components/admin/ApproveModal";
 import { MemberModal } from "@/components/admin/MemberModal";
 import FormElement from "@/components/common/FormElement";
+import { useUser } from "@/lib/store/user";
 import { getRegistrations } from "@/utils/functions/getRegistrations";
 import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 import { PuffLoader } from "react-spinners";
 
 const Page = () => {
+  const user = useUser((state) => state.user);
   const [registrations, setRegistrations] = useState<any>([]);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
   const [filteredResults, setFilteredResults] = useState<any>([]);
@@ -81,7 +83,7 @@ const Page = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [user]);
 
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
