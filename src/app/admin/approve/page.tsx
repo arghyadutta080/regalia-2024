@@ -83,7 +83,7 @@ const Page = () => {
       }
     };
     fetchData();
-  }, [user]);
+  }, [filteredResults]);
 
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");

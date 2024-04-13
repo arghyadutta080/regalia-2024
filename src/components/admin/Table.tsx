@@ -23,7 +23,7 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
         : b.transaction_verified - a.transaction_verified
     );
     setFilteredResults(sortedResults);
-  }, [sortOrder, JSON.stringify(registrationData)]);
+  }, [registrationData,sortOrder, JSON.stringify(registrationData)]);
 
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
