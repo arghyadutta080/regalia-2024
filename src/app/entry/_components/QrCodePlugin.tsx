@@ -52,7 +52,7 @@ const QrReader = (props: {
           navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
             setQrOn(true);
           }).catch((err) => {
-            if (err) setQrOn(false);
+            // if (err) setQrOn(false);
           });
         })
         .catch((err) => {
