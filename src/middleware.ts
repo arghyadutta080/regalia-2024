@@ -16,7 +16,8 @@ export async function middleware(req: NextRequest) {
       url.pathname.startsWith("/admin") ||
       url.pathname.startsWith("/profile") ||
       url.pathname.startsWith("/dashboard") ||
-      url.pathname.startsWith("/coordinator")
+      url.pathname.startsWith("/coordinator") ||
+      url.pathname.startsWith('/entry')
     ) {
       return NextResponse.redirect(new URL("/", req.url));
     }
@@ -36,6 +37,7 @@ export async function middleware(req: NextRequest) {
     let eventCoordinator = false;
     let convenor = false;
     let registrar = false;
+    let security = false;
     if (userRoles && userRoles.data) {
       for (const obj of userRoles.data) {
         if (obj.role === "super_admin") {
@@ -46,6 +48,8 @@ export async function middleware(req: NextRequest) {
           convenor = true;
         } else if (obj.role === "registrar") {
           registrar = true;
+        } else if (obj.role === "security") {
+          security = true;
         }
       }
     }
@@ -61,6 +65,13 @@ export async function middleware(req: NextRequest) {
     }
     if (convenor && url.pathname.startsWith("/registrar")) {
       return NextResponse.next();
+    }
+    if (security && url.pathname.startsWith("/entry")) {
+      return NextResponse.next();
+    }
+
+    if ((!security || !superAdmin) && url.pathname.startsWith("/entry")) {
+      return NextResponse.redirect(new URL("/", req.url));
     }
 
     if (
