@@ -12,6 +12,7 @@ import { useUser } from "@/lib/store/user";
 import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
 import { clickSound, login } from "@/utils/functions";
 import { useRouter } from "next/navigation";
+import { getEventInfo } from "@/utils/functions/getEventsInfo";
 
 type preview = {
   url: string;
@@ -22,10 +23,15 @@ const EventDetails = ({ eventDetails }: any) => {
   const router = useRouter();
   const [openRules, setOpenRules] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
+  const [eventInfo, setEventInfo] = useState({} as any);
+  const [loading, setLoading] = useState(true);
   const [registeredEvent, setRegisteredEvent] = useState<boolean>(false);
   const user = useUser((state) => state.user);
+  console.log(eventDetails);
   useMemo(() => {
     const getInfo = async () => {
+      const res = await getEventInfo(eventDetails?.id);
+      console.log(res);
       if (user) {
         const ifRegistered = await checkIfUserRegistered({
           phone_param: user?.phone!,
@@ -34,9 +40,17 @@ const EventDetails = ({ eventDetails }: any) => {
           setRegisteredEvent(true);
         }
       }
+      setEventInfo(res![0]);
+      setLoading(false);
     };
     getInfo();
   }, [user, eventDetails]);
+  const { roles } = eventInfo;
+
+  const onClose = () => {
+    setOpenRules(false);
+    setOpenRegister(false);
+  };
   useEffect(() => {
     if (openRules || openRegister) {
       document.body.style.overflow = "hidden";
@@ -83,8 +97,40 @@ const EventDetails = ({ eventDetails }: any) => {
                       </div>
                     )}
                     <div className="items-left flex flex-col justify-center gap-5 font-hollirood tracking-widest">
-                      Team Size: {eventDetails?.max_team_member > 1 ? eventDetails?.min_team_member + " - " + eventDetails?.max_team_member : 1 + " (Solo)"}
+                      Team Size:{" "}
+                      {eventDetails?.max_team_member > 1
+                        ? eventDetails?.min_team_member +
+                          " - " +
+                          eventDetails?.max_team_member
+                        : 1 + " (Solo)"}
                     </div>
+                    <h1 className="text-lg font-hollirood">Coordinators :</h1>
+                    {!loading && eventInfo?.roles.length > 0 ? (
+                      eventInfo?.roles.map(
+                        (coordinator: any, index: number) => {
+                          return (
+                            <div
+                              key={index}
+                              className="flex flex-col items-start font-hollirood text-white gap-2"
+                            >
+                              <span className="flex flex-row items-center tracking-widest text-sm gap-4 font-semibold ">
+                                {coordinator?.users?.name}
+                                <a
+                                  href={`tel:${coordinator?.users?.phone}`}
+                                  className="text-lg font-semibold text-regalia tracking-widest hover:text-green-500 lg:text-sm"
+                                >
+                                  {coordinator?.users?.phone}
+                                </a>
+                              </span>
+                            </div>
+                          );
+                        },
+                      )
+                    ) : (
+                      <h1 className="text-center font-hollirood text-sm font-semibold text-red-600">
+                        No Coordinators added yet !
+                      </h1>
+                    )}
                   </div>
                 </div>
                 <div className=" flex flex-row space-x-5">
@@ -128,7 +174,7 @@ const EventDetails = ({ eventDetails }: any) => {
                         if (!user) {
                           login();
                         }
-                        clickSound()
+                        clickSound();
                         setOpenRegister(true);
                       }}
                     >
@@ -139,17 +185,15 @@ const EventDetails = ({ eventDetails }: any) => {
                     </button>
                   )}
                 {registeredEvent! && (
-                 <button
-                 className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
-                  onClick={
-                   () => {
-                    clickSound()
-                    router.push("/dashboard")
-                   }
-                  }
-               >
-                     <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
-                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-sm">
+                  <button
+                    className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                    onClick={() => {
+                      clickSound();
+                      router.push("/dashboard");
+                    }}
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-sm">
                       Already Registered
                       <TiTick size={24} />
                     </span>
@@ -162,12 +206,12 @@ const EventDetails = ({ eventDetails }: any) => {
       </ContainerScroll>
       <RulesModal
         isOpen={openRules}
-        onClose={() => setOpenRules(false)}
+        onClose={onClose}
         rules={eventDetails.rules}
       />
       <EventRegForm
         isOpen={openRegister}
-        onClose={() => setOpenRegister(false)}
+        onClose={onClose}
         eventDetails={eventDetails}
       />
     </>
