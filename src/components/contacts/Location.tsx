@@ -9,17 +9,12 @@ const Location = () => {
       <h1 className="text-2xl font-semibold tracking-wider text-primary lg:px-10">
         Locations
       </h1>
-      <FadeIn
-            from="bottom"
-            positionOffset={200}
-            triggerOffset={0}
-            delayInMilliseconds={80}
-          >
+    
          <div className="flex flex-col w-[90%] mx-auto lg:px-8 mb-3 items-start">
         <h1>For Prelims</h1>
         <div className="mx-auto flex  w-full flex-col gap-10 ">
         <div className="flex flex-col items-start gap-2">
-          <div className="text-sm lg:text-md flex flex-row items-center w-full gap-2  font-semibold">
+          <div className="text-sm  lg:text-xl flex flex-row items-center w-full gap-2  font-semibold">
           <IoLocationSharp size={24} />
             <p className="w-full">
             Old Campus Auditorium ,  Canal S Rd, Beleghata, Kolkata, West Bengal <span className="font-annabel">700015</span>
@@ -34,33 +29,28 @@ const Location = () => {
         </div>
       </div>
         </div>
-  </FadeIn>
-        <FadeIn
-            from="bottom"
-            positionOffset={200}
-            triggerOffset={0}
-            delayInMilliseconds={80}
-          >
+
+        
         <div className="flex flex-col w-[90%] mx-auto lg:px-8 mb-3 items-start">
         <h1>For Finals</h1>
         <div className="mx-auto flex  w-full flex-col gap-10 ">
-        <div className="flex flex-col items-start gap-2">
-          <div className="text-sm lg:text-md flex flex-row items-center gap-2  font-semibold">
+        <div className="flex flex-col items-start gap-2 w-full">
+          <div className="text-sm w-full lg:text-xl flex flex-row items-center gap-2  font-semibold">
           <IoLocationSharp size={24} />
             <p>
-           BF Block(Newtown), Action Area I, New Town, West Bengal <span className="font-annabel">700156</span>
+            Howrah Railway Station, Howrah, West Bengal  <span className="font-annabel">711101</span>
               <br />
-              New Town Mela Ground
+              Sarat Sadan
             </p>
           </div>
           
           <iframe
           className="mx-auto h-[300px] w-full rounded-md lg:h-[500px]"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.976427897317!2d88.46649707591807!3d22.579984932698533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02753a628db657%3A0xd22b9fadfb4f18d2!2sNew%20Town%20Mela%20Ground!5e0!3m2!1sen!2sin!4v1712780693907!5m2!1sen!2sin"  loading="lazy" ></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.91242965801!2d88.33136127591811!3d22.58237833261078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0278bd07a563ab%3A0xee87bfb4a1de28cb!2sSarat%20Sadan!5e0!3m2!1sen!2sin!4v1714009723372!5m2!1sen!2sin"  loading="lazy" ></iframe>
         </div>
       </div>
         </div>
-     </FadeIn>
+
     </div>
   );
 };

@@ -1,22 +1,22 @@
-import SparkleComponent from '@/components/ui/SparkleComponent';
-import { ParallaxScroll } from '@/components/ui/parallax-scroll';
-import { images } from '@/utils/constants/gallery';
-import React from 'react'
+import SparkleHeading from "@/components/common/SparkleHeading";
+import GalleryCard from "@/components/gallery/GalleryCard";
+import SparkleComponent from "@/components/ui/SparkleComponent";
+import { gallery } from "@/utils/constants/gallery";
+
+import React from "react";
 
 const page = () => {
   return (
-    <div className="mx-auto max-w-full md:px-20">
-      <div className="mt-12 flex h-[8rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-transparent">
-        <h1 className="relative z-20 text-center font-annabel text-4xl font-bold text-regalia md:text-3xl lg:text-5xl">
-          Gallery
-        </h1>
-        <div className="text-center">
-          <SparkleComponent />
-        </div>
+    <div className="mx-auto max-w-full md:px-20 my-10">
+      <SparkleHeading text="Gallery" />
+
+      <div className="mx-auto mt-10 grid max-w-[1600px] grid-cols-1 items-center justify-center gap-20 rounded-2xl px-5 py-10 font-sans md:grid-cols-2 md:border-2 shadow-sm shadow-regalia border-regalia md:px-10 md:py-20 lg:grid-cols-3">
+        {gallery.map((photo, index) => (
+          <GalleryCard photo={photo} key={index} />
+        ))}
       </div>
-      <ParallaxScroll images={images} />
     </div>
   );
-}
+};
 
-export default page
+export default page;

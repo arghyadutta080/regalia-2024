@@ -1,14 +1,15 @@
-export const images = [
-    "/assets/gallery/regalia2023_1.jpg",
-    "/assets/gallery/regalia2023_2.jpg",
-    "/assets/gallery/regalia2023_3.jpg",
-    "/assets/gallery/regalia2023_4.jpg",
-    "/assets/gallery/regalia2023_5.jpg",
-    "/assets/gallery/regalia2023_6.jpg",
-    "/assets/gallery/regalia2023_7.jpg",
-    "/assets/gallery/regalia2023_8.jpg",
-    "/assets/gallery/regalia2023_9.jpg",
-    "/assets/gallery/regalia2023_10.jpg",
-    "/assets/gallery/regalia2023_11.jpg",
-    "/assets/gallery/regalia2023_1.jpg",
+export const gallery = [
+  "https://i.postimg.cc/xjmjJMkf/DSC0133.jpg",
+  "https://i.postimg.cc/nLLcCWmg/MG-9961.jpg",
+  "https://i.postimg.cc/y817bGLx/IMG-7247.jpg",
+  "https://i.postimg.cc/RFkMpVYx/MG-7212.jpg",
+  "https://i.postimg.cc/SNpSWR8W/AKP-0101.jpg",
+  "https://i.postimg.cc/1tnmKNJK/MG-6796.jpg",
+  "https://i.postimg.cc/tJF9KG0Z/MG-7214.jpg",
+
+  "https://i.postimg.cc/y817bGLx/IMG-7247.jpg",
+  "https://i.postimg.cc/W4fpr763/MG-9927.jpg",
+  "https://i.postimg.cc/XYsnSgP8/AKP-0348.jpg",
+  "https://i.postimg.cc/bvdpztcj/AKP-0299.jpg",
+  "https://i.postimg.cc/dtmqnFmg/AKP-0255.jpg",
 ];

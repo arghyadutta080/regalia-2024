@@ -1,11 +1,11 @@
-import Heading from "@/components/common/Heading";
+import SparkleHeading from "@/components/common/SparkleHeading";
 import Block from "@/components/contacts/Block";
 import React from "react";
 
 const page = () => {
   return (
-    <div className="mx-auto mt-10 flex flex-col items-center gap-5">
-      <Heading text="Contact Us" />
+    <div className="mx-auto my-10 flex flex-col items-center gap-5">
+      <SparkleHeading text="Contact Us" />
       <Block />
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Heading from "@/components/common/Heading";
+import SparkleHeading from "@/components/common/SparkleHeading";
 import EventButton from "@/components/event/EventButton";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { useUser } from "@/lib/store/user";
@@ -177,7 +178,7 @@ const Page = () => {
   }, [user]);
   return (
     <div className="min-h-[80vh] w-full px-2 lg:px-10 mb-10 flex flex-col items-center gap-10 mt-10">
-        <Heading text="Your Registrations" />
+         <SparkleHeading text="Registrations" />
      <div className="flex flex-row text-center items-center text-sm lg:text-xl flex-wrap gap-5 md:gap-8 xl:gap-20 justify-evenly font-hollirood">
         <h1>Name : {user?.name}</h1>
         <h1>Email : {user?.email}</h1>
