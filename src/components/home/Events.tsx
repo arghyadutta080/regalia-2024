@@ -16,7 +16,7 @@ const Events = () => {
 
   const [hover, setHover] = useState(false);
   return (
-    <div className="relative  w-full ">
+    <div className="relative  w-full lg:mt-10">
       <div className="mx-auto flex max-w-full flex-col gap-10">
         <Heading text="Events" />
 
