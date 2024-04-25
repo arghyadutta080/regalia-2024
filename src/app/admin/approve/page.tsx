@@ -59,25 +59,26 @@ const Page = () => {
    
         setFilteredResults(data);
         setRegistrations(data);
-        setLoading(false);
-        const swcPaidRegistrationsCount = data.filter(
-          (res: any) => res.swc === "Yes"
-        ).length;
-        setSwcCount(swcPaidRegistrationsCount);
-        const nonswcPaidRegistrationsCount = data.filter(
-          (res: any) => res.swc === "No" && (res.college.toLowerCase().includes("rcciit") || res.college.toLowerCase().includes("rcc institute of information technology"))
-        ).length;
-        setNonSwcCount(nonswcPaidRegistrationsCount);
+        console.log(data)
+    
+        // const swcPaidRegistrationsCount = data.filter(
+        //   (res: any) => res.swc === "Yes"
+        // ).length;
+        // setSwcCount(swcPaidRegistrationsCount);
+        // const nonswcPaidRegistrationsCount = data.filter(
+        //   (res: any) => res.swc === "No" && (res.college.toLowerCase().includes("rcciit") || res.college.toLowerCase().includes("rcc institute of information technology"))
+        // ).length;
+        // setNonSwcCount(nonswcPaidRegistrationsCount);
 
-        const collegeRegs = data.filter(
-          (res: any) =>
-            res.college.toLowerCase().includes("rcciit") ||
-            res.college
-              .toLowerCase()
-              .includes("rcc institute of information technology")
-        ).length;
-        setOutCollegeRegCount(data.length - collegeRegs);
-        setCollegeRegCount(collegeRegs);
+        // const collegeRegs = data.filter(
+        //   (res: any) =>
+        //     res.college.toLowerCase().includes("rcciit") ||
+        //     res.college
+        //       .toLowerCase()
+        //       .includes("rcc institute of information technology")
+        // ).length;
+        // setOutCollegeRegCount(data.length - collegeRegs);
+        // setCollegeRegCount(collegeRegs);
       } catch (error) {
         // console.log(error);
       }
@@ -127,93 +128,7 @@ const Page = () => {
   return (
     <div className="w-full mx-auto  flex flex-col items-center gap-5 ">
       <h1 className="font-semibold text-4xl text-center">Admin Dashboard</h1>
-      <div className="flex flex-row items-center gap-5 w-[90%] md:w-full justify-center  flex-wrap">
-        <FormElement
-          name="Phone"
-          value={inputs.phone}
-          type="text"
-          id="phone"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="Transaction ID"
-          value={inputs.transactionId}
-          type="text"
-          id="transactionId"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="College"
-          value={inputs.college}
-          type="text"
-          id="college"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="Event Name"
-          value={inputs.eventName}
-          type="text"
-          id="eventName"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="Time"
-          value={inputs.createdAt}
-          type="text"
-          id="createdAt"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="SWC"
-          value={inputs.swc}
-          type="text"
-          id="swc"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="Team Lead Name"
-          value={inputs.teamLeadName}
-          type="text"
-          id="teamLeadName"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-        <FormElement
-          name="Team Lead Email"
-          value={inputs.teamLeadEmail}
-          type="text"
-          id="teamLeadEmail"
-          onChange={handleInputChange}
-          width="1/3"
-        />
-      </div>
-
-      <div className="flex flex-row font-hollirood tracking-widest flex-wrap font-semibold items-center text-center text-sm md:text-2xl gap-3  md:gap-10 justify-center">
-        <h1>
-          SWC paid Registrations :{" "}
-          <span className="text-green-600">{swcCount}</span>{" "}
-        </h1>
-        <h1>
-          SWC Unpaid Registrations :{" "}
-          <span className="text-red-600">{nonSwcCount} </span>
-        </h1>
-      </div>
-      <div className="flex font-hollirood flex-row flex-wrap font-semibold items-center text-center text-sm md:text-2xl gap-3  md:gap-10 justify-center">
-        <h1>
-          College Inside Reg :{" "}
-          <span className="text-green-600">{collegeRegCount}</span>{" "}
-        </h1>
-        <h1>
-          College Outside Reg :{" "}
-          <span className="text-red-600">{outCollegeRegCount} </span>
-        </h1>
-      </div>
+    
       {loading ? (
         <div className="min-h-[60vh] flex flex-col justify-center items-center">
           <PuffLoader size={40} color="#000" />{" "}

@@ -2,18 +2,14 @@ import { supabase } from "@/lib/supabase-client";
 
 
 export const getRegistrations = async () => {
-  
-
   const { data, error } = await supabase
     .from("teams")
     .select("*,participations(*),events(event_name,fest_name,max_team_member)");
-   
+
   let filteredData: any = [];
   await Promise.all(
     (data || []).map(async (res: any) => {
-      const teamMembers = await supabase.from("participations").select("name,phone").eq('team_id', res.team_id);
-      res['team_members'] = teamMembers.data;
-      if (res.events.fest_name === "Techtrix") {
+      if (res.events.fest_name === "Regalia") {
         res['team_college'] = res.college;
         filteredData.push(res);
         const { data: swcCleared, error } = await supabase

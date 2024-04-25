@@ -261,7 +261,7 @@ const EventRegForm = ({
                     <>
                     
                       <img
-                        src={"https://i.imgur.com/Qg2ueWW.jpg"}
+                        src={"/assets/home/qr.jpg"}
                         width={350}
                         className="mx-auto "
                         height={100}
