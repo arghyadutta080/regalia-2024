@@ -83,8 +83,7 @@ const EventDetails = ({ eventDetails }: any) => {
                       </div>
                     )}
                     <div className="items-left flex flex-col justify-center gap-5 font-hollirood tracking-widest">
-                      Team Size: {eventDetails.min_team_member} -{" "}
-                      {eventDetails.max_team_member}
+                      Team Size: {eventDetails?.max_team_member > 1 ? eventDetails?.min_team_member + " - " + eventDetails?.max_team_member : 1 + " (Solo)"}
                     </div>
                   </div>
                 </div>
