@@ -8,7 +8,7 @@ export async function getImageUrl({
   eventId: string;
   fileName: string;
 }) {
-  const { data } = supabase.storage.from("fests").getPublicUrl(`Techtrix/2024/${eventId}/transactions/${fileName}`);
+  const { data } = supabase.storage.from("fests").getPublicUrl(`Regalia/2024/${eventId}/transactions/${fileName}`);
 
   if (!data) {
     throw new Error("Image not found");

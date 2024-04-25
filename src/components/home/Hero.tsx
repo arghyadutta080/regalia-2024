@@ -41,7 +41,9 @@ const Hero = () => {
                 2k24
               </div>
               <h1 className="text-4xl  text-white lg:text-9xl ">Regalia</h1>
+              <h1 className="font-hollirood mt-3 text-2xl w-full mx-auto">Inter College Annual Cultural fest</h1>
             </div>
+          
           </FadeIn>
         </div>
 
@@ -66,14 +68,16 @@ const Hero = () => {
             <h1 className=" text-xl">Presents</h1>
         </div>
       */}
-        <div className="  flex flex-col ">
+        <div className=" w-full mx-auto items-center jutify-center flex flex-col ">
           <div className="flex-row text-3xl md:text-5xl xl:flex xl:self-end xl:text-5xl">
             2k24
-          </div>
+          </div> 
           <h1 className="text-4xl text-white md:text-6xl lg:text-9xl ">
             Regalia
           </h1>
+          <h1 className="text-md text-regalia font-hollirood mt-2 w-full mx-auto">Inter College Annual Cultural fest</h1>
         </div>
+      
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 export const registrationConfirmationEmail = (eventName:string, inputs:any, participants:any) => {
+  console.log(eventName, inputs, participants)
   return (
     `<div style="font-family: 'Poppins, sans-serif'; width: 100%; height:100%;
     overflow: hidden;
@@ -12,7 +13,7 @@ export const registrationConfirmationEmail = (eventName:string, inputs:any, part
       <h4 style="font-size:1.4rem">
         Dear Team ${inputs.teamName},
       </h4>
-      <p  style="font-size:1.2rem">
+      <p  style="font-size:1.2rem;color:#ffffff">
         We are delighted to inform you that your registration for the <strong  style="letter-spacing:2px; color: #c9a747">${eventName}</strong> has been successfully received. Your enthusiasm for participation is truly appreciated, and we're looking forward to an exciting event ahead!
       </p>
      
@@ -56,13 +57,13 @@ export const registrationConfirmationEmail = (eventName:string, inputs:any, part
  
       
      
-      <p style="font-size:1.2rem">
+      <p style="font-size:1.2rem ; color:#ffffff">
         Please note that your registration is currently under verification. Your verification will be verified within 2 days. We kindly ask for your patience and understanding as our team ensures the smooth processing of all registrations. If you have any urgent inquiries, feel free to reach out to us at [Contact Email/Phone].
       </p>
-      <p style="font-size:1.2rem">
+      <p style="font-size:1.2rem;color:#ffffff">
         Thank you once again for choosing to be a part of the <strong  style="letter-spacing:2px; color: #c9a747">${eventName}</strong>. We wish you the best of luck, and we can't wait to see you showcase your talents!
       </p>
-      <p style="letter-spacing:2px ; font-size:1.5rem">Warm regards,</p>
+      <p style="letter-spacing:2px ; font-size:1.5rem ; color:#ffffff">Warm regards,</p>
       <p  style="letter-spacing:2px; color: #c9a747 ; font-size:1.5rem">Regalia 2024</p>
     </div>
 </div>

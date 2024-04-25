@@ -36,6 +36,13 @@ const EventRegCard = ({ teams }: { teams: any }) => {
     getEventName();
   }, [teams]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  });
   return (
     <div className="px-5 lg:px-0 md:w-[70%] lg:w-[40%] xl:w-auto 2xl:h-auto">
       <BackgroundGradient className="">
@@ -176,8 +183,10 @@ const Page = () => {
     };
     getData();
   }, [user]);
+
+ 
   return (
-    <div className="min-h-[80vh] w-full px-2 lg:px-10 mb-10 flex flex-col items-center gap-10 mt-10">
+    <div className="min-h-[80vh] w-full px-2 lg:px-10 mb-10 flex flex-col items-center gap-5 mt-10">
          <SparkleHeading text="Registrations" />
      <div className="flex flex-row text-center items-center text-sm lg:text-xl flex-wrap gap-5 md:gap-8 xl:gap-20 justify-evenly font-hollirood">
         <h1>Name : {user?.name}</h1>
@@ -197,7 +206,6 @@ const Page = () => {
             teamData?.map((team: any, index: number) => {
               return(<>
               <EventRegCard key={index} teams={team} />
-            
               </> );
             }) : <div className="flex flex-col items-center justfiy-center font-hollirood gap-5 mt-20 mx-auto">
                 <h1 className="font-semibold text-xl">No Registrations Yet !</h1>

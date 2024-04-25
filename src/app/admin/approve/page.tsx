@@ -1,6 +1,5 @@
 "use client";
 
-
 import ApproveModal from "@/components/admin/ApproveModal";
 import { MemberModal } from "@/components/admin/MemberModal";
 import FormElement from "@/components/common/FormElement";
@@ -28,7 +27,7 @@ const Page = () => {
     college: "",
   });
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>,
   ) => {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({
@@ -40,7 +39,7 @@ const Page = () => {
     const sortedResults = [...filteredResults].sort((a, b) =>
       sortOrder === "asc"
         ? a.transaction_verified - b.transaction_verified
-        : b.transaction_verified - a.transaction_verified
+        : b.transaction_verified - a.transaction_verified,
     );
     setFilteredResults(sortedResults);
   }, [sortOrder, JSON.stringify(filteredResults)]);
@@ -56,11 +55,11 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const data = await getRegistrations();
-   
+
         setFilteredResults(data);
         setRegistrations(data);
-        console.log(data)
-    
+        console.log(data);
+        setLoading(false);
         // const swcPaidRegistrationsCount = data.filter(
         //   (res: any) => res.swc === "Yes"
         // ).length;
@@ -84,7 +83,7 @@ const Page = () => {
       }
     };
     fetchData();
-  }, [filteredResults]);
+  }, [filteredResults.length == 0]);
 
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -126,21 +125,27 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full mx-auto  flex flex-col items-center gap-5 ">
-      <h1 className="font-semibold text-4xl text-center">Admin Dashboard</h1>
-    
+    <div className="mx-auto flex  min-h-[80vh] w-full flex-col items-center gap-5">
+      <h1 className="text-center font-hollirood text-4xl font-semibold tracking-wider">
+        Admin Dashboard
+      </h1>
+
       {loading ? (
-        <div className="min-h-[60vh] flex flex-col justify-center items-center">
+        <div className="flex min-h-[60vh] flex-col items-center justify-center">
           <PuffLoader size={40} color="#000" />{" "}
         </div>
+      ) : filteredResults?.length == 0 ? (
+        <h1 className="mx-auto mt-20 flex w-full flex-col items-center justify-center font-hollirood text-2xl font-semibold tracking-wider text-red-600">
+          No Such Registrations Available !
+        </h1>
       ) : (
-        <div className="overflow-x-auto px-3 w-full mx-auto">
-          <table className="w-full leading-8 font-hollirood tracking-widest oveflow-x-auto table-auto border border-gray-300 rounded-xl">
+        <div className="mx-auto w-full overflow-x-auto px-3">
+          <table className="oveflow-x-auto w-full table-auto rounded-xl border border-gray-300 font-hollirood leading-8 tracking-widest">
             <thead>
               <tr className="text-center">
                 <th>Sl. No.</th>
                 <th
-                  className="px-4 py-2 flex items-center cursor-default"
+                  className="flex cursor-default items-center px-4 py-2"
                   onClick={handleSort}
                 >
                   Payment Status
@@ -158,11 +163,12 @@ const Page = () => {
                 <th>Team Lead Phone</th>
                 <th>Team Lead Email</th>
                 <th>Transaction ID</th>
-               <th>Members</th>
+                <th>Members</th>
                 <th>Registered at</th>
                 <th>SWC</th>
               </tr>
             </thead>
+
             <tbody>
               {filteredResults.map((registration: any, index: number) => {
                 return (
@@ -171,8 +177,8 @@ const Page = () => {
                       key={index}
                       className={
                         registration.transaction_verified
-                          ? "bg-green-100 text-green-500 font-semibold text-center text-sm"
-                          : "cursor-pointer bg-red-100 text-red-500 font-semibold text-sm text-center hover:bg-red-200 hover:text-red-600"
+                          ? "bg-green-100 text-center text-sm font-semibold text-green-500"
+                          : "cursor-pointer bg-red-100 text-center text-sm font-semibold text-red-500 hover:bg-red-200 hover:text-red-600"
                       }
                     >
                       <td className="border  border-gray-300 px-4 py-2">
@@ -181,10 +187,8 @@ const Page = () => {
                       <td
                         className="border border-gray-300 px-4 py-2"
                         onClick={() => {
-                          
-                            setModalData(registration);
-                            setOpen(true);
-                          
+                          setModalData(registration);
+                          setOpen(true);
                         }}
                       >
                         {registration.transaction_verified
@@ -192,10 +196,12 @@ const Page = () => {
                           : "Not Verified"}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
-                        {registration.events.event_name}
+                        {registration.events[0].event_name}
                       </td>
                       <td className="border border-gray-300 px-2 py-2">
-                        {registration.team_type}
+                        {registration.events[0].max_team_member > 1
+                          ? "Team"
+                          : "Solo"}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
                         {registration.team_name}
@@ -204,40 +210,40 @@ const Page = () => {
                         {registration.college}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
-                        {registration?.team_lead_name!}
+                        {registration?.users?.name!}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
                         {registration?.team_lead_phone!}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
-                        {registration?.team_lead_email!}
+                        {registration?.users?.email!}
                       </td>
                       <td className="border border-gray-300  py-2">
                         {registration.transaction_id}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
-                  <button
-                    onClick={() => {
-                      setMembersData(registration.team_members);
-                      setIsModalOpen(true);
-                    }}
-                    className="font-semibold border-black border hover:bg-white hover:text-black text-center text-xs px-5 py-2 bg-black text-white rounded-xl"
-                  >
-                    View Members
-                  </button>
-                </td>
+                        <button
+                          onClick={() => {
+                            setMembersData(registration.participations);
+                            setIsModalOpen(true);
+                          }}
+                          className="rounded-xl border border-black bg-black px-5 py-2 text-center text-xs font-semibold text-white hover:bg-white hover:text-black"
+                        >
+                          View Members
+                        </button>
+                      </td>
                       <td className="border border-gray-300 py-2">
                         {new Date(registration.created_at).toLocaleDateString(
                           "en-US",
-                          options
+                          options,
                         )}
                       </td>
                       <td
                         className={`${
-                          registration.swc === "No" ? "text-red-600" : ""
+                          !registration.users.swc ? "text-red-600" : ""
                         } border border-gray-300 py-2`}
                       >
-                        {registration.swc}
+                        {registration.users.swc ? "Yes" : "No"}
                       </td>
                     </tr>
                   </>
@@ -253,7 +259,7 @@ const Page = () => {
         data={modalData}
         setRegistrations={setRegistrations}
       />
-       <MemberModal
+      <MemberModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         members={membersData}

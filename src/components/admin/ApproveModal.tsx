@@ -18,6 +18,7 @@ const ApproveModal = ({
   data: any;
   setRegistrations: any;
 }) => {
+  console.log(data);
   const [imageUrl, setImageUrl] = useState<any>("");
   const [loaded, setLoaded] = useState(false);
   let teamType;
@@ -91,7 +92,7 @@ const ApproveModal = ({
         <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
           <div
             className={`flex h-[60%] w-[90%] flex-col items-start rounded-lg border-y-2 border-regalia
-            bg-body p-4 font-hollirood tracking-widest md:w-[30%] `}
+            bg-body p-4 font-hollirood tracking-widest md:w-[40%] lg:w-[30%] `}
           >
             <div className="mb-2 flex w-full flex-row items-center justify-between">
               <h2 className="text-lg font-semibold">Approve Registration</h2>
@@ -108,7 +109,7 @@ const ApproveModal = ({
                 Transaction ID : {data.transaction_id}
               </h1>
               <h1 className="text-sm font-semibold">
-                Event Name : {data.events.event_name}
+                Event Name : {data.events[0].event_name}
               </h1>
               {/* <h1 className="font-semibold text-sm">Team Type : {teamType}</h1> */}
               <h1 className="text-sm font-semibold">
@@ -119,6 +120,9 @@ const ApproveModal = ({
               </h1>
               <h1 className="text-sm font-semibold">
                 Team Lead Phone : {data.participations[0]?.phone!}
+              </h1>
+              <h1 className="text-sm font-semibold">
+                Team Size : {data.participations.length}
               </h1>
 
               {imageUrl && (
