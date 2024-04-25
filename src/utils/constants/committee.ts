@@ -15,7 +15,7 @@ export const CommitteeDetails = [
         {
           name: "Mr. Harinandan Tunga",
           role: "Associate Professor, RCCIIT",
-          phone: "+919339877213 ",
+          phone: "+91 9339877213 ",
         },
       ],
     },
@@ -39,26 +39,21 @@ export const CommitteeDetails = [
     //     },
     //   ],
     // },
-    // {
-    //   title: "For Event Details",
-    //   members: [
-    //     {
-    //       name: "Shatabdi Das",
-    //       role: "",
-    //       phone: "+91 9051805749",
-    //     },
-    //   ],
-    // },
-    // {
-    //   title: "For Sponsorship",
-    //   members: [
-    //     {
-    //       name: "Aranya Nandi",
-    //       role: "",
-    //       phone: "+91 6296851026",
-    //     },
-    //   ],
-    // },
+    {
+      title: "For Sponsorship",
+      members: [
+        {
+          name: "Swastika Bose",
+          role: "Sponsorship Head",
+          phone: "+91 7044669104",
+        },
+        {
+          name: "Arnab Dey",
+          role: "",
+          phone: "+91 62914534074",
+        },
+      ],
+    },
     {
       title: "SWC Student Representatives",
       members: [

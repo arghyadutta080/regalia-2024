@@ -25,7 +25,7 @@ const footerRoutes = [
   },
   {
     name: "Sponsorship Brochure",
-    link: "/",
+    link: "https://drive.google.com/file/d/1vHVe34w9f6YcW3dDwtbuj2FkUh7Rj6fr/view?usp=sharing",
   },
   {
     name: "Contact Us",
@@ -35,7 +35,7 @@ const footerRoutes = [
 
 const FooterChip = ({name,link}:FooterRoutesType)=>{
   return(
-    <Link href={link} className="text-sm font-retrolight cursor-pointer hover:text-slate-300 duration-500 lg:text-xl last:border-0  lg:border-r-2 lg:border-white px-5 py-1 lg:px-20">
+    <Link target="_blank" href={link} className="text-sm font-retrolight cursor-pointer hover:text-slate-300 duration-500 lg:text-xl last:border-0  lg:border-r-2 lg:border-white px-5 py-1 lg:px-20">
       {name}
     </Link>
   )

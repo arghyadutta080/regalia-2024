@@ -1,13 +1,13 @@
-
 import { supabase } from "@/lib/supabase-client";
 import { v4 as uuidv4 } from "uuid";
 import { v1 as uuidv1 } from "uuid";
+import { registrationConfirmationEmail } from "../constants/emails";
 export const eventReg = async (
   team: any,
   participants: any,
   file: any,
   eventId: any,
-  swc: boolean
+  swc: boolean,
 ) => {
   const eventResponse = await supabase
     .from("events")
@@ -29,7 +29,7 @@ export const eventReg = async (
         referral_code: team.referralCode !== "" ? team.referralCode : "default",
         transaction_verified: swc ? true : false,
         reg_mode: team.regMode,
-        college: swc ? "RCCIIT"  : team.college,
+        college: swc ? "RCCIIT" : team.college,
       })
       .select();
     teamId = data![0].team_id!;
@@ -58,7 +58,7 @@ export const eventReg = async (
         referral_code: team.referralCode !== "" ? team.referralCode : "default",
         transaction_verified: swc ? true : false,
         reg_mode: team.regMode,
-        college: swc ? "RCCIIT"  : team.college,
+        college: swc ? "RCCIIT" : team.college,
       })
       .select();
     teamId = individualData![0].team_id!;
@@ -80,6 +80,16 @@ export const eventReg = async (
       .from("fests")
       .upload(`Regalia/2024/${eventId}/transactions/${file.name!}`, file!);
   }
+
+  const email = registrationConfirmationEmail( eventResponse.data![0].event_name, team, participants);
+  const response = await fetch("/api/sendEmail", {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({email:email}),
+  });
+  console.log(await response.json());
 
   // console.log(uploadFile);
 };
