@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { Resend } from 'resend';
 export async function POST(request: NextRequest) {
   try {
     const { email , subject , targetEmails } = await request.json();
@@ -12,8 +11,8 @@ export async function POST(request: NextRequest) {
       tls: {
         ciphers: "SSLv3",
     },
-      port: 587 ,
-      secure: false,
+      port: 465 ,
+      secure: true,
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL_USERNAME,
         pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,

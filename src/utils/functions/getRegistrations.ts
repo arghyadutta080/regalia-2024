@@ -7,13 +7,14 @@ export const getRegistrations = async () => {
    await Promise.all(eventIds?.map(async (eventId: any) => {
         const { data: teamData, error: teamError } = await supabase.from('teams').select('*,users(email,name,phone,swc)').eq("event_id", eventId);
         const { data: eventData, error: eventError } = await supabase.from('events').select('event_name,fest_name,max_team_member').eq("id", eventId);
-        if (teamData && teamData.length > 0) {
-            const { data, error } = await supabase.from('participations').select('*').eq("team_id", teamData[0].team_id);
-            teamData[0].events = eventData;
-            teamData[0].participations = data;
-            registrationArray.push(teamData[0]);
-        }
+       for(const obj of teamData!){
+         const { data, error } = await supabase.from('participations').select('*').eq("team_id", obj.team_id);
+         obj.events = eventData;
+         obj.participations = data;
+         registrationArray.push(obj!);
+       }
    }));
-//    console.log("Registration array:", registrationArray);
+
    return registrationArray;
+   
 };

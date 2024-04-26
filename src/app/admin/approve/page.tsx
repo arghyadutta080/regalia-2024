@@ -55,7 +55,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const data = await getRegistrations();
-
+      
         setFilteredResults(data);
         setRegistrations(data);
         // console.log(data);
@@ -190,7 +190,7 @@ const Page = () => {
           width="1/3"
         />
       </div>
-      {loading && loadingSearch ? (
+      {loading ? (
         <div className="flex min-h-[60vh] flex-col items-center justify-center">
           <PuffLoader size={40} color="#c9a747" />{" "}
         </div>
