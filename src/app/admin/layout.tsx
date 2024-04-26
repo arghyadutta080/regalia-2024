@@ -4,8 +4,8 @@ import { constructMetaData } from "@/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = constructMetaData({
-  title: "Admin | TechTrix 2024",
-  description: "TechTrix 2024's Events",
+  title: "Admin | Regalia 2024",
+  description: "Admin Dashboard of Regalia 2024",
 });
 
 export default function AdminLayout({

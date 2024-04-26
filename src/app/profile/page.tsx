@@ -1,7 +1,14 @@
 import Heading from '@/components/common/Heading'
 import UserRegForm from '@/components/profile/UserRegForm'
+import { constructMetaData } from '@/utils'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import React from 'react'
+
+export const metadata: Metadata = constructMetaData({
+  title: 'Profile | Regalia 2024',
+  description: 'Inter-college cultural fest of RCCIIT.',
+})
 
 const page = () => {
   return (
