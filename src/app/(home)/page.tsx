@@ -3,6 +3,7 @@ import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Events from "@/components/home/Events";
 import Image from "next/image";
+import Sponsors from "@/components/home/Sponsors";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
         width={0}
         height={0}
       />
+      <Sponsors />
     </main>
   );
 };

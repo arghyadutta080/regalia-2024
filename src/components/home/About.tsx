@@ -18,10 +18,10 @@ const About = () => {
             alt=""
           />
         </div>
-        <div className=" relative top-20 flex h-full self-end   flex-col items-center gap-10 text-start font-hollirood text-sm tracking-widest    md:text-lg   lg:text-xl ">
+        <div className=" relative top-20 lg:right-20 flex h-full self-end   flex-col items-center gap-10 text-start font-hollirood text-sm tracking-widest    md:text-lg   lg:text-xl ">
           <div className="w-[80%] md:w-[70%] lg:w-[60%] 2xl:w-[50%] lg:self-end">
           <Heading text="About" />
-          <p className="flex mt-5 flex-row self-end xl:tracking-widest lg:leading-relaxed">
+          <p className="flex mt-5 flex-row text-justify self-end xl:tracking-widest lg:leading-relaxed">
             Regalia is the annual cultural fest of RCCIIT, which is a highly
             anticipated event among the college students and faculties. The fest
             is scheduled to be held in the month of May. Regalia 2024 fest
