@@ -92,28 +92,28 @@ const Page = () => {
   const onClose = () => {
     setOpen(false);
   };
-  useEffect(() => {
-    const filteredResults = registrations.filter(
-      (registration: any) =>
-        registration.team_lead_phone.includes(inputs.phone) &&
-        registration.team_lead_email.includes(inputs.teamLeadEmail) &&
-        registration.transaction_id.includes(inputs.transactionId) &&
-        registration.swc.toLowerCase().includes(inputs.swc.toLowerCase()) &&
-        registration.college
-          .toLowerCase()
-          .includes(inputs.college.toLowerCase()) &&
-        registration.team_lead_name
-          .toLowerCase()
-          .includes(inputs.teamLeadName.toLowerCase()) &&
-        registration.events.event_name
-          .toLowerCase()
-          .includes(inputs.eventName.toLowerCase()) &&
-        new Date(registration.created_at)
-          .toLocaleDateString("en-US", options)
-          .includes(inputs.createdAt)
-    );
-    setFilteredResults(filteredResults);
-  }, [inputs, registrations]);
+  // useEffect(() => {
+  //   const filteredResults = registrations.filter(
+  //     (registration: any) =>
+  //       registration.team_lead_phone.includes(inputs.phone) &&
+  //     registration.team_lead_email.includes(inputs.teamLeadEmail) &&
+  //       registration.transaction_id.includes(inputs.transactionId) &&
+  //       registration.swc.toLowerCase().includes(inputs.swc.toLowerCase()) &&
+  //       registration.college
+  //         .toLowerCase()
+  //         .includes(inputs.college.toLowerCase()) &&
+  //       registration.team_lead_name
+  //         .toLowerCase()
+  //         .includes(inputs.teamLeadName.toLowerCase()) &&
+  //       registration.events.event_name
+  //         .toLowerCase()
+  //         .includes(inputs.eventName.toLowerCase()) &&
+  //       new Date(registration.created_at)
+  //         .toLocaleDateString("en-US", options)
+  //         .includes(inputs.createdAt)
+  //   );
+  //   setFilteredResults(filteredResults);
+  // }, [inputs, registrations]);
   const options: any = {
     year: "numeric",
     month: "2-digit",
@@ -132,7 +132,7 @@ const Page = () => {
 
       {loading ? (
         <div className="flex min-h-[60vh] flex-col items-center justify-center">
-          <PuffLoader size={40} color="#000" />{" "}
+          <PuffLoader size={40} color="#c9a747" />{" "}
         </div>
       ) : filteredResults?.length == 0 ? (
         <h1 className="mx-auto mt-20 flex w-full flex-col items-center justify-center font-hollirood text-2xl font-semibold tracking-wider text-red-600">

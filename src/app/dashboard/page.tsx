@@ -119,12 +119,12 @@ const MemberModal = ({
       {isOpen && (
         <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
           <div
-            className={`flex h-auto w-[90%] flex-col
-             items-start rounded-lg bg-body border-y-2 border-regalia p-4 md:w-[25%] `}
+            className={`flex h-auto max-h-[50vh] md:max-h-[40vh] lg:max-h-[50vh] 2xl:max-h-[60vh] w-[90%] flex-col
+             items-start rounded-lg bg-body border-y-2 border-regalia p-4 md:w-[35%] lg:w-[25%] `}
           >
             <div className="mb-2 flex w-full flex-row items-center justify-between">
               <h2 className="text-lg font-semibold">Members</h2> 
-
+ 
               <h2
                 onClick={onClose}
                 className="cursor-pointer rounded-xl border border-regalia bg-regalia px-3 py-1 text-black hover:bg-black hover:text-regalia hover:border-regalia"
@@ -133,7 +133,7 @@ const MemberModal = ({
               </h2>
             </div>
 
-            <div className="my-1 flex h-full w-full flex-col items-center gap-2 overflow-y-scroll px-1 py-2 text-center">
+            <div className="my-1 flex  w-full flex-col items-center gap-2 overflow-y-auto px-1 py-2 text-center">
               {members.map((member: any, index: number) => {
                 return (
                   <div
@@ -206,6 +206,7 @@ const Page = () => {
             teamData?.map((team: any, index: number) => {
               return(<>
               <EventRegCard key={index} teams={team} />
+            
               </> );
             }) : <div className="flex flex-col items-center justfiy-center font-hollirood gap-5 mt-20 mx-auto">
                 <h1 className="font-semibold text-xl">No Registrations Yet !</h1>

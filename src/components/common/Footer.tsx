@@ -43,7 +43,7 @@ const FooterChip = ({name,link}:FooterRoutesType)=>{
 
 const SocialsGroup = () => {
   return(
-    <div className="flex flex-row items-center gap-20 mt-5">
+    <div className="flex flex-row items-center my-8 gap-20 ">
       <Link target="_blank" href={"https://www.google.co.in/search?q=rcciit&rlz=1C2CHBF_enIN918IN918&sca_esv=e76f17f54d7fb754&sca_upv=1&sxsrf=ACQVn09xP1hBSQlG6DeK7367_Nu5WdRncw%3A1712837705679&source=hp&ei=SdQXZpjmJs_O1e8PyZ63IA&iflsig=ANes7DEAAAAAZhfiWdnVCoNegxvnAMPFl5Wk-Z8g7q9E&ved=0ahUKEwjYroLYkbqFAxVPZ_UHHUnPDQQQ4dUDCBU&uact=5&oq=rcciit&gs_lp=Egdnd3Mtd2l6IgZyY2NpaXQyBBAjGCcyChAuGIAEGIoFGCcyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEirEFAAWMsOcAJ4AJABAJgBuQGgAbQIqgEDMC42uAEDyAEA-AEBmAIIoALMCKgCCsICChAjGIAEGIoFGCfCAgsQABiABBiKBRiRAsICDhAAGIAEGIoFGJECGLEDwgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCxAAGIAEGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgcQIxjqAhgnwgIREAAYgAQYigUYkQIYsQMYgwHCAg4QLhiDARixAxiABBiKBcICCBAuGIAEGLEDmAMCkgcDMi42oAeKPw&sclient=gws-wiz"} className="p-2 rounded-full cursor-pointer hover:text-red-500 bg-white text-regalia">
       <FaGoogle size={24} />
       </Link>

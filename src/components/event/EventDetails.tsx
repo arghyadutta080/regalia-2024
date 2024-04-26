@@ -213,6 +213,7 @@ const EventDetails = ({ eventDetails }: any) => {
         isOpen={openRegister}
         onClose={onClose}
         eventDetails={eventDetails}
+        roles={eventInfo?.roles!}
       />
     </>
   );

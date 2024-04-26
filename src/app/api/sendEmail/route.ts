@@ -3,8 +3,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json();
+    const { email , subject , targetEmails } = await request.json();
     console.log(email);
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
@@ -17,9 +18,9 @@ export async function POST(request: NextRequest) {
     });
 
     const mailOption = {
-      from: "soumyarajbag@gmail.com",
-      to: "cse2023b04@rcciit.org.in",
-      subject: "Send Email Tutorial",
+      from: "regalia.rcciit.official@gmail.com",
+      to: targetEmails,
+      subject: subject,
       html: email,
     };
 

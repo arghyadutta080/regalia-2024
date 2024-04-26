@@ -1,7 +1,7 @@
 
 
 interface teamError {
-  // email: string;
+  email: string;
   phone: string;
   name: string;
 }
@@ -24,6 +24,8 @@ export const validateReg = (
   // const uniqueEmails = new Set<string>();
 
   let uniquePhones = new Set<string>();
+  
+  let uniqueEmails = new Set<string>();
   const teamErrors: teamError[] = [];
   const regexPhone =
     /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
@@ -71,20 +73,20 @@ export const validateReg = (
   if (maxTeamMember > 1) {
     participants.forEach((participant: any, index: number) => {
       teamErrors[index] = {
-        // email: "",
+        email: "",
         phone: "",
         name: "",
       };
 
-      // if (participant.email === "") {
-      //   teamErrors[index].email = "Email is required";
-      // } else if (!regexEmail.test(participant.email)) {
-      //   teamErrors[index].email = "Invalid Email";
-      // } else if (uniqueEmails.has(participant.email)) {
-      //   teamErrors[index].email = `Email is already used in the team`;
-      // } else {
-      //   uniqueEmails.add(participant.email);
-      // }
+      if (participant.email === "") {
+        teamErrors[index].email = "Email is required";
+      } else if (!regexEmail.test(participant.email)) {
+        teamErrors[index].email = "Invalid Email";
+      } else if (uniqueEmails.has(participant.email)) {
+        teamErrors[index].email = `Email is already used in the team`;
+      } else {
+        uniqueEmails.add(participant.email);
+      }
 
       if (participant.phone === "") {
         teamErrors[index].phone = "Phone is required";

@@ -8,7 +8,10 @@ export const eventReg = async (
   file: any,
   eventId: any,
   swc: boolean,
+  rolesData: any
 ) => {
+  const participantEmails = participants.map((participant: any) => participant.email);
+  const combinedEmails = participantEmails.join(' , ');
   const eventResponse = await supabase
     .from("events")
     .select("*")
@@ -40,7 +43,7 @@ export const eventReg = async (
           team_id: teamId,
           phone: participant.phone,
           name: participant.name,
-          //  email:participant.email,
+           email:participant.email,
         })
         .select();
     });
@@ -68,6 +71,7 @@ export const eventReg = async (
         team_id: individualData![0].team_id!,
         phone: team.teamLeadPhone,
         name: team.teamLeadName,
+        email: team.teamLeadEmail,
       })
       .select();
     if (individualError || participantError) {
@@ -79,17 +83,20 @@ export const eventReg = async (
     const { data: uploadFile, error: uploadError } = await supabase.storage
       .from("fests")
       .upload(`Regalia/2024/${eventId}/transactions/${file.name!}`, file!);
+      if(uploadFile){
+        const email = registrationConfirmationEmail( eventResponse.data![0].event_name, team, participants,rolesData);
+        const response = await fetch("/api/sendEmail", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({email:email,targetEmails:combinedEmails,subject:`${team.teamName} : Registration Confirmation for ${eventResponse.data![0].event_name} in Regalia 2024`}),
+        });
+        console.log(await response.json());
+      }
   }
 
-  const email = registrationConfirmationEmail( eventResponse.data![0].event_name, team, participants);
-  const response = await fetch("/api/sendEmail", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({email:email}),
-  });
-  console.log(await response.json());
+  
 
   // console.log(uploadFile);
 };
