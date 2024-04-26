@@ -20,7 +20,6 @@ const Page = () => {
         .from("roles")
         .select()
         .match({ id: data?.session?.user?.id });
-
       const allEvents = await supabase
         .from("events")
         .select("*")
@@ -51,7 +50,7 @@ const Page = () => {
       if (showAllEvents) {
         filteredEvents = events;
       } else {
-        const coordinatingEvents = events!.filter((event) =>
+        filteredEvents = events!.filter((event) =>
           coordinatingEventIds.includes(event.id)
         );
       }
