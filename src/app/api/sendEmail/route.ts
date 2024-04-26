@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
         ciphers: "SSLv3",
     },
       port: 465,
-      secure: false,
+      secure: true,
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL_USERNAME,
         pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
