@@ -155,6 +155,41 @@ const EventDetails = ({ eventDetails }: any) => {
                       );
                     })}
                 </div>
+                {!registeredEvent! &&
+                  eventDetails! &&
+                  eventDetails!.is_open && (
+                    <button
+                      className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                      disabled={!eventDetails.is_open}
+                      onClick={async () => {
+                        if (!user) {
+                          login();
+                        }
+                        clickSound();
+                        setOpenRegister(true);
+                      }}
+                    >
+                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-lg">
+                        Register Now
+                      </span>
+                    </button>
+                  )}
+                {registeredEvent! && (
+                  <button
+                    className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                    onClick={() => {
+                      clickSound();
+                      router.push("/dashboard");
+                    }}
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-sm">
+                      Already Registered
+                      <TiTick size={24} />
+                    </span>
+                  </button>
+                )}
               </div>
               <div className="mx-auto flex h-full w-full flex-col max-lg:mt-10 max-md:mt-0 md:w-[1/6] lg:w-[30%]">
                 <Image
