@@ -159,7 +159,7 @@ const EventDetails = ({ eventDetails }: any) => {
                   eventDetails! &&
                   eventDetails!.is_open && (
                     <button
-                      className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                      className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto  overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
                       disabled={!eventDetails.is_open}
                       onClick={async () => {
                         if (!user) {
@@ -170,7 +170,7 @@ const EventDetails = ({ eventDetails }: any) => {
                       }}
                     >
                       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
-                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-lg">
+                      <span className="inline-flex h-full w-full  cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-xl font-medium text-white backdrop-blur-3xl md:text-sm lg:text-lg">
                         Register Now
                       </span>
                     </button>
@@ -214,7 +214,7 @@ const EventDetails = ({ eventDetails }: any) => {
                       }}
                     >
                       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
-                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-medium text-white backdrop-blur-3xl md:text-sm lg:text-lg">
+                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-lg font-medium text-white backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-lg">
                         Register Now
                       </span>
                     </button>

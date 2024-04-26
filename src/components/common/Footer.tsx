@@ -25,7 +25,7 @@ const footerRoutes = [
   },
   {
     name: "Sponsorship Brochure",
-    link: "https://drive.google.com/file/d/1vHVe34w9f6YcW3dDwtbuj2FkUh7Rj6fr/view?usp=sharing",
+    link: "https://drive.google.com/file/d/12ioxUo3T7jbVruX5KEj1gvLgiDRZc2U8/view?usp=sharing",
   },
   {
     name: "Contact Us",
