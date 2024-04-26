@@ -93,6 +93,7 @@ export const eventReg = async (
       .upload(`Regalia/2024/${eventId}/transactions/${file.name!}`, file!);
     if (uploadFile) {
       const email = registrationConfirmationEmail(eventResponse.data![0].event_name, team, participants, rolesData);
+      console.log(email)
       const response = await fetch("/api/sendEmail", {
         method: "POST",
         headers: {
@@ -100,7 +101,7 @@ export const eventReg = async (
         },
         body: JSON.stringify({ email: email, targetEmails: combinedEmails, subject: `${team.teamName} : Registration Confirmation for ${eventResponse.data![0].event_name} in Regalia 2024` }),
       });
-      // console.log(await response.json());
+      console.log(await response.json());
     }
   }
 

@@ -9,8 +9,11 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
+      tls: {
+        ciphers: "SSLv3",
+    },
       port: 465,
-      secure: true,
+      secure: false,
       auth: {
         user: process.env.NEXT_PUBLIC_EMAIL_USERNAME,
         pass: process.env.NEXT_PUBLIC_EMAIL_PASSWORD,
