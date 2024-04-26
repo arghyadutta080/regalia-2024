@@ -168,6 +168,7 @@ const EventRegForm = ({
         }
       }
     } catch (err) {
+      setDisabled(false);
       console.log(err);
       toast.error("Registration Failed !");
     }

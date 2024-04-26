@@ -1,3 +1,5 @@
+import { clearSpaces } from "../functions/validate";
+
 export const registrationConfirmationEmail = (
   eventName: string,
   inputs: any,
@@ -13,16 +15,16 @@ export const registrationConfirmationEmail = (
     <div style="color: #ffffff; width:80%">
       <h2 style="color: #c9a747; font-weight: 600; font-size: 2rem; letter-spacing:3px;">Registration Confirmation for ${eventName} in Regalia 2024</h2>
       <h4 style="font-size:1.4rem">
-        Dear Team ${inputs.teamName},
+        Dear ${participants && participants?.length > 1 ? "Team" : ""} ${inputs.teamName},
       </h4>
       <p  style="font-size:1.2rem;color:#ffffff">
         We are delighted to inform you that your registration for the event <strong  style="letter-spacing:2px; color: #c9a747">${eventName}</strong> has been successfully received. Your enthusiasm for participation is truly appreciated, and we're looking forward to an exciting event ahead!
       </p>
       <h3 style="color: #ffffff; font-weight: 500; font-size:1.4rem">Registration Details :</h3>
       <ul style="color: #ffffff; font-size:1.2rem">
-        <li><strong>Team Name:</strong> ${inputs.teamName}</li>
-        <li><strong>Team Leader Name:</strong> ${inputs.teamLeadName}</li>
-        <li><strong>Team Leader Phone:</strong> ${inputs.teamLeadPhone}</li>
+      ${participants && participants.length > 1 ? `<li><strong> Team Name:</strong> ${inputs.teamName}</li>` : ""}
+        <li><strong>${participants && participants?.length > 1 ? "Team Leader" : ""} Name:</strong> ${inputs.teamLeadName}</li>
+        <li><strong>${participants && participants?.length > 1 ? "Team Leader" : ""} Phone:</strong> <a href="tel: ${clearSpaces(inputs.teamLeadPhone).trim()}" style="color:#008000 ">${clearSpaces(inputs.teamLeadPhone).trim()}</a></li>
         <li style=""><strong>Email:</strong> <span style="color:#008000 ; font-size:1.5rem; letter-spacing:1px">${inputs.teamLeadEmail}</span></li>
       </ul>
       
@@ -30,8 +32,8 @@ export const registrationConfirmationEmail = (
       
       
     
-      ${
-        participants?.length > 0 &&
+      ${ participants &&
+        participants?.length > 1 ?
         `<div style="">
           <h3 style="color: #ffffff; font-weight: 500; font-size:1.4rem">Team Members:</h3>
           <table style=" font-size:1.2rem ">
@@ -47,14 +49,14 @@ export const registrationConfirmationEmail = (
               (participant: any, index: number) =>
                 `<tr key=${index}>
                   <td style=" padding:5px 20px; text-align: center;">${participant.name}</td>
-                  <td style=" padding: 5px 20px; text-align: center;"><a href="tel: ${participant.phone}">${participant.phone}</a></td>
+                  <td style=" padding: 5px 20px; text-align: center;"><a href="tel: ${clearSpaces(participant.phone).trim()}">${clearSpaces(participant.phone).trim()}</a></td>
               </tr>`,
             )
             .join("")}
           </tbody>
       </table>
       
-        </div>`
+        </div>` : ""
       }
       </div>
  
@@ -95,12 +97,11 @@ export const registrationConfirmationEmail = (
    `;
 };
 
-
 export const registrationVerificationEmail = (
   eventName: string,
   whatsAppLink: string,
   teamName: string,
-  
+
   team: any,
   participants: any,
   rolesData: any,

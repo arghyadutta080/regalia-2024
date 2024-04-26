@@ -80,7 +80,7 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
           Sort
         </button> */}
       </div>
-      <table className="w-full table-auto border border-gray-300 rounded-xl">
+      <table className="w-full table-auto border border-gray-300 rounded-xl font-hollirood leading-8 tracking-widest">
         <thead>
           <tr className="text-center">
             <th>Sl. No.</th>
@@ -106,7 +106,7 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
             <th>SWC</th>
             <th>Attendance</th>
             <th>Members</th>
-            <th>Create At</th>
+            <th>Created At</th>
           </tr>
         </thead>
         <tbody>
@@ -187,10 +187,10 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
         </tbody>
       </table>
       {filteredResults.length === 0 && (
-        <div className="flex flex-col items-center justify-center mt-20">
-          <h1 className="font-semibold text-black text-2xl">
-            No Registrations yet !
-          </h1>
+        <div className="flex flex-col items-center justify-center my-32">
+  <h1 className="mx-auto mt-20 flex w-full flex-col items-center justify-center font-hollirood text-2xl font-semibold tracking-wider text-red-600">
+          No Such Registrations Available !
+        </h1>
         </div>
       )}
       <MemberModal
