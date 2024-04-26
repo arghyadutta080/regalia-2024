@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabase-client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import RegFormElement from "../common/RegFormElement";
-import { validateUserReg } from "@/utils/functions/validate";
+import { clearSpaces, validateUserReg } from "@/utils/functions/validate";
 import FormElement from "../common/FormElement";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -49,7 +49,7 @@ const UserRegForm = () => {
           .update({
             name: inputs.name,
             college: inputs.college,
-            phone: inputs.phone,
+            phone: clearSpaces(inputs.phone).trim(),
             gender: inputs.gender,
             college_roll: inputs?.roll!,
           })

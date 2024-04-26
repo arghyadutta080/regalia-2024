@@ -7,6 +7,7 @@ import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { useUser } from "@/lib/store/user";
 import { supabase } from "@/lib/supabase-client";
 import { clickSound } from "@/utils/functions";
+import { getIndividualRegs } from "@/utils/functions/getIndividualRegs";
 import { getRegbyUser } from "@/utils/functions/getRegbyUser";
 import Image from "next/image";
 import Link from "next/link";
@@ -95,7 +96,7 @@ const EventRegCard = ({ teams }: { teams: any }) => {
             <MemberModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        members={teams.members}
+        members={teams.participations}
       />
       </div>
       </BackgroundGradient>
@@ -174,8 +175,7 @@ const Page = () => {
   const [search, setSearch] = useState<string>("");
   useEffect(() => {
     const getData = async () => {
-      const data = await getRegbyUser(user);
-      // console.log(data);
+      const data = await getIndividualRegs(user?.phone!);
       const { data: userData, error } = await supabase.auth.getSession();
       setUserImage(userData?.session?.user?.user_metadata?.avatar_url!);
       setTeamData(data);

@@ -125,7 +125,7 @@ export const validateUserReg = (inputs: any) => {
   }
   if (inputs.phone === "") {
     errors.phone = "Phone is required";
-  } else if (!regexPhone.test(inputs.phone)) {
+  } else if (!regexPhone.test(clearSpaces(inputs.phone).trim())) {
     errors.phone = "Invalid Phone Number";
   }
 
