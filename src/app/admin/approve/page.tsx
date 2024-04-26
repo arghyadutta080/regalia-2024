@@ -83,7 +83,7 @@ const Page = () => {
       }
     };
     fetchData();
-  }, [filteredResults.length == 0]);
+  }, []);
 
   const handleSort = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -92,28 +92,30 @@ const Page = () => {
   const onClose = () => {
     setOpen(false);
   };
-  // useEffect(() => {
-  //   const filteredResults = registrations.filter(
-  //     (registration: any) =>
-  //       registration.team_lead_phone.includes(inputs.phone) &&
-  //     registration.team_lead_email.includes(inputs.teamLeadEmail) &&
-  //       registration.transaction_id.includes(inputs.transactionId) &&
-  //       registration.swc.toLowerCase().includes(inputs.swc.toLowerCase()) &&
-  //       registration.college
-  //         .toLowerCase()
-  //         .includes(inputs.college.toLowerCase()) &&
-  //       registration.team_lead_name
-  //         .toLowerCase()
-  //         .includes(inputs.teamLeadName.toLowerCase()) &&
-  //       registration.events.event_name
-  //         .toLowerCase()
-  //         .includes(inputs.eventName.toLowerCase()) &&
-  //       new Date(registration.created_at)
-  //         .toLocaleDateString("en-US", options)
-  //         .includes(inputs.createdAt)
-  //   );
-  //   setFilteredResults(filteredResults);
-  // }, [inputs, registrations]);
+  const [loadingSearch, setLoadingSearch] = useState(false);
+  useEffect(() => {
+    setLoadingSearch(true);
+    const filteredResults = registrations.filter(
+      (registration: any) =>
+        registration.team_lead_phone.includes(inputs.phone) &&
+        registration.users.email.includes(inputs.teamLeadEmail) &&
+        registration.transaction_id.includes(inputs.transactionId) &&
+        registration.college
+          .toLowerCase()
+          .includes(inputs.college.toLowerCase()) &&
+        registration.users.name
+          .toLowerCase()
+          .includes(inputs.teamLeadName.toLowerCase()) &&
+        registration.events[0].event_name
+          .toLowerCase()
+          .includes(inputs.eventName.toLowerCase()) &&
+        new Date(registration.created_at)
+          .toLocaleDateString("en-US", options)
+          .includes(inputs.createdAt),
+    );
+    setFilteredResults(filteredResults);
+    setLoadingSearch(false);
+  }, [inputs, registrations]);
   const options: any = {
     year: "numeric",
     month: "2-digit",
@@ -129,8 +131,66 @@ const Page = () => {
       <h1 className="text-center font-hollirood text-4xl font-semibold tracking-wider">
         Admin Dashboard
       </h1>
+      <div className="flex w-[90%] flex-row flex-wrap items-center justify-center gap-5  md:w-full">
+        <FormElement
+          name="Phone"
+          value={inputs.phone}
+          type="text"
+          id="phone"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+        <FormElement
+          name="Transaction ID"
+          value={inputs.transactionId}
+          type="text"
+          id="transactionId"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+        <FormElement
+          name="College"
+          value={inputs.college}
+          type="text"
+          id="college"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+        <FormElement
+          name="Event Name"
+          value={inputs.eventName}
+          type="text"
+          id="eventName"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+        <FormElement
+          name="Time"
+          value={inputs.createdAt}
+          type="text"
+          id="createdAt"
+          onChange={handleInputChange}
+          width="1/3"
+        />
 
-      {loading ? (
+        <FormElement
+          name="Team Lead Name"
+          value={inputs.teamLeadName}
+          type="text"
+          id="teamLeadName"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+        <FormElement
+          name="Team Lead Email"
+          value={inputs.teamLeadEmail}
+          type="text"
+          id="teamLeadEmail"
+          onChange={handleInputChange}
+          width="1/3"
+        />
+      </div>
+      {loading && loadingSearch ? (
         <div className="flex min-h-[60vh] flex-col items-center justify-center">
           <PuffLoader size={40} color="#c9a747" />{" "}
         </div>
@@ -165,7 +225,7 @@ const Page = () => {
                 <th>Transaction ID</th>
                 <th>Members</th>
                 <th>Registered at</th>
-                <th>SWC</th>
+                {/* <th>SWC</th> */}
               </tr>
             </thead>
 
@@ -238,13 +298,13 @@ const Page = () => {
                           options,
                         )}
                       </td>
-                      <td
+                      {/* <td
                         className={`${
                           !registration.users.swc ? "text-red-600" : ""
                         } border border-gray-300 py-2`}
                       >
                         {registration.users.swc ? "Yes" : "No"}
-                      </td>
+                      </td> */}
                     </tr>
                   </>
                 );

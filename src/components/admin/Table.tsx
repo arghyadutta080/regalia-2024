@@ -103,7 +103,7 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
             <th>Team Lead Phone</th>
             <th>Email</th>
             <th>Transaction ID</th>
-            <th>SWC</th>
+            {/* <th>SWC</th> */}
             <th>Attendance</th>
             <th>Members</th>
             <th>Created At</th>
@@ -150,9 +150,9 @@ const Table = ({ registrationData }: { registrationData: any[] }) => {
                 <td className="border border-gray-300 px-4 py-2">
                   {registration.transaction_id}
                 </td>
-                <td className="border border-gray-300 px-4 py-2">
+                {/* <td className="border border-gray-300 px-4 py-2">
                   {registration.swc}
-                </td>
+                </td> */}
                 <td className="border border-gray-300 px-4 py-2">
                   {!registration?.attendance ? (
                     <button

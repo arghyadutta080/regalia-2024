@@ -14,6 +14,6 @@ export const getRegistrations = async () => {
             registrationArray.push(teamData[0]);
         }
    }));
-   console.log("Registration array:", registrationArray);
+//    console.log("Registration array:", registrationArray);
    return registrationArray;
 };

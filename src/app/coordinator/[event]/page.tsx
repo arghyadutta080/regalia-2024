@@ -113,10 +113,10 @@ const Page = () => {
   }, [eventId]);
 
  
-  const [swcCount, setSwcCount] = useState(0);
-  const [nonSwcCount, setNonSwcCount] = useState(0);
-  const [collegeRegCount, setCollegeRegCount] = useState(0);
-  const [outCollegeRegCount, setOutCollegeRegCount] = useState(0);
+  // const [swcCount, setSwcCount] = useState(0);
+  // const [nonSwcCount, setNonSwcCount] = useState(0);
+  // const [collegeRegCount, setCollegeRegCount] = useState(0);
+  // const [outCollegeRegCount, setOutCollegeRegCount] = useState(0);
 
   useEffect(() => {
     const filteredData = registrationData.filter(
@@ -139,24 +139,24 @@ const Page = () => {
           member.phone.includes(inputs.membersPhone)
         )
     );
-    const swcPaidRegistrationsCount = registrationData.filter(
-      (res: any) => res.swc === "Yes"
-    ).length;
-    setSwcCount(swcPaidRegistrationsCount);
-    const nonswcPaidRegistrationsCount = registrationData.filter(
-      (res: any) => res.swc === "No"
-    ).length;
-    setNonSwcCount(nonswcPaidRegistrationsCount);
+    // const swcPaidRegistrationsCount = registrationData.filter(
+    //   (res: any) => res.swc === "Yes"
+    // ).length;
+    // setSwcCount(swcPaidRegistrationsCount);
+    // const nonswcPaidRegistrationsCount = registrationData.filter(
+    //   (res: any) => res.swc === "No"
+    // ).length;
+    // setNonSwcCount(nonswcPaidRegistrationsCount);
 
-    const collegeRegs = registrationData.filter(
-      (res: any) =>
-        res.college.toLowerCase().includes("rcciit") ||
-        res.college
-          .toLowerCase()
-          .includes("rcc institute of information technology")
-    ).length;
-    setOutCollegeRegCount(registrationData.length - collegeRegs);
-    setCollegeRegCount(collegeRegs);
+    // const collegeRegs = registrationData.filter(
+    //   (res: any) =>
+    //     res.college.toLowerCase().includes("rcciit") ||
+    //     res.college
+    //       .toLowerCase()
+    //       .includes("rcc institute of information technology")
+    // ).length;
+    // setOutCollegeRegCount(registrationData.length - collegeRegs);
+    // setCollegeRegCount(collegeRegs);
     setFilteredData(filteredData);
   }, [inputs, registrationData]);
   
@@ -224,14 +224,14 @@ const Page = () => {
           onChange={handleInputChange}
           width="1/3"
         />
-        <FormElement
+        {/* <FormElement
           name="SWC"
           value={inputs.swc}
           type="text"
           id="swc"
           onChange={handleInputChange}
           width="1/3"
-        />
+        /> */}
         <FormElement
           name="Created At"
           value={inputs.createdAt}
