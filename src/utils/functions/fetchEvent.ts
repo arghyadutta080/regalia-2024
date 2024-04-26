@@ -6,6 +6,6 @@ export const fetchEvent = async(eventName:string)=>{
         return data![0];
     }
     catch(e){
-        console.log(e);
+        // console.log(e);
     }
 }

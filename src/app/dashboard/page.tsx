@@ -175,7 +175,7 @@ const Page = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await getRegbyUser(user);
-      console.log(data);
+      // console.log(data);
       const { data: userData, error } = await supabase.auth.getSession();
       setUserImage(userData?.session?.user?.user_metadata?.avatar_url!);
       setTeamData(data);

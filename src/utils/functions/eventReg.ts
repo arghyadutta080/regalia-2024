@@ -100,7 +100,7 @@ export const eventReg = async (
         },
         body: JSON.stringify({ email: email, targetEmails: combinedEmails, subject: `${team.teamName} : Registration Confirmation for ${eventResponse.data![0].event_name} in Regalia 2024` }),
       });
-      console.log(await response.json());
+      // console.log(await response.json());
     }
   }
 

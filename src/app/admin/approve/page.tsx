@@ -58,7 +58,7 @@ const Page = () => {
 
         setFilteredResults(data);
         setRegistrations(data);
-        console.log(data);
+        // console.log(data);
         setLoading(false);
         // const swcPaidRegistrationsCount = data.filter(
         //   (res: any) => res.swc === "Yes"

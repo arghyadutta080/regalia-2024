@@ -27,11 +27,11 @@ const EventDetails = ({ eventDetails }: any) => {
   const [loading, setLoading] = useState(true);
   const [registeredEvent, setRegisteredEvent] = useState<boolean>(false);
   const user = useUser((state) => state.user);
-  console.log(eventDetails);
+  // console.log(eventDetails);
   useMemo(() => {
     const getInfo = async () => {
       const res = await getEventInfo(eventDetails?.id);
-      console.log(res);
+      // console.log(res);
       if (user) {
         const ifRegistered = await checkIfUserRegistered({
           phone_param: user?.phone!,

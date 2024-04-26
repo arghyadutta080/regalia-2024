@@ -27,7 +27,7 @@ const Page = () => {
         .eq("fest_name", "Regalia")
         .eq("year", 2024);
       const events = allEvents.data;
-      console.log(events)
+      // console.log(events)
 
       let showAllEvents = false;
       let coordinatingEventIds: any = [];

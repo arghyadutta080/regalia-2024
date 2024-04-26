@@ -42,8 +42,8 @@ export const addEvent = async (event: eventInputType) => {
         })),
       )
       .select();
-    console.log(coordinatorData);
-    console.log(eventData);
+    // console.log(coordinatorData);
+    // console.log(eventData);
   } catch (e) {
     console.log(e);
   }

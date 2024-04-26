@@ -169,13 +169,13 @@ const EventRegForm = ({
       }
     } catch (err) {
       setDisabled(false);
-      console.log(err);
+      // console.log(err);
       toast.error("Registration Failed !");
     }
   };
 
-  console.log(inputs);
-  console.log(participants);
+  // console.log(inputs);
+  // console.log(participants);
   return (
     <>
       {isOpen && (

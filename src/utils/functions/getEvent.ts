@@ -7,7 +7,7 @@ export const getEvents = async () => {
       .select("*")
       .eq("fest_name", "Regalia")
       .eq("year", 2024);
-     console.log(data);
+    //  console.log(data);
     return data;
   } catch (e) {
     // console.log(e);
