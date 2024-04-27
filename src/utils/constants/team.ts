@@ -14,7 +14,7 @@ export const teams = [
             {
                 name: "Sankalpa Aich",
                 role: "A.G.S. Cultural",
-                image: "https://i.imgur.com/Qwr5Wx2.png",
+                image: "https://i.postimg.cc/2yPVhnby/sankalpa.jpg",
             },
             {
                 name: "Shourya Shikhar Ghosh",
