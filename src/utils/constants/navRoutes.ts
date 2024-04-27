@@ -15,10 +15,10 @@ export const navRoutes = [
       name: "Sponsors",
       path: "/#sponsors",
     },
-    // {
-    //   name: "Team",
-    //   path: "/team/swc",
-    // },
+    {
+      name: "Team",
+      path: "/team/swc",
+    },
     {
       name: "Contact",
       path: "/contacts",
