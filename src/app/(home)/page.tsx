@@ -7,7 +7,7 @@ import Sponsors from "@/components/home/Sponsors";
 
 const Home = () => {
   return (
-    <main className="flex min-h-screen w-full flex-col gap-2">
+    <main className="flex min-h-screen w-full mx-auto flex-col gap-2">
       <Hero />
       <About />
       <Image

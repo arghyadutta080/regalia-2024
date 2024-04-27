@@ -19,7 +19,7 @@ export function MemberCard({name, image, role}: Props) {
           width={200}
           height={200}
           style={{ objectFit: "cover", objectPosition: "0 10%" }}
-          className="h-52 w-52 rounded-full object-cover border-4 border-white dark:border-zinc-900"
+          className="h-52 w-52 rounded-full object-cover border-4 border-regalia dark:border-zinc-900"
         //   onLoad={() => setLoaded(true)}
         />
         <p className="mb-2 mt-6  font-hollirood text-center tracking-widest text-base text-white dark:text-neutral-200 sm:text-xl">
