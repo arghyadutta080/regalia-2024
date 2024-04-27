@@ -210,37 +210,37 @@ export const teams = [
                 image: "https://i.imgur.com/TXRzq98.jpg",
               },
           
-            {
-                name: "Antara Dey Sarkar",
-                role: "Backstage Team Lead",
-                image: "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
-            },
+            // {
+            //     name: "Antara Dey Sarkar",
+            //     role: "Backstage Team Lead",
+            //     image: "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
+            // },
             {
                 name: "Subhranil Saha",
                 role: "Security Team",
                 image: "https://i.postimg.cc/m2NHCHrp/IMG-1419-SUBHRANIL-SAHA.jpg",
             },
-            {
-                name: "Pritam Das ",
-                role: "Backstage Team",
-                image: "https://i.postimg.cc/ry502r5y/IMG-20240426-140808-Pritam-Das.jpg",
-            },
-            {
-                name: "Satwik Basu",
-                role: "Backstage Team",
-                image:
-                    "https://i.postimg.cc/xTKK5Z6R/20231014-215849-833-Satwik-Basu.jpg",
-            },
-            {
-                name: "Arnab Dey",
-                role: "Backstage Team",
-                image: "https://i.imgur.com/EjMuVkC.jpg",
-            },
-            {
-                name: "Debargha Biswas",
-                role: "Backstage Team",
-                image: "https://i.postimg.cc/C5pRfhpV/IMG-20240426-141552-Debargha-biswas.jpg",
-            },
+            // {
+            //     name: "Pritam Das ",
+            //     role: "Backstage Team",
+            //     image: "https://i.postimg.cc/ry502r5y/IMG-20240426-140808-Pritam-Das.jpg",
+            // },
+            // {
+            //     name: "Satwik Basu",
+            //     role: "Backstage Team",
+            //     image:
+            //         "https://i.postimg.cc/xTKK5Z6R/20231014-215849-833-Satwik-Basu.jpg",
+            // },
+            // {
+            //     name: "Arnab Dey",
+            //     role: "Backstage Team",
+            //     image: "https://i.imgur.com/EjMuVkC.jpg",
+            // },
+            // {
+            //     name: "Debargha Biswas",
+            //     role: "Backstage Team",
+            //     image: "https://i.postimg.cc/C5pRfhpV/IMG-20240426-141552-Debargha-biswas.jpg",
+            // },
             {
                 name: "Joydeep Das",
                 role: "Ext Participants Management Team",
