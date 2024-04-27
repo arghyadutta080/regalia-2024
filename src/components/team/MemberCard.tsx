@@ -22,7 +22,7 @@ export function MemberCard({name, image, role}: Props) {
           className="h-52 w-52 rounded-full object-cover border-4 border-white dark:border-zinc-900"
         //   onLoad={() => setLoaded(true)}
         />
-        <p className="mb-2 mt-10  font-hollirood text-center tracking-widest text-base text-white dark:text-neutral-200 sm:text-xl">
+        <p className="mb-2 mt-6  font-hollirood text-center tracking-widest text-base text-white dark:text-neutral-200 sm:text-xl">
           {name}
         </p>
 

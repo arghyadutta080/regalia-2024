@@ -1,6 +1,35 @@
 // Description: Constants for the team page.
 
 export const teams = [
+    // {
+    //     category: "Faculty",
+    //     id: "faculty",
+    //     path: "/team/faculty",
+    //     members: [
+    //         {
+    //             name: "Dr. Anirban Mukherjee",
+    //             role: "Principal , RCCIIT",
+    //             image: "https://i.postimg.cc/D0TtD5DL/shourya.png",
+    //         },
+    //         {
+    //             name: "Mr. Harinandan Tunga",
+    //             role: "Faculty-In-Charge SA & SW , Associate Professor, RCCIIT ",
+    //             image: "https://i.imgur.com/kIFb7td.jpg",
+    //         },
+    //         {
+    //             name: "Mr. Somenath Nag Choudhury",
+    //             role: "Faculty-In-Charge (Cultural) , Assistant Professor, RCCIIT",
+    //             image: "https://i.postimg.cc/2S2RbrBL/sankalpa2.webp",
+    //         },
+           
+    //         {
+    //             name: "Mr. Sarbojit Mukherjee",
+    //             role: "Faculty-In-Charge (Sports) , Assistant Professor, RCCIIT",
+    //             image: "https://i.postimg.cc/TPy17LR6/Whats-App-Image-2024-04-27-at-00-35-42-d64865fc.jpg",
+    //         },
+            
+    //     ],
+    // },
     {
         category: "SWC",
         id: "swc",
@@ -14,7 +43,7 @@ export const teams = [
             {
                 name: "Sankalpa Aich",
                 role: "A.G.S. Cultural",
-                image: "https://i.postimg.cc/2yPVhnby/sankalpa.jpg",
+                image: "https://i.postimg.cc/2S2RbrBL/sankalpa2.webp",
             },
             {
                 name: "Shourya Shikhar Ghosh",
@@ -77,6 +106,91 @@ export const teams = [
                     "https://i.postimg.cc/NfwXK4Qr/IMG-20231011-002726-222-bartick-maiti.jpg",
             },
           
+        ],
+    },
+    {
+        category: "Coordinators",
+        id: "coordinators",
+        path: "/team/coordinators",
+        members: [
+            {
+                name: "Antarlina Chatterjee ",
+                role: "Nrityam : Convenor",
+                image: "https://i.postimg.cc/FRLfRfqZ/IMG-20240426-WA0009-Antarlina-Chatterjee.jpg",
+            },
+            // {
+            //     name: "Alimpan De",
+            //     role: "Gaming : Convenor",
+            //     image: "https://i.imgur.com/hVrOFvB.jpg",
+            // },
+            {
+                name: "Sneahomoy Barua",
+                role: "Carpe Diem : Convenor",
+                image:
+                    "https://i.postimg.cc/zvwVCsqH/Regalia-Sneahomoy-Barua.jpg",
+            },
+            {
+                name: "Dipankar Roy",
+                role: "Band Bash : Convenor",
+                image: "https://i.postimg.cc/vZZcn2kD/Regalia-Pic-DIPANKAR-ROY.jpg",
+            },
+            {
+                name: "Rik Raj Dey",
+                role: "Kashish e Haya : Convenor",
+                image:
+                    "https://i.postimg.cc/Xq9y2ZkJ/IMG-20230802-110853-0201-RIK-RAJ-DEY.jpg",
+            },
+            {
+                name: "Tanishka Chatterjee",
+                role: "Nrityam : Coordinator",
+                image: "https://i.postimg.cc/TwzDqjmF/IMG-1220-TANISHKA-CHATTERJEE.jpg",
+            },
+            // {
+            //     name: "Soham Saha",
+            //     role: "Sargam : Coordinator",
+            //     image: "https://i.imgur.com/zMTxzAY.png",
+            // },
+            {
+                name: "Ankuri Sen",
+                role: "Carpe Diem : Coordinator",
+                image: "https://i.postimg.cc/jqfNq9Yb/DSC00760-2-Ankuri-Sen.jpg",
+            },
+            {
+                name: "Swapnil Chowdhury",
+                role: "Band Bash : Coordinator",
+                image: "https://i.postimg.cc/HLKcd0Sn/AKP-0749-min-3-Swapnil-Chowdhury.jpg",
+            },
+            {
+                name: "Sayantika Bera",
+                role: "Kashish e Haya : Coordinator",
+                image:
+                    "https://i.postimg.cc/dVNDjmc6/IMG-20240426-093644-Sayantika-Bera.jpg",
+            },
+           
+        ],
+    },
+    {
+        category: "Graphics",
+        id: "graphics",
+        path: "/team/graphics",
+        members: [
+            {
+                name: "Srinanda Das",
+                role: "UI/UX Designer",
+                image: "https://i.imgur.com/vcD9y4v.jpg",
+            },
+            
+            {
+                name: "Swastika Bose",
+                role: "Graphics Team Lead",
+                image: "https://i.postimg.cc/8PDFpzbR/IMG-20240422-001642-REGALIA-2024.jpg",
+            },
+            {
+                name: "Shreya Sarkar",
+                role: "UI/UX Designer",
+                image: "https://i.imgur.com/5sY4NLq.jpg",
+            },
+           
         ],
     },
     {
@@ -175,91 +289,8 @@ export const teams = [
             },
         ],
     },
-    {
-        category: "Graphics",
-        id: "graphics",
-        path: "/team/graphics",
-        members: [
-            {
-                name: "Srinanda Das",
-                role: "UI/UX Designer",
-                image: "https://i.imgur.com/vcD9y4v.jpg",
-            },
-            
-            {
-                name: "Swastika Bose",
-                role: "Graphics Team Lead",
-                image: "https://i.postimg.cc/8PDFpzbR/IMG-20240422-001642-REGALIA-2024.jpg",
-            },
-            {
-                name: "Shreya Sarkar",
-                role: "UI/UX Designer",
-                image: "https://i.imgur.com/5sY4NLq.jpg",
-            },
-           
-        ],
-    },
-    {
-        category: "Coordinators",
-        id: "coordinators",
-        path: "/team/coordinators",
-        members: [
-            {
-                name: "Antarlina Chatterjee ",
-                role: "Nrityam : Convenor",
-                image: "https://i.postimg.cc/FRLfRfqZ/IMG-20240426-WA0009-Antarlina-Chatterjee.jpg",
-            },
-            // {
-            //     name: "Alimpan De",
-            //     role: "Gaming : Convenor",
-            //     image: "https://i.imgur.com/hVrOFvB.jpg",
-            // },
-            {
-                name: "Sneahomoy Barua",
-                role: "Carpe Diem : Convenor",
-                image:
-                    "https://i.postimg.cc/zvwVCsqH/Regalia-Sneahomoy-Barua.jpg",
-            },
-            {
-                name: "Dipankar Roy",
-                role: "Band Bash : Convenor",
-                image: "https://i.postimg.cc/vZZcn2kD/Regalia-Pic-DIPANKAR-ROY.jpg",
-            },
-            {
-                name: "Rik Raj Dey",
-                role: "Kashish e Haya : Convenor",
-                image:
-                    "https://i.postimg.cc/Xq9y2ZkJ/IMG-20230802-110853-0201-RIK-RAJ-DEY.jpg",
-            },
-            {
-                name: "Tanishka Chatterjee",
-                role: "Nrityam : Coordinator",
-                image: "https://i.postimg.cc/TwzDqjmF/IMG-1220-TANISHKA-CHATTERJEE.jpg",
-            },
-            // {
-            //     name: "Soham Saha",
-            //     role: "Sargam : Coordinator",
-            //     image: "https://i.imgur.com/zMTxzAY.png",
-            // },
-            {
-                name: "Ankuri Sen",
-                role: "Carpe Diem : Coordinator",
-                image: "https://i.postimg.cc/jqfNq9Yb/DSC00760-2-Ankuri-Sen.jpg",
-            },
-            {
-                name: "Swapnil Chowdhury",
-                role: "Band Bash : Coordinator",
-                image: "https://i.postimg.cc/HLKcd0Sn/AKP-0749-min-3-Swapnil-Chowdhury.jpg",
-            },
-            {
-                name: "Sayantika Bera",
-                role: "Kashish e Haya : Coordinator",
-                image:
-                    "https://i.postimg.cc/dVNDjmc6/IMG-20240426-093644-Sayantika-Bera.jpg",
-            },
-           
-        ],
-    },
+   
+
     {
         category: "Sponsorship Team",
         id: "sponsorship",
