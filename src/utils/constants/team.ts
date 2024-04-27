@@ -199,14 +199,26 @@ export const teams = [
         path: "/team/management",
         members: [
             {
+                name: "Arunava Das",
+                role: "Security Team Lead",
+                image:
+                  "https://i.postimg.cc/rprr7w26/6464f8a3-65f2-4ff4-be28-ad3a60aa10f1-ARUNAVA-DAS.jpg",
+              },
+              {
+                name: "Shatabdi Das",
+                role: "Ext Participants Management Team Lead",
+                image: "https://i.imgur.com/TXRzq98.jpg",
+              },
+          
+            {
+                name: "Antara Dey Sarkar",
+                role: "Backstage Team Lead",
+                image: "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
+            },
+            {
                 name: "Subhranil Saha",
                 role: "Security Team",
                 image: "https://i.postimg.cc/m2NHCHrp/IMG-1419-SUBHRANIL-SAHA.jpg",
-            },
-            {
-                name: "Antara Dey Sarkar",
-                role: "Backstage Team",
-                image: "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
             },
             {
                 name: "Pritam Das ",
@@ -218,6 +230,11 @@ export const teams = [
                 role: "Backstage Team",
                 image:
                     "https://i.postimg.cc/xTKK5Z6R/20231014-215849-833-Satwik-Basu.jpg",
+            },
+            {
+                name: "Arnab Dey",
+                role: "Backstage Team",
+                image: "https://i.imgur.com/EjMuVkC.jpg",
             },
             {
                 name: "Debargha Biswas",
@@ -303,7 +320,7 @@ export const teams = [
             },
             {
                 name: "Arnab Dey",
-                role: "",
+                role: "Sponsorship Team Lead",
                 image: "https://i.imgur.com/EjMuVkC.jpg",
             },
         ],
