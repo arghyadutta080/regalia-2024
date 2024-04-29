@@ -36,7 +36,7 @@ const Page = () => {
     );
   }, [eventName, events]);
   return (
-    <div className="mx-auto flex flex-col items-center gap-5 ">
+    <div className="mx-auto flex flex-col items-center gap-5">
       <Heading text="Manage Events" />
       <div className="mx-auto flex  w-full flex-col flex-wrap  items-center justify-center gap-2 md:w-[90%] md:flex-row">
         <div className="flex w-[90%] flex-row items-center gap-2  px-2 md:w-[60%]">

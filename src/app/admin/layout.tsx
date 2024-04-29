@@ -1,4 +1,5 @@
 import AdminWrapper from "@/components/admin/AdminWrapper";
+import { Footer } from "@/components/common";
 import SessionProvider from "@/components/common/SessionProvider";
 import { constructMetaData } from "@/utils";
 import type { Metadata } from "next";
@@ -14,9 +15,12 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mt-10">
-      <AdminWrapper>{children}</AdminWrapper>
-      <SessionProvider />
-    </div>
+    <>
+      <div className="mb-10 mt-10">
+        <AdminWrapper>{children}</AdminWrapper>
+        <SessionProvider />
+      </div>
+      <Footer />
+    </>
   );
 }

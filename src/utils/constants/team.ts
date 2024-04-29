@@ -76,7 +76,7 @@ export const teams = [
       },
       {
         name: "Shourya Shikhar Ghosh",
-        role: "Database Management",
+        role: "Database Designer",
         image: "https://i.postimg.cc/D0TtD5DL/shourya.png",
       },
 
@@ -93,6 +93,12 @@ export const teams = [
           "https://i.postimg.cc/v8CZRWMc/PSX-20231022-195203-Arghya-Dutta.jpg",
       },
       {
+        name: "Bartick Maiti",
+        role: "Developer",
+        image:
+          "https://i.postimg.cc/NfwXK4Qr/IMG-20231011-002726-222-bartick-maiti.jpg",
+      },
+      {
         name: "Shuvangi De",
         role: "Developer",
         image: "https://i.imgur.com/iMBBteF.jpg",
@@ -101,12 +107,6 @@ export const teams = [
         name: "Sansrita Saha",
         role: "Developer",
         image: "https://i.postimg.cc/LsrXr9XZ/Shin-0140-SANSRITA-SAHA.jpg",
-      },
-      {
-        name: "Bartick Maiti",
-        role: "Developer",
-        image:
-          "https://i.postimg.cc/NfwXK4Qr/IMG-20231011-002726-222-bartick-maiti.jpg",
       },
     ],
   },

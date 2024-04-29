@@ -4,7 +4,10 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/utils/cn";
-import './styles.css';
+import "./styles.css";
+import { BackgroundGradient } from "./background-gradient";
+import SparkleComponent from "./SparkleComponent";
+import { Footer } from "../common";
 
 export const ParallaxScroll = ({
   images,
@@ -31,11 +34,22 @@ export const ParallaxScroll = ({
 
   return (
     <div
-      className={cn("h-auto lg:h-[40rem] w-full items-start overflow-hidden md:overflow-y-auto ", className)}
+      className={cn(
+        "h-auto w-full items-start overflow-hidden md:overflow-y-auto lg:h-[45rem] ",
+        className,
+      )}
       ref={gridRef}
     >
+      <div className="mt-12 flex h-[8rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-transparent">
+        <h1 className="relative z-20 text-center font-annabel text-4xl font-bold text-regalia md:text-3xl lg:text-5xl">
+          Gallery
+        </h1>
+        <div className="text-center">
+          <SparkleComponent />
+        </div>
+      </div>
       <div
-        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 pb-10 md:pb-40 md:grid-cols-2 lg:grid-cols-3"
+        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 py-0 md:py-4 md:grid-cols-2 md:px-20 md:pb-40 lg:grid-cols-3"
         ref={gridRef}
       >
         <div className="grid gap-10">
@@ -44,43 +58,50 @@ export const ParallaxScroll = ({
               style={{ y: translateFirst }} // Apply the translateY motion value here
               key={"grid-1" + idx}
             >
-              <Image
-                src={el}
-                className="!m-0 h-52 md:h-60 lg:h-72 w-full gap-10 rounded-lg object-cover object-left-top !p-0"
-                height="3500"
-                width="6000"
-                alt="thumbnail"
-              />
+              <BackgroundGradient>
+                <Image
+                  src={el}
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
+                  width="6000"
+                  alt="thumbnail"
+                />
+              </BackgroundGradient>
             </motion.div>
           ))}
         </div>
         <div className="grid gap-10">
           {secondPart.map((el, idx) => (
             <motion.div style={{ y: translateSecond }} key={"grid-2" + idx}>
-              <Image
-                src={el}
-                className="!m-0 h-52 md:h-60 lg:h-72 w-full gap-10 rounded-lg object-cover object-left-top !p-0"
-                height="3500"
-                width="6000"
-                alt="thumbnail"
-              />
+              <BackgroundGradient>
+                <Image
+                  src={el}
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
+                  width="6000"
+                  alt="thumbnail"
+                />
+              </BackgroundGradient>
             </motion.div>
           ))}
         </div>
         <div className="grid gap-10">
           {thirdPart.map((el, idx) => (
             <motion.div style={{ y: translateThird }} key={"grid-3" + idx}>
-              <Image
-                src={el}
-                className="!m-0 h-52 md:h-60 lg:h-72 w-full gap-10 rounded-lg object-cover object-left-top !p-0"
-                height="3500"
-                width="6000"
-                alt="thumbnail"
-              />
+              <BackgroundGradient>
+                <Image
+                  src={el}
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
+                  width="6000"
+                  alt="thumbnail"
+                />
+              </BackgroundGradient>
             </motion.div>
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { Footer } from '@/components/common'
 import { constructMetaData } from '@/utils'
 import { Metadata } from 'next'
 import React from 'react'
@@ -13,8 +14,11 @@ export const metadata: Metadata = constructMetaData({
 
 const EventLayout = ({children}: Props) => {
   return (
-    <div>{children}</div>
-  )
+    <div>
+      {children}
+      <Footer />
+    </div>
+  );
 }
 
 export default EventLayout

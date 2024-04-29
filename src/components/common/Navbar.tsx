@@ -312,7 +312,7 @@ const Navbar = () => {
                     </li>
                   </Link>
                 )}
-                {user && showRegisterDashboard && (
+                {/* {user && showRegisterDashboard && (
                   <Link
                     // onMouseEnter={hoverSound}
                     href={"/registrar"}
@@ -329,7 +329,7 @@ const Navbar = () => {
                       Registrar
                     </li>
                   </Link>
-                )}
+                )} */}
 
                 {user && showAdminDashboard && (
                   <Link
