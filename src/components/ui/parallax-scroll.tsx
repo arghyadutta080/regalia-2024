@@ -35,7 +35,7 @@ export const ParallaxScroll = ({
   return (
     <div
       className={cn(
-        "h-auto w-full items-start overflow-hidden md:overflow-y-auto lg:h-[45rem] ",
+        "h-auto w-full items-start overflow-hidden md:overflow-y-auto lg:h-[80rem] ",
         className,
       )}
       ref={gridRef}
@@ -61,7 +61,7 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-full cursor-pointer"
                   height="4000"
                   width="6000"
                   alt="thumbnail"
@@ -76,7 +76,7 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-full cursor-pointer"
                   height="4000"
                   width="6000"
                   alt="thumbnail"
@@ -91,7 +91,7 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-full cursor-pointer"
                   height="4000"
                   width="6000"
                   alt="thumbnail"
