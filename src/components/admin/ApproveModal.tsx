@@ -95,7 +95,6 @@ const ApproveModal = ({
       return;
     }
     if (confirmData) {
-      toast.success("Team Verified");
       const verificationEmail = registrationVerificationEmail(
         data?.events[0].event_name,
         whatsappLink,
@@ -112,10 +111,10 @@ const ApproveModal = ({
         body: JSON.stringify({
           email: verificationEmail,
           targetEmails: combinedEmails,
-          subject: `${data?.team_name} Registration Verification for Sargam in Regalia 2024`,
+          subject: `${data?.team_name} : Registration Verified for ${data?.events[0].event_name} in Regalia 2024`,
         }),
       });
-      console.log(emailData);
+
       if (emailData.status == 200) {
         const { data: confirmMailData, error } = await supabase
           .from("teams")
@@ -123,6 +122,7 @@ const ApproveModal = ({
           .eq("team_id", data.team_id)
           .select();
       }
+      toast.success("Team Verified");
 
       const updatedData = await getRegistrations();
       setRegistrations(updatedData);
