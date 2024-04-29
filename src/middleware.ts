@@ -9,7 +9,6 @@ export async function middleware(req: NextRequest) {
   const {
     data: { session },
   } = await supabase.auth.getSession();
- 
   const url = new URL(req.nextUrl);
   if (!session) {
     if (
@@ -66,7 +65,7 @@ export async function middleware(req: NextRequest) {
     if (convenor && url.pathname.startsWith("/registrar")) {
       return NextResponse.next();
     }
-    if (security && url.pathname.startsWith("/entry")) {
+    if ((security || superAdmin) && url.pathname.startsWith("/entry")) {
       return NextResponse.next();
     }
 
