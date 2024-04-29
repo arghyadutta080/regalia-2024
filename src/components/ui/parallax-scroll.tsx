@@ -49,7 +49,7 @@ export const ParallaxScroll = ({
         </div>
       </div>
       <div
-        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 py-10 md:grid-cols-2 md:pb-40 lg:grid-cols-3"
+        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 py-0 md:py-4 md:grid-cols-2 md:px-20 md:pb-40 lg:grid-cols-3"
         ref={gridRef}
       >
         <div className="grid gap-10">
@@ -61,8 +61,8 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 h-52 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 md:h-60"
-                  height="3500"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
                   width="6000"
                   alt="thumbnail"
                 />
@@ -76,8 +76,8 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 h-52 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 md:h-60"
-                  height="3500"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
                   width="6000"
                   alt="thumbnail"
                 />
@@ -91,8 +91,8 @@ export const ParallaxScroll = ({
               <BackgroundGradient>
                 <Image
                   src={el}
-                  className="!m-0 h-52 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 md:h-60"
-                  height="3500"
+                  className="!m-0 w-full gap-10 rounded-3xl object-cover object-left-top !p-0 h-64"
+                  height="4000"
                   width="6000"
                   alt="thumbnail"
                 />

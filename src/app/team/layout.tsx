@@ -1,3 +1,4 @@
+import { Footer } from "@/components/common";
 import TeamWrapper from "@/components/team/TeamWrapper";
 import { Metadata } from "next";
 import React from "react";
@@ -11,10 +12,13 @@ export const metadata: Metadata = {
   description: "Regalia 2K24 Organizing Team Description",
 };
 
-const TeamLayout = ({children}: Props) => {
+const TeamLayout = ({ children }: Props) => {
   return (
     <>
-      <TeamWrapper>{children}</TeamWrapper>;
+      <TeamWrapper>
+        {children}
+      </TeamWrapper>
+        <Footer />
     </>
   );
 };

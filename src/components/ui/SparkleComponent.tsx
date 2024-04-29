@@ -3,7 +3,7 @@ import { SparklesCore } from './sparkles';
 
 const SparkleComponent = () => {
   return (
-    <div className="relative mx-auto h-20 w-[37rem] md:h-20 md:w-[45rem] px-5 md:px-0">
+    <div className="relative mx-auto h-20 w-full overflow-x-hidden md:h-20 md:w-[45rem] px-5 md:px-0">
       {/* Gradients */}
       <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-sm" />
       <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-regalia to-transparent" />

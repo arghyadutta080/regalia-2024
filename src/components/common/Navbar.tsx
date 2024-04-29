@@ -160,14 +160,15 @@ const Navbar = () => {
         `}
         >
           <Toaster position="bottom-right" />
-          <div className="flex cursor-pointer items-center pt-2 font-hollirood text-3xl font-bold text-regalia duration-500 hover:scale-105 hover:text-yellow-400">
+          <div className="flex cursor-pointer items-center  font-hollirood text-3xl font-bold text-regalia duration-500 hover:scale-105 hover:text-yellow-400">
             <Link
               href={"/"}
               // onMouseEnter={hoverSound}
               onClick={clickSound}
               className="flex flex-row items-end"
             >
-              REGALIA
+              <Image src="/assets/home/regalia.png" height={20} width={48} alt="rcc" />
+            <h1 className="text-[1.7rem] pt-2">REGALIA</h1>  
             </Link>
           </div>
           <div className="flex flex-row-reverse items-center justify-between gap-4 md:flex-row">
@@ -311,7 +312,7 @@ const Navbar = () => {
                     </li>
                   </Link>
                 )}
-                {user && showRegisterDashboard && (
+                {/* {user && showRegisterDashboard && (
                   <Link
                     // onMouseEnter={hoverSound}
                     href={"/registrar"}
@@ -328,7 +329,7 @@ const Navbar = () => {
                       Registrar
                     </li>
                   </Link>
-                )}
+                )} */}
 
                 {user && showAdminDashboard && (
                   <Link

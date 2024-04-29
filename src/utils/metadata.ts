@@ -3,7 +3,6 @@ import { Metadata } from "next";
 export function constructMetaData({
   title = "Regalia 2024",
   description = "Regalia is the official cultural fest of RCCIIT.",
-  image = "/thumbnail.png", // put a thumbnail.png in public folder, resolution 1200x630
   authors = {
     name: "Regalia RCCIIT Team",
     url: "https://regalia.rcciit.org.in/",
@@ -13,6 +12,7 @@ export function constructMetaData({
   publisher = "REGALIA",
   icons = "/favicon.ico",
   robots = "index, follow",
+  image = "/assets/home/regalia4.png",
 }: {
   title?: string;
   description?: string;
@@ -31,6 +31,7 @@ export function constructMetaData({
     creator,
     generator,
     publisher,
+
     openGraph: {
       title,
       description,
@@ -48,6 +49,7 @@ export function constructMetaData({
     //   creator: "@",
     // },
     icons,
+
     metadataBase: new URL("https://regalia.rcciit.org.in/"),
     robots,
   };

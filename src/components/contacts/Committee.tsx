@@ -16,7 +16,7 @@ const Committee = () => {
               triggerOffset={0}
               delayInMilliseconds={80 + index}
             >
-              <h1 className="text-primary text-center text-lg font-semibold tracking-wider lg:text-2xl">
+              <h1 className="text-primary mb-3 leading-loose text-center text-lg font-semibold tracking-wider lg:text-2xl">
                 {item.title}
               </h1>
               <div className="flex flex-row flex-wrap items-center justify-center gap-8 lg:gap-20">
@@ -27,11 +27,11 @@ const Committee = () => {
                       className="flex flex-row flex-wrap items-center gap-2 text-sm lg:text-lg"
                     >
                       <div className="flex flex-col items-center text-center">
-                        <p className="font-semibold">{member.name}</p>
-                        <p>{member.role}</p>
+                        <p className="font-semibold tracking-widest leading-loose">{member.name}</p>
+                        <p className="tracking-widest leading-normal">{member.role}</p>
                         <a
                           href={`tel:${member.phone}`}
-                          className="font-semibold hover:text-green-400"
+                          className="font-semibold hover:text-green-400 tracking-widest leading-loose"
                         >
                           {member.phone}
                         </a>

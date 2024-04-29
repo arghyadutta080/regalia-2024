@@ -8,12 +8,12 @@ type Props = {
 }
 
 const TeamWrapper = ({children}: Props) => {
-  return (
-    <div className="mx-auto flex flex-col items-center gap-5">
+  return ( 
+    <div className="mx-auto flex flex-col items-center gap-5 mb-10 scroll-smooth">
       <div className="flex flex-col items-center justify-center">
         <div className="mt-10 mx-auto text-center font-annabel text-4xl font-bold text-regalia max-w-xl text-wrap">
           Organizing Team:{" "}
-          <span className=" font-hollirood"> REGALIA 2K24</span>
+          <span className=" font-hollirood"> REGALIA 2024</span>
         </div>
         <SparkleComponent />
       </div>

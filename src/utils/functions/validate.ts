@@ -1,9 +1,12 @@
 
 
 interface teamError {
-  // email: string;
+  email: string;
   phone: string;
   name: string;
+}
+export function clearSpaces(str:string) {
+  return str.replace(/\s/g, '');
 }
 export const validateReg = (
   inputs: any,
@@ -24,6 +27,8 @@ export const validateReg = (
   // const uniqueEmails = new Set<string>();
 
   let uniquePhones = new Set<string>();
+  
+  let uniqueEmails = new Set<string>();
   const teamErrors: teamError[] = [];
   const regexPhone =
     /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
@@ -56,10 +61,9 @@ export const validateReg = (
       errors.file = "Payment Screenshot File is required";
     }
   }
-
   if (inputs.teamLeadPhone === "") {
     errors.teamLeadPhone = "Phone is required";
-  } else if (!regexPhone.test(inputs.teamLeadPhone)) {
+  } else if (!regexPhone.test(clearSpaces(inputs.teamLeadPhone).trim())) {
     errors.teamLeadPhone = "Invalid Phone Number";
   }
 
@@ -71,30 +75,30 @@ export const validateReg = (
   if (maxTeamMember > 1) {
     participants.forEach((participant: any, index: number) => {
       teamErrors[index] = {
-        // email: "",
+        email: "",
         phone: "",
         name: "",
       };
 
-      // if (participant.email === "") {
-      //   teamErrors[index].email = "Email is required";
-      // } else if (!regexEmail.test(participant.email)) {
-      //   teamErrors[index].email = "Invalid Email";
-      // } else if (uniqueEmails.has(participant.email)) {
-      //   teamErrors[index].email = `Email is already used in the team`;
-      // } else {
-      //   uniqueEmails.add(participant.email);
-      // }
+      if (participant.email === "") {
+        teamErrors[index].email = "Email is required";
+      } else if (!regexEmail.test(participant.email)) {
+        teamErrors[index].email = "Invalid Email";
+      } else if (uniqueEmails.has(participant.email)) {
+        teamErrors[index].email = `Email is already used in the team`;
+      } else {
+        uniqueEmails.add(participant.email);
+      }
 
       if (participant.phone === "") {
         teamErrors[index].phone = "Phone is required";
-      } else if (!regexPhone.test(participant.phone)) {
+      } else if (!regexPhone.test(clearSpaces(participant.phone).trim())) {
         teamErrors[index].phone = "Invalid Phone Number";
-      } else if (uniquePhones.has(participant.phone)) {
+      } else if (uniquePhones.has(clearSpaces(participant.phone).trim())) {
         teamErrors[index].phone = "Phone number is already used in the team";
       } else {
         teamErrors[index].phone = "";
-        uniquePhones.add(participant.phone);
+        uniquePhones.add(participant.phone.trim());
       }
 
       if (participant.name === "") {
@@ -121,7 +125,7 @@ export const validateUserReg = (inputs: any) => {
   }
   if (inputs.phone === "") {
     errors.phone = "Phone is required";
-  } else if (!regexPhone.test(inputs.phone)) {
+  } else if (!regexPhone.test(clearSpaces(inputs.phone).trim())) {
     errors.phone = "Invalid Phone Number";
   }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { Footer } from "@/components/common";
 import Heading from "@/components/common/Heading";
 import { EventCard } from "@/components/event/EventCard";
 import { useUser } from "@/lib/store/user";
@@ -20,14 +21,13 @@ const Page = () => {
         .from("roles")
         .select()
         .match({ id: data?.session?.user?.id });
-
       const allEvents = await supabase
         .from("events")
         .select("*")
         .eq("fest_name", "Regalia")
         .eq("year", 2024);
       const events = allEvents.data;
-      console.log(events)
+      // console.log(events)
 
       let showAllEvents = false;
       let coordinatingEventIds: any = [];
@@ -51,8 +51,8 @@ const Page = () => {
       if (showAllEvents) {
         filteredEvents = events;
       } else {
-        const coordinatingEvents = events!.filter((event) =>
-          coordinatingEventIds.includes(event.id)
+        filteredEvents = events!.filter((event) =>
+          coordinatingEventIds.includes(event.id),
         );
       }
 
@@ -64,40 +64,38 @@ const Page = () => {
   }, [user]);
 
   return (
-    <div className="flex flex-col mx-auto my-10 w-full justify-center items-center gap-10">
-      <Heading text="Management Dashboard" />
-      <div className="flex flex-row min-h-[60vh] h-full flex-wrap items-center justify-center gap-20">
-        {loading ? (
-          <div className=" flex flex-col justify-center items-center">
-            <PuffLoader size={24} color="#000" />{" "}
-          </div>
-        ) : (
-          coordinatingEvents?.map((value: any, index: number) => {
-            return (
-              <Link href={`/coordinator/${value.id}`} key={index}>
-                <>
-                  {!value.event_image_url ? (
-                    <h1 className="pt-2 text-center text-regalia h-full w-full flex flex-col justify-center border border-regalia rounded-xl font-hollirood tracking-widest  font-semibold md:text-xl">
-                      {value.event_name}
-                    </h1>
-                  ) : (
-               
+      <div className="mx-auto my-10 flex w-full flex-col items-center justify-center gap-10">
+        <Heading text="Management Dashboard" />
+        <div className="flex h-full min-h-[60vh] flex-row flex-wrap items-center justify-center gap-20 mb-10">
+          {loading ? (
+            <div className=" flex flex-col items-center justify-center">
+              <PuffLoader size={24} color="#000" />{" "}
+            </div>
+          ) : (
+            coordinatingEvents?.map((value: any, index: number) => {
+              return (
+                <Link href={`/coordinator/${value.id}`} key={index}>
+                  <>
+                    {!value.event_image_url ? (
+                      <h1 className="flex h-full w-full flex-col justify-center rounded-xl border border-regalia pt-2 text-center font-hollirood font-semibold tracking-widest  text-regalia md:text-xl">
+                        {value.event_name}
+                      </h1>
+                    ) : (
                       <EventCard
-                      link={`/coordinator/${value.id}`}
-                      hoverImage={value.event_image_url}
-                      image={value.event_image_url}
-                      title={value.event_name}
-                      key={index}
+                        link={`/coordinator/${value.id}`}
+                        hoverImage={value.event_image_url}
+                        image={value.event_image_url}
+                        title={value.event_name}
+                        key={index}
                       />
-                
-                  )}
-                </>
-              </Link>
-            );
-          })
-        )}
+                    )}
+                  </>
+                </Link>
+              );
+            })
+          )}
+        </div>
       </div>
-    </div>
   );
 };
 

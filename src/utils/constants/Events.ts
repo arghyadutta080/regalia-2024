@@ -4,14 +4,14 @@ export const events: any[] = [
     {
       title: "Nrityam",
       id: "nrittyam",
-      image: "/assets/events/Nrittyam.svg",
-      hoverImage: "/assets/events/Nrittyam hover.svg",
+      image: "https://i.postimg.cc/LXFY8M0j/5.png",
+      hoverImage: "https://i.postimg.cc/LXFY8M0j/5.png",
     },
     {
       title: "Sargam",
       id: "sargam",
-      image: "/assets/events/Sargam.svg", 
-      hoverImage: "/assets/events/Sargam hover.svg",
+      image: "https://i.postimg.cc/B6588wdk/4.png", 
+      hoverImage: "https://i.postimg.cc/B6588wdk/4.png",
     },
     {
       title: "BAND BASH",

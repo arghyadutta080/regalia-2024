@@ -1,11 +1,14 @@
 "use client";
 
+import { Footer } from "@/components/common";
 import Heading from "@/components/common/Heading";
+import SparkleHeading from "@/components/common/SparkleHeading";
 import EventButton from "@/components/event/EventButton";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { useUser } from "@/lib/store/user";
 import { supabase } from "@/lib/supabase-client";
 import { clickSound } from "@/utils/functions";
+import { getIndividualRegs } from "@/utils/functions/getIndividualRegs";
 import { getRegbyUser } from "@/utils/functions/getRegbyUser";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,6 +38,13 @@ const EventRegCard = ({ teams }: { teams: any }) => {
     getEventName();
   }, [teams]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  });
   return (
     <div className="px-5 lg:px-0 md:w-[70%] lg:w-[40%] xl:w-auto 2xl:h-auto">
       <BackgroundGradient className="">
@@ -87,7 +97,7 @@ const EventRegCard = ({ teams }: { teams: any }) => {
             <MemberModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
-        members={teams.members}
+        members={teams.participations}
       />
       </div>
       </BackgroundGradient>
@@ -111,12 +121,12 @@ const MemberModal = ({
       {isOpen && (
         <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
           <div
-            className={`flex h-auto w-[90%] flex-col
-             items-start rounded-lg bg-body border-y-2 border-regalia p-4 md:w-[25%] `}
+            className={`flex h-auto max-h-[50vh] md:max-h-[40vh] lg:max-h-[50vh] 2xl:max-h-[60vh] w-[90%] flex-col
+             items-start rounded-lg bg-body border-y-2 border-regalia p-4 md:w-[35%] lg:w-[25%] `}
           >
             <div className="mb-2 flex w-full flex-row items-center justify-between">
               <h2 className="text-lg font-semibold">Members</h2> 
-
+ 
               <h2
                 onClick={onClose}
                 className="cursor-pointer rounded-xl border border-regalia bg-regalia px-3 py-1 text-black hover:bg-black hover:text-regalia hover:border-regalia"
@@ -125,7 +135,7 @@ const MemberModal = ({
               </h2>
             </div>
 
-            <div className="my-1 flex h-full w-full flex-col items-center gap-2 overflow-y-scroll px-1 py-2 text-center">
+            <div className="my-1 flex  w-full flex-col items-center gap-2 overflow-y-auto px-1 py-2 text-center">
               {members.map((member: any, index: number) => {
                 return (
                   <div
@@ -166,8 +176,7 @@ const Page = () => {
   const [search, setSearch] = useState<string>("");
   useEffect(() => {
     const getData = async () => {
-      const data = await getRegbyUser(user);
-      console.log(data);
+      const data = await getIndividualRegs(user?.phone!);
       const { data: userData, error } = await supabase.auth.getSession();
       setUserImage(userData?.session?.user?.user_metadata?.avatar_url!);
       setTeamData(data);
@@ -175,38 +184,52 @@ const Page = () => {
     };
     getData();
   }, [user]);
+
+ 
   return (
-    <div className="min-h-[80vh] w-full px-2 lg:px-10 mb-10 flex flex-col items-center gap-10 mt-10">
-        <Heading text="Your Registrations" />
-     <div className="flex flex-row text-center items-center text-sm lg:text-xl flex-wrap gap-5 md:gap-8 xl:gap-20 justify-evenly font-hollirood">
-        <h1>Name : {user?.name}</h1>
-        <h1>Email : {user?.email}</h1>
-        <h1>Phone: {user?.phone}</h1>
-        <EventButton  name="Edit Profile" onClick={()=>{
-          router.push("/profile")
-        }}  />
-     </div>
-      
-        <div className="flex flex-row flex-wrap items-center justify-center lg:w-[80%] gap-20">
-        {loading ? (
-        <div className="mx-auto flex min-h-[80vh] w-full flex-col items-center justify-center">
-          <PuffLoader color="" size={30} />
+    <>
+      <div className="mb-10 mt-10 flex min-h-[80vh] w-full flex-col items-center gap-5 px-2 lg:px-10">
+        <SparkleHeading text="Registrations" />
+        <div className="flex flex-row flex-wrap items-center justify-evenly gap-5 text-center font-hollirood text-sm md:gap-8 lg:text-xl xl:gap-20">
+          <h1>Name : {user?.name}</h1>
+          <h1>Email : {user?.email}</h1>
+          <h1>Phone: {user?.phone}</h1>
+          <EventButton
+            name="Edit Profile"
+            onClick={() => {
+              router.push("/profile");
+            }}
+          />
         </div>
-      ) :   (teamData?.length > 0 ?
+
+        <div className="flex flex-row flex-wrap items-center justify-center gap-20 lg:w-[80%]">
+          {loading ? (
+            <div className="mx-auto flex min-h-[80vh] w-full flex-col items-center justify-center">
+              <PuffLoader color="" size={30} />
+            </div>
+          ) : teamData?.length > 0 ? (
             teamData?.map((team: any, index: number) => {
-              return(<>
-              <EventRegCard key={index} teams={team} />
-            
-              </> );
-            }) : <div className="flex flex-col items-center justfiy-center font-hollirood gap-5 mt-20 mx-auto">
-                <h1 className="font-semibold text-xl">No Registrations Yet !</h1>
-                <EventButton  name="Register" onClick={()=>{
-          router.push("/events")
-        }}  />
-            </div>   )}
+              return (
+                <>
+                  <EventRegCard key={index} teams={team} />
+                </>
+              );
+            })
+          ) : (
+            <div className="justfiy-center mx-auto mt-20 flex flex-col items-center gap-5 font-hollirood">
+              <h1 className="text-xl font-semibold">No Registrations Yet !</h1>
+              <EventButton
+                name="Register"
+                onClick={() => {
+                  router.push("/events");
+                }}
+              />
+            </div>
+          )}
         </div>
-    
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 };
 
