@@ -40,7 +40,7 @@ export const ParallaxScroll = ({
       )}
       ref={gridRef}
     >
-      <div className="mt-12 flex h-[8rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-transparent">
+      <div className="mt-12  flex h-[8rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-transparent">
         <h1 className="relative z-20 text-center font-annabel text-4xl font-bold text-regalia md:text-3xl lg:text-5xl">
           Gallery
         </h1>
@@ -49,7 +49,7 @@ export const ParallaxScroll = ({
         </div>
       </div>
       <div
-        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 py-0 md:py-4 md:grid-cols-2 md:px-20 md:pb-40 lg:grid-cols-3"
+        className="mx-auto grid max-w-full grid-cols-1 items-start gap-10 px-10 pb-10 py-0 md:py-4 md:grid-cols-2 md:px-20 md:pb-40 lg:grid-cols-3"
         ref={gridRef}
       >
         <div className="grid gap-10">
