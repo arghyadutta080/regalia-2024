@@ -79,7 +79,11 @@ export const teams = [
         role: "Database Designer",
         image: "https://i.postimg.cc/D0TtD5DL/shourya.png",
       },
-
+      {
+        name: "Srinanda Das",
+        role: "UI/UX Designer",
+        image: "https://i.imgur.com/vcD9y4v.jpg",
+      },
       {
         name: "Soumyaraj Bag",
         role: "Developer",
@@ -91,6 +95,11 @@ export const teams = [
         role: "Developer",
         image:
           "https://i.postimg.cc/v8CZRWMc/PSX-20231022-195203-Arghya-Dutta.jpg",
+      },
+      {
+        name: "Shreya Sarkar",
+        role: "UI/UX Designer",
+        image: "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
       },
       {
         name: "Bartick Maiti",
@@ -178,11 +187,7 @@ export const teams = [
     id: "graphics",
     path: "/team/graphics",
     members: [
-      {
-        name: "Srinanda Das",
-        role: "UI/UX Designer",
-        image: "https://i.imgur.com/vcD9y4v.jpg",
-      },
+   
 
       {
         name: "Swastika Bose",
@@ -196,11 +201,7 @@ export const teams = [
         image:
           "https://i.postimg.cc/pLN6ds4p/Whats-App-Image-2024-04-27-at-11-03-29-PM-Debdatta-Ray.jpg",
       },
-      {
-        name: "Shreya Sarkar",
-        role: "UI/UX Designer",
-        image: "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
-      },
+    
       {
         name: "Anirban Kar",
         role: "Video Creator",
