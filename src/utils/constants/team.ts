@@ -99,7 +99,8 @@ export const teams = [
       {
         name: "Shreya Sarkar",
         role: "UI/UX Designer",
-        image: "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
+        image:
+          "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
       },
       {
         name: "Bartick Maiti",
@@ -187,8 +188,6 @@ export const teams = [
     id: "graphics",
     path: "/team/graphics",
     members: [
-   
-
       {
         name: "Swastika Bose",
         role: "Graphics Team Lead",
@@ -201,7 +200,7 @@ export const teams = [
         image:
           "https://i.postimg.cc/pLN6ds4p/Whats-App-Image-2024-04-27-at-11-03-29-PM-Debdatta-Ray.jpg",
       },
-    
+
       {
         name: "Anirban Kar",
         role: "Video Creator",
@@ -251,21 +250,46 @@ export const teams = [
         image: "https://i.imgur.com/TXRzq98.jpg",
       },
 
-      // {
-      //     name: "Antara Dey Sarkar",
-      //     role: "Backstage Team Lead",
-      //     image: "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
-      // },
+      {
+        name: "Antara Dey Sarkar",
+        role: "Green Room Management Team Lead",
+        image:
+          "https://i.postimg.cc/RCJ16hf2/Antara-Dey-Sarkar-Antara-Dey-Sarkar.jpg",
+      },
+      {
+        name: "Ankita Dhara",
+        role: "Green Room Management Team",
+        image: "https://i.postimg.cc/4d9j63DS/IMG-1674-1-ANKITA-DHARA.jpg",
+      },
+      {
+        name: "Hadi Ahmed",
+        role: "Food Management Team Lead",
+        image:
+          "https://i.postimg.cc/L6KvYD6R/Screenshot-2024-04-30-12-19-12-78-HADI-AHMED.jpg",
+      },
       {
         name: "Subhranil Saha",
         role: "Security Team",
         image: "https://i.postimg.cc/m2NHCHrp/IMG-1419-SUBHRANIL-SAHA.jpg",
       },
+     
       {
         name: "Hirak Sabui",
         role: "Security Team",
         image:
           "https://i.postimg.cc/8P34QhCw/IMG-20240320-153531-HIRAK-SABUI.jpg",
+      },
+      {
+        name: "Swagat Santra",
+        role: "Artist Management Team",
+        image:
+          "https://i.postimg.cc/13RxksF8/Whats-App-Image-2024-04-30-at-13-17-09-e019ddaa-Swagat-Santra.jpg",
+      },
+      {
+        name: "Pratik Chowdhury",
+        role: "Artist Management Team",
+        image:
+          "https://i.postimg.cc/13WxP20J/In-Shot-20230721-183451688-Pratik-Chowdhury.jpg",
       },
       // {
       //     name: "Pritam Das ",
