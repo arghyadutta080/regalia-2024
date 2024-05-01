@@ -5,6 +5,7 @@ import { getRegsByEvent } from "@/components/admin/getRegsByEvent";
 import FormElement from "@/components/common/FormElement";
 import Heading from "@/components/common/Heading";
 import { supabase } from "@/lib/supabase-client";
+import { clickSound } from "@/utils/functions";
 import { dateTime } from "@/utils/functions/dateTime";
 import { getEventInfo } from "@/utils/functions/getEventsInfo";
 import Link from "next/link";
@@ -50,7 +51,7 @@ const Page = () => {
       const { data: teamData, error: teamError } = await supabase
         .from("teams")
         .select(
-          "college,team_id,team_name,team_lead_phone,transaction_verified,attendance"
+          "college,team_id,team_name,team_lead_phone,transaction_verified,attendance",
         )
         .eq("event_id", eventId);
 
@@ -112,7 +113,6 @@ const Page = () => {
     getTeamRegistrations();
   }, [eventId]);
 
- 
   // const [swcCount, setSwcCount] = useState(0);
   // const [nonSwcCount, setNonSwcCount] = useState(0);
   // const [collegeRegCount, setCollegeRegCount] = useState(0);
@@ -136,8 +136,8 @@ const Page = () => {
           .toLocaleDateString("en-US", options)
           .includes(inputs.createdAt) &&
         registration.team_members.some((member: any) =>
-          member.phone.includes(inputs.membersPhone)
-        )
+          member.phone.includes(inputs.membersPhone),
+        ),
     );
     // const swcPaidRegistrationsCount = registrationData.filter(
     //   (res: any) => res.swc === "Yes"
@@ -159,7 +159,7 @@ const Page = () => {
     // setCollegeRegCount(collegeRegs);
     setFilteredData(filteredData);
   }, [inputs, registrationData]);
-  
+
   const options: any = {
     year: "numeric",
     month: "2-digit",
@@ -170,7 +170,7 @@ const Page = () => {
     timeZoneName: "short",
   };
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>,
   ) => {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({
@@ -180,9 +180,9 @@ const Page = () => {
   };
   const router = useRouter();
   return (
-    <div className="w-full mx-auto min-h-[60vh] my-10 overflow-x-hidden flex flex-col items-center gap-10 ">
+    <div className="mx-auto my-10 flex min-h-[60vh] w-full flex-col items-center gap-10 overflow-x-hidden ">
       <Heading text="Registered Teams" />
-      <div className="flex flex-row items-center gap-5 w-[90%] md:w-full justify-center  flex-wrap">
+      <div className="flex w-[90%] flex-row flex-wrap items-center justify-center gap-5  md:w-full">
         <FormElement
           name="Team Name"
           value={inputs.teamName}
@@ -293,13 +293,21 @@ const Page = () => {
           </CSVLink>
         )}
       </div> */}
-
+      <div>
+        <Link
+          className="rounded-xl border border-regalia bg-regalia px-10 py-3 font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+          onClick={clickSound}
+          href={`/coordinator/${eventId}/edit`}
+        >
+          Edit Event
+        </Link>
+      </div>
       {loading ? (
-        <div className="min-h-[60vh] flex flex-col justify-center">
+        <div className="flex min-h-[60vh] flex-col justify-center">
           <PuffLoader color={"#000"} size={100} />
         </div>
       ) : (
-        <div className="overflow-x-auto px-3 w-full mx-auto">
+        <div className="mx-auto w-full overflow-x-auto px-3">
           <Table registrationData={filteredData} />
         </div>
       )}

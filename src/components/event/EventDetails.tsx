@@ -13,6 +13,7 @@ import { checkIfUserRegistered } from "@/utils/functions/checkIfUserRegistered";
 import { clickSound, login } from "@/utils/functions";
 import { useRouter } from "next/navigation";
 import { getEventInfo } from "@/utils/functions/getEventsInfo";
+import toast from "react-hot-toast";
 
 type preview = {
   url: string;
@@ -219,6 +220,22 @@ const EventDetails = ({ eventDetails }: any) => {
                       </span>
                     </button>
                   )}
+                  {
+                    eventDetails?.is_open === false && (
+                      <button
+                      onClick={() => {
+                        toast("Registration Closed !", { icon: "🚫" });
+                      }}
+                      className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                        disabled={!eventDetails.is_open}
+                      >
+                        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-md font-medium text-white tracking-wider backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
+                      Registration Closed
+                      </span>
+                      </button>
+                    )
+                  }
                 {registeredEvent! && (
                   <button
                     className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
