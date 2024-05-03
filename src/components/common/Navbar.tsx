@@ -167,7 +167,7 @@ const Navbar = () => {
               onClick={clickSound}
               className="flex flex-row items-end"
             >
-              <Image src="/assets/home/regalia.png" height={20} width={48} alt="rcc" />
+              <Image src="/assets/home/regalia_1.png" height={20} width={48} alt="rcc" />
             <h1 className="text-[1.7rem] pt-2">REGALIA</h1>  
             </Link>
           </div>

@@ -94,19 +94,19 @@ export const teams = [
         name: "Arghya Dutta",
         role: "Developer",
         image:
-          "https://i.postimg.cc/v8CZRWMc/PSX-20231022-195203-Arghya-Dutta.jpg",
-      },
-      {
-        name: "Shreya Sarkar",
-        role: "UI/UX Designer",
-        image:
-          "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
+          "https://i.postimg.cc/7ZYnWRWb/PSX-20240504-000710.jpg",
       },
       {
         name: "Bartick Maiti",
         role: "Developer",
         image:
           "https://i.postimg.cc/NfwXK4Qr/IMG-20231011-002726-222-bartick-maiti.jpg",
+      },
+      {
+        name: "Shreya Sarkar",
+        role: "UI/UX Designer",
+        image:
+          "https://i.postimg.cc/FHjnkjXG/Polish-20240422-031659531-Shreya-Sarkar.jpg",
       },
       {
         name: "Shuvangi De",
@@ -392,9 +392,14 @@ export const teams = [
       },
       {
         name: "Arnab Dey",
-        role: "Sponsorship Team Lead",
+        role: "Member",
         image: "https://i.imgur.com/EjMuVkC.jpg",
       },
+      {
+        name: "Shibangi Chatterjee",
+        role: "Member",
+        image: "https://i.postimg.cc/yYWx7Zbn/IMG-20240503-222219.jpg",
+      }
     ],
   },
 ];
