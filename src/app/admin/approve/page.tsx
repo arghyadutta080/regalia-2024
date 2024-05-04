@@ -55,7 +55,6 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const data = await getRegistrations();
-      
         setFilteredResults(data);
         setRegistrations(data);
         // console.log(data);

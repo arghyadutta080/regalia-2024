@@ -179,10 +179,13 @@ const ApproveModal = ({
                 Team Name : {data.team_name}
               </h1>
               <h1 className="text-sm font-semibold">
-                Team Lead Name : {data.participations[0]?.name!}
+                Team Lead Name : {data.users?.name!}
               </h1>
               <h1 className="text-sm font-semibold">
-                Team Lead Phone : {data.participations[0]?.phone!}
+                Team Lead Phone : {data.users?.phone!}
+              </h1>
+              <h1 className="text-sm font-semibold">
+                Team Lead Email : {data.users?.email!}
               </h1>
               <h1 className="text-sm font-semibold">
                 Team Size : {data.participations.length}
