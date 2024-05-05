@@ -99,7 +99,7 @@ const EntryPage = () => {
             time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
         }
         
-        const check = await enterStudent({
+        await enterStudent({
             userEntry: dayEntry,
             email: data.email,
             day: checkDayEntry()
