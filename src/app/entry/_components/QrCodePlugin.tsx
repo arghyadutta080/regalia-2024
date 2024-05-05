@@ -18,6 +18,7 @@ const QrReader = (props: {
     const onScanSuccess = (result: QrScanner.ScanResult) => {
       // ✅ Handle success.
       scanner.current?.stop();
+      videoEl.current?.pause();
       props.onScanSuccess(result.data);
     };
 
