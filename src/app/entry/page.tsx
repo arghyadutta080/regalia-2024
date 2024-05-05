@@ -98,15 +98,12 @@ const EntryPage = () => {
             band_no: band,
             time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
         }
-
-        console.log(dayEntry);
+        
         const check = await enterStudent({
             userEntry: dayEntry,
             email: data.email,
             day: checkDayEntry()
         })
-
-        console.log(check);
 
         setScanned(data.full_name);
     };

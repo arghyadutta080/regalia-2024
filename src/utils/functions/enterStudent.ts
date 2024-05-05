@@ -69,7 +69,5 @@ export const enterStudent = async(input: {
         return false;
     }
 
-    console.log(data);
-
     return true;
 };
