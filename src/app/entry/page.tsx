@@ -131,8 +131,8 @@ const EntryPage = () => {
                             <div className="flex items-center justify-center h-full">
                                 {
                                     scanned ? (
-                                        <div className={`text-lg p-2 rounded-lg ${day?'text-red-600':'text-white'}`}>
-                                            {scanned} {day?'successfully':'has already'} entered the venue! {day?.band_no && `with band no ${day?.band_no}!`}
+                                        <div className={`text-base p-2 rounded-lg ${day?'text-red-600':'text-white'}`}>
+                                            {scanned} {day?'successfully':'has already'} entered the venue! {day?.band_no && `with band no ${day?.band_no}`}
                                         </div>
                                     ) : (
                                         <PuffLoader color="" size={30} />
