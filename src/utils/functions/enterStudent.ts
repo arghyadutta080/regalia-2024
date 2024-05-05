@@ -38,7 +38,7 @@ export const getStudent = async (inputs: {
     college_roll?: string;
 }): Promise<void | User & {security: string}> => {
 
-    const { data, error } = await supabase.auth.getSession();
+    const sessionId = await getCurrentSession();
     
     const { data: users, error: usersError } = await supabase
         .from("SWC")
@@ -52,7 +52,7 @@ export const getStudent = async (inputs: {
         if (users.length > 0) {
             return {
                 ...users[0],
-                security: data?.session?.user.id
+                security: sessionId
             }
         }
 };
