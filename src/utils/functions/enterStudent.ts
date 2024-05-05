@@ -32,6 +32,25 @@ export const getCurrentSession = async() => {
     return data.session?.user.id;
 }
 
+export const getSecurityRoll = async () => {
+
+    const sessionId = await getCurrentSession();
+
+    const userRoles = await supabase
+      .from("roles")
+      .select("role")
+      .eq("id", sessionId);
+
+    let roles = [];
+    if (userRoles && userRoles.data) {
+        for (const obj of userRoles.data) {
+            roles.push(obj.role);
+        }
+    }
+
+    return roles;
+};
+
 export const getStudent = async (inputs: {
     email?: string;
     phone?: string;
