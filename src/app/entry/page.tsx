@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useRouter } from 'next/navigation'
+import { PuffLoader } from "react-spinners";
 
 import QrReader from './_components/QrCodePlugin';
-import { PuffLoader } from "react-spinners";
-import { checkDayEntry, getStudent, enterStudent, User, DayEntry } from "@/utils/functions/enterStudent";
+import { checkDayEntry, getStudent, enterStudent, User, DayEntry, getSecurityRoll } from "@/utils/functions/enterStudent";
 import EntryModal from "@/components/admin/EntryModal";
 
 const EntryPage = () => {
@@ -15,6 +16,16 @@ const EntryPage = () => {
     const [day, setDay] = useState<DayEntry | null>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [data, setData] = useState<User & {security: string} | undefined>();
+    const [canAddUser, setCanAddUser] = useState<boolean>(false);
+    const router = useRouter();
+
+    useEffect(() => {
+        getSecurityRoll().then((roles) => {
+            if (roles.includes('super_admin') || roles.includes('security_admin')) {
+                setCanAddUser(true);
+            }
+        });
+    }, []);
 
     function resetEntry() {
         setScanned(undefined);
@@ -164,6 +175,15 @@ const EntryPage = () => {
             >
                 Submit Phone Number
             </button>
+
+            {canAddUser && (
+                <button 
+                className="bg-regalia text-white p-2 rounded-lg mt-5 text-lg"
+                onClick={() => router.push('/entry/add')}
+                >
+                    Add Student
+                </button>
+            )}
 
             <EntryModal
             isOpen={isOpen}
