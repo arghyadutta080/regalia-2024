@@ -1,35 +1,50 @@
 // Description: Constants for the team page.
 
 export const teams = [
-  // {
-  //     category: "Faculty",
-  //     id: "faculty",
-  //     path: "/team/faculty",
-  //     members: [
-  //         {
-  //             name: "Dr. Anirban Mukherjee",
-  //             role: "Principal , RCCIIT",
-  //             image: "https://i.postimg.cc/D0TtD5DL/shourya.png",
-  //         },
-  //         {
-  //             name: "Mr. Harinandan Tunga",
-  //             role: "Faculty-In-Charge SA & SW , Associate Professor, RCCIIT ",
-  //             image: "https://i.imgur.com/kIFb7td.jpg",
-  //         },
-  //         {
-  //             name: "Mr. Somenath Nag Choudhury",
-  //             role: "Faculty-In-Charge (Cultural) , Assistant Professor, RCCIIT",
-  //             image: "https://i.postimg.cc/2S2RbrBL/sankalpa2.webp",
-  //         },
+  {
+      category: "Faculty",
+      id: "faculty",
+      path: "/team/faculty",
+      members: [
+          {
+              name: "Dr. Anirban Mukherjee",
+              role: "Principal , RCCIIT",
+              image: "https://i.postimg.cc/90XVTrYM/Shin2_0060.jpg",
+          },
+          {
+              name: "Mr. Harinandan Tunga",
+              role: "Faculty-In-Charge SA & SW , Associate Professor, RCCIIT ",
+              image: "https://i.postimg.cc/52RgvTbW/Hari_Sir_.jpeg.jpg",
+          },
+          {
+              name: "Mr. Somenath Nag Choudhury",
+              role: "Faculty Coordinator (Cultural) , Assistant Professor, RCCIIT",
+              image: "https://i.postimg.cc/pLTkmRNB/WhatsApp_Image_2024-05-05_at_14.24.45_490163ed.jpg",
+          },
 
-  //         {
-  //             name: "Mr. Sarbojit Mukherjee",
-  //             role: "Faculty-In-Charge (Sports) , Assistant Professor, RCCIIT",
-  //             image: "https://i.postimg.cc/TPy17LR6/Whats-App-Image-2024-04-27-at-00-35-42-d64865fc.jpg",
-  //         },
-
-  //     ],
-  // },
+          {
+              name: "Mr. Sarbojit Mukherjee",
+              role: "Faculty-In-Charge Alumni , Assistant Professor, RCCIIT",
+              image: "https://i.postimg.cc/VvD2ngKr/Whats-App-Image-2024-04-27-at-09-25-34-03d51234.jpg",
+          },
+          {
+            name: "Dr. Hiranmoy Roy",
+            role: "Faculty Coordinator (Tech) , Associate Professor, RCCIIT",
+            image: "https://i.postimg.cc/J4DJBn6K/292054614-5223971747639481-406795100662764473-n.jpg",
+        },
+        {
+          name: "Sandip Saha",
+          role: "Registrar, RCCIIT",
+          image: "https://i.postimg.cc/7Lqz5NTr/WhatsApp_Image_2024-05-06_at_00.54.21_e51a6ee6.jpg",
+      },
+          {
+            name: "Mr. Pradip Kumar Das",
+            role: "Deputy Registrar, RCCIIT",
+            image: "https://i.postimg.cc/N0FVvRfB/WhatsApp_Image_2024-05-06_at_00.41.14_5e8d2db7.jpg",
+        },
+       
+      ],
+  },
   {
     category: "SWC",
     id: "swc",
@@ -182,6 +197,68 @@ export const teams = [
           "https://i.postimg.cc/dVNDjmc6/IMG-20240426-093644-Sayantika-Bera.jpg",
       },
     ],
+  },
+  {
+    category: "Volunteers",
+    id: "graphics",
+    path: "/team/graphics",
+    members: [
+      {
+        name: "Manali Mukherjee",
+        role: "Volunteer : Nrityam",
+        image:
+          "https://i.imgur.com/KN7L4z4.jpg",
+      },
+      {
+        name: "Riddhita Goswami",
+        role: "Volunteer : Sargam",
+        image:
+          "https://i.postimg.cc/mDjDHN4K/IMG-20230911-214958-Riddhita-Goswami.jpg",
+      },
+      {
+        name: "Sreya Sahoo",
+        role: "Volunteer : Carpe Diem",
+        image:
+          "https://i.postimg.cc/c459xpFR/IMG-20240427-225808-sreya-sahoo.jpg",
+      },
+      {
+        name: "Palas Saha",
+        role: "Volunteer : BAND BASH",
+        image:
+          "https://i.postimg.cc/R0cqMxDS/IMG-20240404-123644-Palas-Saha.jpg",
+      },
+      {
+        name: "Adrima Biswas",
+        role: "Volunteer : Kashish-e-Haya",
+        image:
+          "https://i.postimg.cc/xdbT6V2G/be5f800899c97a2b4d10e52f77b1e544_-_ADRIMA_BISWAS.jpg",
+      },
+      {
+        name: "Bidisha Das",
+        role: "Volunteer : Nrityam",
+        image:
+          "https://i.postimg.cc/s2yGG2SQ/WhatsApp_Image_2024-05-05_at_18.05.34_e0b8930a.jpg",
+      },
+      {
+        name: "Raushan Pandey",
+        role: "Volunteer : Sargam",
+        image:
+          "https://i.postimg.cc/jS2jJJ3F/IMG_20240505_170258_-_Raushan_Pandey.jpg",
+      },
+      {
+        name: "Meghna Santra",
+        role: "Volunteer : Carpe Diem",
+        image:
+          "https://i.postimg.cc/m2XLRgZN/picture__-_Meghna_Santra.jpg",
+      },
+      {
+        name: "Supratim Sen ",
+        role: "Volunteer : BAND BASH",
+        image:
+          "https://i.postimg.cc/xCvjSGqc/IMG_20240505_170825_-_SUPRATIM_SEN.jpg",
+      },
+      
+    ]
   },
   {
     category: "Graphics",
@@ -380,7 +457,7 @@ export const teams = [
   },
 
   {
-    category: "Sponsorship Team",
+    category: "Sponsorship",
     id: "sponsorship",
     path: "/team/sponsorship",
     members: [

@@ -17,7 +17,7 @@ const TeamWrapper = ({children}: Props) => {
         </div>
         <SparkleComponent />
       </div>
-      <div className="mx-auto flex w-full flex-row flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-10 ">
+      <div className="mx-auto flex w-full flex-row flex-wrap items-center justify-center gap-2 md:gap-4 lg:gap-6 ">
         {teams.map((teamItem, index) => (
           <TeamTab key={index} team={teamItem} />
         ))}
