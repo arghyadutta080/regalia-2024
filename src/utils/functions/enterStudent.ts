@@ -27,6 +27,11 @@ export const checkDayEntry = () => {
     }
 };
 
+export const getCurrentSession = async() => {
+    const { data } = await supabase.auth.getSession();
+    return data.session?.user.id;
+}
+
 export const getStudent = async (inputs: {
     email?: string;
     phone?: string;
@@ -64,6 +69,18 @@ export const enterStudent = async(input: {
         .eq("email", input.email);
     
     if (data.error) {
+        return false;
+    }
+
+    return true;
+};
+
+export const addStudent = async (input: User): Promise<boolean> => {
+    const { data, error } = await supabase
+        .from("SWC")
+        .insert([input]);
+
+    if (error) {
         return false;
     }
 
