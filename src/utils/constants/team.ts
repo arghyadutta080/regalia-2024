@@ -200,8 +200,8 @@ export const teams = [
   },
   {
     category: "Volunteers",
-    id: "graphics",
-    path: "/team/graphics",
+    id: "volunteers",
+    path: "/team/volunteers",
     members: [
       {
         name: "Manali Mukherjee",
@@ -349,7 +349,11 @@ export const teams = [
         role: "Security Team",
         image: "https://i.postimg.cc/m2NHCHrp/IMG-1419-SUBHRANIL-SAHA.jpg",
       },
-     
+      {
+        name: "Rahul Das",
+        role: "Security Team",
+        image: "https://i.postimg.cc/LXK47Q9c/IMG_20240330_100343_893_-_Rahul_Das.webp",
+      },
       {
         name: "Hirak Sabui",
         role: "Security Team",
@@ -367,6 +371,12 @@ export const teams = [
         role: "Artist Management Team",
         image:
           "https://i.postimg.cc/13WxP20J/In-Shot-20230721-183451688-Pratik-Chowdhury.jpg",
+      },
+      {
+        name: "Tiyasa Raptan",
+        role: "Judges Management Team",
+        image:
+          "https://i.postimg.cc/5Nk7bZhF/IMG-20231225-WA0401_-_Tiyasa_raptan.jpg",
       },
       // {
       //     name: "Pritam Das ",
@@ -400,6 +410,12 @@ export const teams = [
         role: "Ext Participants Management Team",
         image:
           "https://i.postimg.cc/BvtLr7BR/IMG-20230613-083820-Shreya-Shome.jpg",
+      },
+      {
+        name: "Sneha Mallick",
+        role: "Ext Participants Management Team",
+        image:
+          "https://i.postimg.cc/mkTLZcFV/Polish_20240505_182515846_-_Sneha_Mallick.jpg",
       },
     ],
   },
