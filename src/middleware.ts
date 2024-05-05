@@ -69,18 +69,14 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
     if ((security || superAdmin || securityAdmin) && url.pathname.startsWith("/entry")) {
-      if ((superAdmin || securityAdmin) && url.pathname.startsWith("/entry/add")) {
-        return NextResponse.next();
+      if ((!superAdmin && !securityAdmin) && url.pathname.startsWith("/entry/add")) {
+        return NextResponse.redirect(new URL("/entry", req.url));
       }
       return NextResponse.next();
     }
 
     if ((!security || !superAdmin || !securityAdmin) && url.pathname.startsWith("/entry")) {
       return NextResponse.redirect(new URL("/", req.url));
-    }
-
-    if (security && url.pathname.startsWith("/entry/add")) {
-      return NextResponse.redirect(new URL("/entry", req.url));
     }
 
     if (
