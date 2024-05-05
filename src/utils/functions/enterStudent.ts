@@ -22,8 +22,6 @@ export const checkDayEntry = () => {
             return 'day1';
         case '15/5/2024':
             return 'day2';
-        case '5/5/2024':
-            return 'day1';
         default:
             return 'day_missed';
     }
