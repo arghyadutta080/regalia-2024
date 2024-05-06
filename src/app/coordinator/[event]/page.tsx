@@ -66,9 +66,9 @@ const Page = () => {
         for (const team of teamData) {
           const { data: memberData, error: memberError } = await supabase
             .from("participations")
-            .select("name,phone")
+            .select("name,phone,email")
             .eq("team_id", team.team_id);
-
+            console.log(memberData)
           if (memberError) {
             console.error("Error fetching team members:", memberError.message);
             continue;
@@ -78,24 +78,16 @@ const Page = () => {
             const membersWithUserData = [];
 
             for (const member of memberData) {
-              const { data: userData, error: userError } = await supabase
-                .from("users")
-                .select("name,email,college_roll,swc")
-                .eq("phone", member.phone);
+             
 
-              if (userError) {
-                console.error("Error fetching user data:", userError.message);
-                continue;
-              }
-
-              const userDataFirstItem: any = userData?.[0];
+       
 
               membersWithUserData.push({
                 team_name: team.team_name,
-                name: userDataFirstItem?.name,
+                name: member?.name,
                 college: team?.college,
                 phone: member.phone,
-                email: userDataFirstItem?.email,
+                email: member?.email,
                 verified: team.transaction_verified,
               });
             }
