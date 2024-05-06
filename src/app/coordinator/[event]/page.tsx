@@ -91,13 +91,11 @@ const Page = () => {
               const userDataFirstItem: any = userData?.[0];
 
               membersWithUserData.push({
-                phone: member.phone,
-                email: userDataFirstItem?.email,
                 team_name: team.team_name,
-                roll: userDataFirstItem?.college_roll,
-                swc: userDataFirstItem?.swc,
                 name: userDataFirstItem?.name,
                 college: team?.college,
+                phone: member.phone,
+                email: userDataFirstItem?.email,
                 verified: team.transaction_verified,
               });
             }
@@ -105,12 +103,13 @@ const Page = () => {
             teamsWithMembers.push(...membersWithUserData);
           }
         }
+        console.log(teamsWithMembers)
         setTeamsWithMembers(teamsWithMembers);
         setDownloadableCSV(true);
       }
     };
 
-    getTeamRegistrations();
+     getTeamRegistrations();
   }, [eventId]);
 
   // const [swcCount, setSwcCount] = useState(0);
@@ -268,8 +267,8 @@ const Page = () => {
           </span>
         </h1>
       </div> */}
-      {/* <div className="font-semibold justify-center flex flex-row items-center flex-wrap gap-5 text-sm md:text-xl">
-        <h1>For Offline Registration :</h1>
+      <div className="font-semibold justify-center flex flex-row items-center flex-wrap gap-5 text-sm md:text-xl">
+        {/* <h1>For Offline Registration :</h1>
         <button
           onClick={() => setOfflineReg(true)}
           className="bg-black border border-black text-white px-10 py-2 rounded-xl hover:bg-white hover:text-black"
@@ -282,26 +281,26 @@ const Page = () => {
           className="bg-black border font-semibold  text-sm md:text-xl border-black text-white px-10 py-2 rounded-xl hover:bg-white hover:text-black"
         >
           Check SWC
-        </Link>
+        </Link> */}
         {downloadableCSV && (
           <CSVLink
             data={teamsWithMembers}
             filename={`registrations-${dateTime()}.csv`}
-            className="w-fit-content rounded-md bg-blue-500 px-4 py-2 text-white shadow-md hover:bg-blue-600"
+            className="w-fit-content rounded-md px-4 py-2 tracking-wider bg-regalia text-sm lg:text-lg font-semibold font-hollirood border-regalia text-black hover:border-regalia hover:text-regalia hover:bg-black border"
           >
             Download CSV
           </CSVLink>
         )}
-      </div> */}
-      <div>
-        <Link
-          className="rounded-xl border border-regalia bg-regalia px-10 py-3 font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+         <Link
+          className="w-fit-content rounded-md px-4 py-2 bg-regalia  tracking-wider text-sm lg:text-lg font-semibold font-hollirood border-regalia text-black hover:border-regalia hover:text-regalia hover:bg-black border "
           onClick={clickSound}
           href={`/coordinator/${eventId}/edit`}
         >
           Edit Event
         </Link>
       </div>
+      
+   
       {loading ? (
         <div className="flex min-h-[60vh] flex-col justify-center">
           <PuffLoader color={"#000"} size={100} />
