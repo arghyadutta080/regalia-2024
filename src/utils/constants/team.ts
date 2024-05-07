@@ -402,6 +402,12 @@ export const teams = [
       //     image: "https://i.postimg.cc/C5pRfhpV/IMG-20240426-141552-Debargha-biswas.jpg",
       // },
       {
+        name: "Harsh Jaiswal",
+        role: "Ext Participants Management Team",
+        image:
+          "https://i.postimg.cc/9FCtq2cJ/Whats-App-Image-2024-05-06-at-20-38-35-8eab6ce4.jpg",
+      },
+      {
         name: "Joydeep Das",
         role: "Ext Participants Management Team",
         image:
@@ -436,6 +442,12 @@ export const teams = [
         role: "Coverage Team Lead",
         image:
           "https://i.postimg.cc/bwg1ctcS/20230820050043-IMG-0288-Manish-Biswas.jpg",
+      },     
+      {
+        name: "Trinjan Dutta",
+        role: "",
+        image:
+          "https://i.postimg.cc/GhyMkxt8/IMG-20230424-WA0027-2-Trinjan-Dutta.jpg",
       },
       {
         name: "Shinjan Sarkar",
@@ -458,12 +470,6 @@ export const teams = [
         name: "Shubham Paul",
         role: "",
         image: "https://i.postimg.cc/9fZVK7Lr/DSC-2534-1-Subham-Paul.jpg",
-      },
-      {
-        name: "Trinjan Dutta",
-        role: "",
-        image:
-          "https://i.postimg.cc/GhyMkxt8/IMG-20230424-WA0027-2-Trinjan-Dutta.jpg",
       },
       {
         name: "Soumya Das",
