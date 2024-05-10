@@ -43,7 +43,7 @@ const Hero = () => {
               <h1 className="text-4xl  text-white lg:text-9xl ">Regalia</h1>
               <h1 className="font-hollirood mt-3 text-2xl w-full mx-auto">Inter College Annual Cultural fest</h1>
               <h1 className="font-hollirood tracking-wider mt-3 text-2xl w-full mx-auto">7th & 8th May 2024 (Prelims)</h1>
-          <h1 className="font-hollirood mt-3 tracking-wider text-2xl w-full mx-auto">14th & 15th May 2024 (Finals)</h1>
+          <h1 className="font-hollirood mt-3 tracking-wider text-2xl w-full mx-auto">July 2024 (Finals)</h1>
             </div>
           
           </FadeIn>

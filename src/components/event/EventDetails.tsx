@@ -20,16 +20,16 @@ type preview = {
   title: string;
 };
 
-const discountArray = [
-  {
-    name:"Nrityam",
-    mrp: 700,
-  },
-  {
-    name: "Carpe Diem",
-    mrp: 200,
-  }
-]
+// const discountArray = [
+//   {
+//     name:"Nrityam",
+//     mrp: 700,
+//   },
+//   {
+//     name: "Carpe Diem",
+//     mrp: 200,
+//   }
+// ]
 
 const EventDetails = ({ eventDetails }: any) => {
   const router = useRouter();
@@ -70,8 +70,8 @@ const EventDetails = ({ eventDetails }: any) => {
       document.body.style.overflow = "auto";
     }
   });
-  const event = discountArray.filter((event)=>event.name === eventDetails.event_name)
-  console.log(event)
+  // const event = discountArray.filter((event)=>event.name === eventDetails.event_name)
+  // console.log(event)
   return (
     <>
       <ContainerScroll
@@ -103,7 +103,8 @@ const EventDetails = ({ eventDetails }: any) => {
                       {parse(eventDetails.schedule)}
                     </div>
                     <div className="items-center flex flex-row justify-start gap-2 font-hollirood flex-wrap  tracking-widest w-full">
-                    Registration Fees:  ₹{eventDetails.registration_fees}{discountArray.filter((event)=>event.name === eventDetails.event_name).length > 0 && <> <s className="text-red-500">₹{discountArray.filter((event)=>event.name === eventDetails.event_name)[0].mrp}</s><h1 className="text-xs">(Till 5th May 2024)</h1></>}
+                    Registration Fees:  ₹{eventDetails.registration_fees}
+                    {/* {discountArray.filter((event)=>event.name === eventDetails.event_name).length > 0 && <> <s className="text-red-500">₹{discountArray.filter((event)=>event.name === eventDetails.event_name)[0].mrp}</s><h1 className="text-xs">(Till 5th May 2024)</h1></>} */}
                     </div>
                     {eventDetails?.prize && (
                       <div className="items-left flex flex-col justify-center gap-5 font-hollirood tracking-widest">
