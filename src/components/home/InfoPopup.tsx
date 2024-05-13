@@ -12,7 +12,7 @@ const InfoPopup = () => {
 
       const timer = setTimeout(() => {
           onClose(); 
-      }, 10000); 
+      }, 40000); 
 
       return () => clearTimeout(timer); 
   }, []);
@@ -21,7 +21,7 @@ const InfoPopup = () => {
       {isOpen && (
         <div className="fixed  inset-0 flex items-center font-retrolight tracking-widest justify-center bg-black bg-opacity-50 z-[50]">
           <div
-            className={`bg-body border-y-2 border-regalia p-4 rounded-lg h-auto lg:h-[70vh] w-[90%] flex flex-col items-start md:w-[50%] lg:w-[35%] `}
+            className={`bg-body border-y-2 border-regalia p-4 rounded-lg h-auto lg:h-[70vh] 2xl:h-auto w-[90%] flex flex-col items-start md:w-[50%] lg:w-[35%] `}
           >
             <div className="w-full flex flex-row mb-2 items-center justify-between">
               <h2 className="text-lg font-semibold">Important Announcement</h2>
