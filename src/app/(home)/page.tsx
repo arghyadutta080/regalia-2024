@@ -5,11 +5,13 @@ import Events from "@/components/home/Events";
 import Image from "next/image";
 import Sponsors from "@/components/home/Sponsors";
 import { Footer } from "@/components/common";
+import InfoPopup from "@/components/home/InfoPopup";
 
 const Home = () => {
   return (
     <>
       <main className="mx-auto flex min-h-screen w-full flex-col gap-2">
+        <InfoPopup />
         <Hero />
         <About />
         <Image
