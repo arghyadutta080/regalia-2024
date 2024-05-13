@@ -79,7 +79,7 @@ const Hero = () => {
           </h1>
           <h1 className="text-md text-regalia font-hollirood mt-2 w-full mx-auto md:text-2xl">Inter College Annual Cultural fest</h1>
           <h1 className="tracking-wider mt-1 self-start flex md:text-xl lg:text-2xl">7th & 8th May 2024 (Prelims)</h1>
-          <h1 className="tracking-wider mt-1 self-start flex md:text-xl lg:text-2xl">14th & 15th May 2024 (Finals)</h1>
+          <h1 className="tracking-wider mt-1  flex md:text-xl lg:text-2xl text-center">July 2024 (Finals)</h1>
         </div>
       
       </div>
