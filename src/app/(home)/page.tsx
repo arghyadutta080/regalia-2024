@@ -6,6 +6,7 @@ import Image from "next/image";
 import Sponsors from "@/components/home/Sponsors";
 import { Footer } from "@/components/common";
 import InfoPopup from "@/components/home/InfoPopup";
+import Judges from "@/components/home/Judges";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
           height={0}
         />
         <Events />
+        <Judges />
         <Image
           src="/assets/home/goldbar2.svg"
           alt="About"
