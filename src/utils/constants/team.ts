@@ -22,7 +22,7 @@ export const teams = [
             image: "https://i.postimg.cc/pLTkmRNB/WhatsApp_Image_2024-05-05_at_14.24.45_490163ed.jpg",
         },
           {
-            name: "Sandip Saha",
+            name: "Mr. Sandip Saha",
             role: "Registrar, RCCIIT",
             image: "https://i.postimg.cc/7Lqz5NTr/WhatsApp_Image_2024-05-06_at_00.54.21_e51a6ee6.jpg",
         },
@@ -305,11 +305,18 @@ export const teams = [
           "https://i.postimg.cc/LsjNVn2D/IMG-20240324-224141-653-Ariyan-Bhakat.jpg",
       },
       {
+        name: "Sattamedha Chowdhury",
+        role: "Video Creator",
+        image:
+          "https://i.postimg.cc/L4jXBBW6/img-1-1692791400442.webp",
+      },
+      {
         name: "Sohom Sarkar",
         role: "",
         image:
           "https://i.postimg.cc/XqYL3LF1/IMG-20240417-205731-Sohom-Sarkar.jpg",
       },
+      
     ],
   },
   {
@@ -493,7 +500,7 @@ export const teams = [
       },
       {
         name: "Arnab Dey",
-        role: "Member",
+        role: "Sponsorship Team Lead",
         image: "https://i.imgur.com/EjMuVkC.jpg",
       },
       {

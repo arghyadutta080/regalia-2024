@@ -51,9 +51,10 @@ const Page = () => {
       const { data: teamData, error: teamError } = await supabase
         .from("teams")
         .select(
-          "college,team_id,team_name,team_lead_phone,transaction_verified,attendance",
+          "college,team_id,team_name,team_lead_phone,transaction_verified,attendance,events(event_name)",
         )
-        .eq("event_id", eventId);
+        .eq("event_id", eventId) as any;
+       
 
       if (teamError) {
         console.error("Error fetching teams:", teamError.message);
@@ -64,6 +65,7 @@ const Page = () => {
         const teamsWithMembers = [];
 
         for (const team of teamData) {
+          console.log(team)
           const { data: memberData, error: memberError } = await supabase
             .from("participations")
             .select("name,phone,email")
@@ -83,6 +85,7 @@ const Page = () => {
        
 
               membersWithUserData.push({
+                event_name: team?.events!.event_name,
                 team_name: team.team_name,
                 name: member?.name,
                 college: team?.college,
