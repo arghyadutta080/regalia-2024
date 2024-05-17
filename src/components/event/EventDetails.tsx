@@ -14,6 +14,8 @@ import { clickSound, login } from "@/utils/functions";
 import { useRouter } from "next/navigation";
 import { getEventInfo } from "@/utils/functions/getEventsInfo";
 import toast from "react-hot-toast";
+import ResultModal from "./ResultModal";
+import { results } from "@/utils/constants/results";
 
 type preview = {
   url: string;
@@ -33,6 +35,7 @@ type preview = {
 
 const EventDetails = ({ eventDetails }: any) => {
   const router = useRouter();
+  const [openResult, setOpenResult] = useState<boolean>(false);
   const [openRules, setOpenRules] = useState<boolean>(false);
   const [openRegister, setOpenRegister] = useState<boolean>(false);
   const [eventInfo, setEventInfo] = useState({} as any);
@@ -62,9 +65,10 @@ const EventDetails = ({ eventDetails }: any) => {
   const onClose = () => {
     setOpenRules(false);
     setOpenRegister(false);
+    setOpenResult(false);
   };
   useEffect(() => {
-    if (openRules || openRegister) {
+    if (openRules || openRegister || openResult) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
@@ -72,6 +76,8 @@ const EventDetails = ({ eventDetails }: any) => {
   });
   // const event = discountArray.filter((event)=>event.name === eventDetails.event_name)
   // console.log(event)
+
+  const event = results?.filter((e) => e.event === eventDetails.event_name)?.[0];
   return (
     <>
       <ContainerScroll
@@ -234,7 +240,20 @@ const EventDetails = ({ eventDetails }: any) => {
                       </span>
                     </button>
                   )}
-                  {
+                  { eventDetails?.result_out === true ? 
+                  (
+                    <button
+                    onClick={() => setOpenResult(true)}
+                    className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                      disabled={!eventDetails.result_out}
+                    >
+                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-md font-medium text-white tracking-wider backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
+                    Result
+                    </span>
+                    </button>
+                  )
+                  : 
                     eventDetails?.is_open === false && (
                       <button
                       onClick={() => {
@@ -280,6 +299,11 @@ const EventDetails = ({ eventDetails }: any) => {
         onClose={onClose}
         eventDetails={eventDetails}
         roles={eventInfo?.roles!}
+      />
+      <ResultModal
+      isOpen={openResult}
+      onClose={onClose}
+      result={event}
       />
     </>
   );

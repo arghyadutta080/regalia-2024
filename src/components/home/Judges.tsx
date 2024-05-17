@@ -22,8 +22,8 @@ const Judges = () => {
                         {
                             judge.judges.map((judge, index) => {
                                 return(
-                                    <BackgroundGradient className="relative flex  flex-col items-center justify-center p-1">
-                                    <Image  key={index} src={judge} alt='judge' width={400} height={100} className='rounded-lg' />
+                                    <BackgroundGradient key={index}  className="relative flex  flex-col items-center justify-center p-1">
+                                    <Image  src={judge} alt='judge' width={400} height={100} className='rounded-lg' />
                                     </BackgroundGradient>
                                 )
                             })
