@@ -55,25 +55,40 @@ const Navbar = () => {
         setUserImg(data?.session?.user.user_metadata?.avatar_url);
       }
 
-      const { data: roleData } = await supabase
+      const { data: roleData }:any = await supabase
         .from("roles")
-        .select()
-        .match({ id: data?.session?.user?.id });
+        .select(
+          "role,event_id,events(event_name,fest_name,year),event_categories(fest_name,year)",
+        )
+        .eq("id", data?.session?.user.id);
 
       let isSuperAdmin = false;
       let isCoordinator = false;
       let isConvenor = false;
       let isRegistrar = false;
+      console.log(roleData);
       if (roleData) {
         for (const obj of roleData!) {
           if (obj.role === "super_admin") {
             isSuperAdmin = true;
           }
           if (obj.role === "event_coordinator") {
-            isCoordinator = true;
+            if (
+              obj.events &&
+              obj.events.fest_name === "Regalia" &&
+              obj.events.year == 2024
+            ) {
+              isCoordinator = true;
+            }
           }
           if (obj.role === "convenor") {
-            isConvenor = true;
+            if (
+              obj.event_categories &&
+              obj.event_categories.fest_name === "Regalia" &&
+              obj.event_categories.year == 2024
+            ) {
+              isConvenor = true;
+            }
           }
           if (obj.role === "registrar") {
             isRegistrar = true;
@@ -154,7 +169,7 @@ const Navbar = () => {
         <div
           className={`${
             scrolling || isMenuOpen
-              ? "bg-body rounded-xl border-b border-regalia"
+              ? "rounded-xl border-b border-regalia bg-body"
               : "bg-transparent"
           } flex flex-row items-center justify-between overflow-hidden  border-regalia py-2 pl-2 pr-4 max-md:border-b max-md:px-3 md:flex md:items-start  xl:items-center 2xl:gap-20 2xl:px-5 min-[1700px]:justify-around 
         `}
@@ -167,8 +182,13 @@ const Navbar = () => {
               onClick={clickSound}
               className="flex flex-row items-end"
             >
-              <Image src="/assets/home/regalia_1.png" height={20} width={48} alt="rcc" />
-            <h1 className="text-[1.7rem] pt-2">REGALIA</h1>  
+              <Image
+                src="/assets/home/regalia_1.png"
+                height={20}
+                width={48}
+                alt="rcc"
+              />
+              <h1 className="pt-2 text-[1.7rem]">REGALIA</h1>
             </Link>
           </div>
           <div className="flex flex-row-reverse items-center justify-between gap-4 md:flex-row">
