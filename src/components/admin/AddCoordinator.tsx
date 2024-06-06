@@ -7,15 +7,14 @@ import toast, { Toaster } from "react-hot-toast";
 import SelectInput from "../common/SelectInput";
 import FormElement from "../common/FormElement";
 
-
 const AddCoordinator = ({
   isOpen,
   onClose,
-
+  role,
 }: {
   isOpen: boolean;
   onClose: () => void;
-
+  role: string;
 }) => {
   const [inputs, setInputs] = useState({
     phone: "",
@@ -27,7 +26,7 @@ const AddCoordinator = ({
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | any
-    >
+    >,
   ) => {
     const { name, value } = e.target;
     setInputs((prevInputs) => ({
@@ -42,29 +41,34 @@ const AddCoordinator = ({
       const res = await supabase
         .from("events")
         .select("id, event_name")
-        .eq("fest_name", "Regalia").eq("year",2024);
+        .eq("fest_name", "Regalia")
+        .eq("year", 2024);
       setEvents(res.data?.map((event: any) => event.event_name));
     };
     getEventDetails();
-    
   }, [isOpen]);
 
   const submitCoordinator = async () => {
-    await addCoordinator(inputs);
-    toast.success("Coordinator Added !");
+    await addCoordinator(inputs, role);
+    role === "event_coordinator" && toast.success("Coordinator Added !");
+    role === "volunteer" && toast.success("Volunteer Added !");
     onClose();
   };
   return (
     <>
       {isOpen && (
-        <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[50]">
-          <div className="bg-body border-y-2  border-regalia w-[90%] md:w-1/3 p-4 rounded-lg relative   flex flex-col items-start  ">
-            <div className="w-full flex flex-row mb-2 items-center justify-between">
-              <h2 className="text-lg font-semibold">Coordinator Addition</h2>
+        <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
+          <div className="relative flex  w-[90%] flex-col items-start rounded-lg border-y-2 border-regalia   bg-body p-4 md:w-1/3  ">
+            <div className="mb-2 flex w-full flex-row items-center justify-between">
+              <h2 className="text-lg font-semibold">
+                {" "}
+                {role === "event_coordinator" && "Coordinator"}{" "}
+                {role === "volunteer" && "Volunteer"} Addition
+              </h2>
 
               <h2
                 onClick={onClose}
-                className="bg-regalia  md:py-2 md:px-3 px-2 py-1 hover:bg-black hover:text-regalia border-2 border-black hover:border-regalia  text-black text-sm font-semibold rounded-full cursor-pointer"
+                className="cursor-pointer  rounded-full border-2 border-black bg-regalia px-2 py-1 text-sm font-semibold text-black  hover:border-regalia hover:bg-black hover:text-regalia md:px-3 md:py-2"
               >
                 X
               </h2>
@@ -75,7 +79,7 @@ const AddCoordinator = ({
               }
             </h1> */}
 
-            <div className="flex flex-col items-start gap-2 my-2 w-full">
+            <div className="my-2 flex w-full flex-col items-start gap-2">
               <SelectInput
                 options={events}
                 onChange={(e) => {
@@ -93,15 +97,15 @@ const AddCoordinator = ({
                 onChange={(e: any) => handleInputChange(e)}
               />
             </div>
-            <div className="flex flex-row flex-wrap justify-between w-full">
-            <button
-                className="border-2 mt-3 cursor-pointer border-regalia px-5 py-1 rounded-full font-semibold bg-regalia text-black hover:bg-black hover:text-regalia"
+            <div className="flex w-full flex-row flex-wrap justify-between">
+              <button
+                className="mt-3 cursor-pointer rounded-full border-2 border-regalia bg-regalia px-5 py-1 font-semibold text-black hover:bg-black hover:text-regalia"
                 onClick={onClose}
               >
                 Close
               </button>
               <button
-                className="border-2 mt-3 cursor-pointer border-regalia px-5 py-1 rounded-full font-semibold bg-regalia text-black hover:bg-black hover:text-regalia"
+                className="mt-3 cursor-pointer rounded-full border-2 border-regalia bg-regalia px-5 py-1 font-semibold text-black hover:bg-black hover:text-regalia"
                 onClick={submitCoordinator}
               >
                 Submit
@@ -110,7 +114,7 @@ const AddCoordinator = ({
           </div>
         </div>
       )}
-      <Toaster  position="bottom-right" />
+      <Toaster position="bottom-right" />
     </>
   );
 };

@@ -38,7 +38,7 @@ const Page = () => {
             showAllEvents = true;
             break;
           }
-          if (obj.role === "event_coordinator") {
+          if (obj.role === "event_coordinator" || obj.role === "volunteer") {
             coordinatingEventIds.push(obj.event_id);
           } else if (obj.role === "convenor") {
             // conveningEventCategoryIds.push(obj.event_category_id);

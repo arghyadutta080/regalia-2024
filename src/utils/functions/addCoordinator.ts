@@ -1,7 +1,6 @@
 import { supabase } from "@/lib/supabase-client";
 
-
-export const addCoordinator = async (inputs: any) => {
+export const addCoordinator = async (inputs: any, role: string) => {
   try {
     const { data: user, error: userError } = await supabase
       .from("users")
@@ -17,7 +16,7 @@ export const addCoordinator = async (inputs: any) => {
       .from("roles")
       .insert({
         id: user![0].id,
-        role: "event_coordinator",
+        role: role,
         event_id: event![0].id,
       })
       .select();

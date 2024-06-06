@@ -36,6 +36,7 @@ export async function middleware(req: NextRequest) {
 
     let superAdmin = false;
     let eventCoordinator = false;
+    let volunteer = false;
     let convenor = false;
     let registrar = false;
     let security = false;
@@ -51,6 +52,14 @@ export async function middleware(req: NextRequest) {
             obj.events.year == 2024
           ) {
             eventCoordinator = true;
+          }
+        } else if (obj.role === "volunteer") {
+          if (
+            obj.events &&
+            obj.events.fest_name === "Regalia" &&
+            obj.events.year == 2024
+          ) {
+            volunteer = true;
           }
         } else if (obj.role === "convenor") {
           if (
@@ -104,7 +113,11 @@ export async function middleware(req: NextRequest) {
     }
 
     if (
-      (!superAdmin || !registrar || !convenor || !eventCoordinator) &&
+      (!superAdmin ||
+        !registrar ||
+        !convenor ||
+        !eventCoordinator ||
+        !volunteer) &&
       url.pathname.startsWith("/registrar")
     ) {
       return NextResponse.redirect(new URL("/", req.url));
@@ -142,6 +155,19 @@ export async function middleware(req: NextRequest) {
         return NextResponse.next();
       }
     }
+
+    if (volunteer && url.pathname.startsWith("/coordinator")) {
+      const eventId = url.pathname.split("/")[2];
+      if (eventId != undefined) {
+        if (userRoles.data?.find((role) => role.event_id === eventId)) {
+          return NextResponse.next();
+        } else {
+          return NextResponse.redirect(new URL("/", req.url));
+        }
+      } else {
+        return NextResponse.next();
+      }
+    }
     if (convenor && url.pathname.startsWith("/coordinator")) {
       return NextResponse.next();
     }
@@ -149,7 +175,11 @@ export async function middleware(req: NextRequest) {
       return NextResponse.next();
     }
 
-    if (!eventCoordinator && url.pathname.startsWith("/coordinator")) {
+    if (
+      !eventCoordinator &&
+      !volunteer &&
+      url.pathname.startsWith("/coordinator")
+    ) {
       return NextResponse.redirect(new URL("/", req.url));
     }
 

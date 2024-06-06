@@ -11,6 +11,7 @@ import { IoSearchSharp } from "react-icons/io5";
 
 const Page = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [role, setRole] = useState("event_coordinator");
   const [isSecurityOpen, setIsSecurityOpen] = useState(false);
   const [isRegistrarOpen, setIsRegistrarOpen] = useState(false);
   const onClose = () => {
@@ -38,14 +39,14 @@ const Page = () => {
   return (
     <div className="mx-auto flex flex-col items-center gap-5">
       <Heading text="Manage Events" />
-      <div className="mx-auto flex  w-full flex-col flex-wrap  items-center justify-center gap-2 md:w-[90%] md:flex-row">
+      <div className="mx-auto flex  w-full flex-col flex-wrap  items-center justify-center gap-5 md:w-[90%] md:flex-row">
         <div className="flex w-[90%] flex-row items-center gap-2  px-2 md:w-[60%]">
           <input
             type="text"
             placeholder="Search for Events"
             value={eventName}
             onChange={(e) => setEventName(e.target.value)}
-            className="bg-body w-full  rounded-full border-2 border-regalia px-4 py-3"
+            className="w-full rounded-full  border-2 border-regalia bg-body px-4 py-3"
           />
           <IoSearchSharp className="h-10 w-10 text-regalia" />
         </div>
@@ -55,11 +56,24 @@ const Page = () => {
             <Link href={"/admin/manage-events/add-event"}>Add Event</Link>
           </button>
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true);
+              setRole("event_coordinator");
+            }}
             className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
           >
             <FaPlus />
             Add Coordinator
+          </button>
+          <button
+            onClick={() => {
+              setIsOpen(true);
+              setRole("volunteer");
+            }}
+            className="flex cursor-pointer flex-row items-center gap-2 rounded-xl border-2 border-regalia bg-regalia px-3 py-1 text-sm font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia "
+          >
+            <FaPlus />
+            Add Volunteer
           </button>
           <button
             onClick={() => setIsRegistrarOpen(true)}
@@ -81,7 +95,7 @@ const Page = () => {
         <EventPreview events={filteredEvent} />
       </div>
 
-      <AddCoordinator isOpen={isOpen} onClose={onClose} />
+      <AddCoordinator isOpen={isOpen} onClose={onClose} role={role} />
 
       <RegistrarModal
         isOpen={isRegistrarOpen}

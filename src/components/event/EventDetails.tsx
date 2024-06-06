@@ -77,7 +77,9 @@ const EventDetails = ({ eventDetails }: any) => {
   // const event = discountArray.filter((event)=>event.name === eventDetails.event_name)
   // console.log(event)
 
-  const event = results?.filter((e) => e.event === eventDetails.event_name)?.[0];
+  const event = results?.filter(
+    (e) => e.event === eventDetails.event_name,
+  )?.[0];
   return (
     <>
       <ContainerScroll
@@ -108,9 +110,9 @@ const EventDetails = ({ eventDetails }: any) => {
                     <div className="items-left flex flex-col justify-center gap-5 font-hollirood tracking-widest">
                       {parse(eventDetails.schedule)}
                     </div>
-                    <div className="items-center flex flex-row justify-start gap-2 font-hollirood flex-wrap  tracking-widest w-full">
-                    Registration Fees:  ₹{eventDetails.registration_fees}
-                    {/* {discountArray.filter((event)=>event.name === eventDetails.event_name).length > 0 && <> <s className="text-red-500">₹{discountArray.filter((event)=>event.name === eventDetails.event_name)[0].mrp}</s><h1 className="text-xs">(Till 5th May 2024)</h1></>} */}
+                    <div className="flex w-full flex-row flex-wrap items-center justify-start gap-2  font-hollirood tracking-widest">
+                      Registration Fees: ₹{eventDetails.registration_fees}
+                      {/* {discountArray.filter((event)=>event.name === eventDetails.event_name).length > 0 && <> <s className="text-red-500">₹{discountArray.filter((event)=>event.name === eventDetails.event_name)[0].mrp}</s><h1 className="text-xs">(Till 5th May 2024)</h1></>} */}
                     </div>
                     {eventDetails?.prize && (
                       <div className="items-left flex flex-col justify-center gap-5 font-hollirood tracking-widest">
@@ -125,28 +127,28 @@ const EventDetails = ({ eventDetails }: any) => {
                           eventDetails?.max_team_member
                         : 1 + " (Solo)"}
                     </div>
-                    <h1 className="text-lg font-hollirood">Coordinators :</h1>
+                    <h1 className="font-hollirood text-lg">Coordinators :</h1>
                     {!loading && eventInfo?.roles.length > 0 ? (
-                      eventInfo?.roles.map(
-                        (coordinator: any, index: number) => {
+                      eventInfo?.roles
+                        .filter((role: any) => role.role !== "volunteer")
+                        ?.map((coordinator: any, index: number) => {
                           return (
                             <div
                               key={index}
-                              className="flex flex-col items-start font-hollirood text-white gap-2"
+                              className="flex flex-col items-start gap-2 font-hollirood text-white"
                             >
-                              <span className="flex flex-row items-center tracking-widest text-sm gap-4 font-semibold ">
+                              <span className="flex flex-row items-center gap-4 text-sm font-semibold tracking-widest ">
                                 {coordinator?.users?.name}
                                 <a
                                   href={`tel:${coordinator?.users?.phone}`}
-                                  className="text-lg font-semibold text-regalia tracking-widest hover:text-green-500 lg:text-sm"
+                                  className="text-lg font-semibold tracking-widest text-regalia hover:text-green-500 lg:text-sm"
                                 >
                                   {coordinator?.users?.phone}
                                 </a>
                               </span>
                             </div>
                           );
-                        },
-                      )
+                        })
                     ) : (
                       <h1 className="text-center font-hollirood text-sm font-semibold text-red-600">
                         No Coordinators added yet !
@@ -180,7 +182,7 @@ const EventDetails = ({ eventDetails }: any) => {
                   eventDetails! &&
                   eventDetails!.is_open && (
                     <button
-                      className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto  overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                      className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden  rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3 md:hidden"
                       disabled={!eventDetails.is_open}
                       onClick={async () => {
                         if (!user) {
@@ -198,7 +200,7 @@ const EventDetails = ({ eventDetails }: any) => {
                   )}
                 {registeredEvent! && (
                   <button
-                    className="md:hidden relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
+                    className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3 md:hidden"
                     onClick={() => {
                       clickSound();
                       router.push("/dashboard");
@@ -240,35 +242,33 @@ const EventDetails = ({ eventDetails }: any) => {
                       </span>
                     </button>
                   )}
-                  { eventDetails?.result_out === true ? 
-                  (
-                    <button
+                {eventDetails?.result_out === true ? (
+                  <button
                     onClick={() => setOpenResult(true)}
                     className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
-                      disabled={!eventDetails.result_out}
-                    >
-                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
-                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-md font-medium text-white tracking-wider backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
-                    Result
+                    disabled={!eventDetails.result_out}
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                    <span className="text-md inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 font-medium tracking-wider text-white backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
+                      Result
                     </span>
-                    </button>
-                  )
-                  : 
-                    eventDetails?.is_open === false && (
-                      <button
+                  </button>
+                ) : (
+                  eventDetails?.is_open === false && (
+                    <button
                       onClick={() => {
                         toast("Registration Closed !", { icon: "🚫" });
                       }}
                       className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
-                        disabled={!eventDetails.is_open}
-                      >
-                        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
-                      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 text-md font-medium text-white tracking-wider backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
-                      Registration Closed
+                      disabled={!eventDetails.is_open}
+                    >
+                      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FEC923_0%,#0917F5_50%,#FEC923_100%)]" />
+                      <span className="text-md inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-12 py-5 font-medium tracking-wider text-white backdrop-blur-3xl md:text-sm lg:px-5 lg:py-3 lg:text-sm">
+                        Registration Closed
                       </span>
-                      </button>
-                    )
-                  }
+                    </button>
+                  )
+                )}
                 {registeredEvent! && (
                   <button
                     className="relative mx-auto my-2 inline-flex h-12 w-auto overflow-hidden rounded-full p-1 font-retrolight focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:my-3"
@@ -300,11 +300,7 @@ const EventDetails = ({ eventDetails }: any) => {
         eventDetails={eventDetails}
         roles={eventInfo?.roles!}
       />
-      <ResultModal
-      isOpen={openResult}
-      onClose={onClose}
-      result={event}
-      />
+      <ResultModal isOpen={openResult} onClose={onClose} result={event} />
     </>
   );
 };

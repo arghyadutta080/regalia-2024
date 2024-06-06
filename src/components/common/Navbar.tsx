@@ -27,6 +27,7 @@ const Navbar = () => {
   const [showAdminDashboard, setShowAdminDashboard] = useState(false);
   const [showRegisterDashboard, setShowRegisterDashboard] = useState(false);
   const [showConvenorDashboard, setShowConvenorDashboard] = useState(false);
+  const [showVolunteerDashboard, setShowVolunteerDashboard] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showCoordinatorDashboard, setShowCoordinatorDashboard] =
     useState(false);
@@ -55,7 +56,7 @@ const Navbar = () => {
         setUserImg(data?.session?.user.user_metadata?.avatar_url);
       }
 
-      const { data: roleData }:any = await supabase
+      const { data: roleData }: any = await supabase
         .from("roles")
         .select(
           "role,event_id,events(event_name,fest_name,year),event_categories(fest_name,year)",
@@ -64,6 +65,7 @@ const Navbar = () => {
 
       let isSuperAdmin = false;
       let isCoordinator = false;
+      let isVolunteer = false;
       let isConvenor = false;
       let isRegistrar = false;
       console.log(roleData);
@@ -79,6 +81,15 @@ const Navbar = () => {
               obj.events.year == 2024
             ) {
               isCoordinator = true;
+            }
+          }
+          if (obj.role === "volunteer") {
+            if (
+              obj.events &&
+              obj.events.fest_name === "Regalia" &&
+              obj.events.year == 2024
+            ) {
+              isVolunteer = true;
             }
           }
           if (obj.role === "convenor") {
@@ -111,6 +122,13 @@ const Navbar = () => {
               setShowConvenorDashboard(false);
               setShowRegisterDashboard(true);
               setShowCoordinatorDashboard(true);
+              setShowVolunteerDashboard(false);
+            }
+            if (isVolunteer) {
+              !isConvenor && setShowConvenorDashboard(false);
+              setShowRegisterDashboard(true);
+              !isCoordinator && setShowCoordinatorDashboard(false);
+              !isCoordinator && setShowVolunteerDashboard(true);
             } else if (!isSuperAdmin && !isCoordinator && !isConvenor) {
               setShowCoordinatorDashboard(false);
               setShowConvenorDashboard(false);
@@ -329,6 +347,25 @@ const Navbar = () => {
                       }`}
                     >
                       Convenor
+                    </li>
+                  </Link>
+                )}
+
+                {user && showVolunteerDashboard && (
+                  <Link
+                    // onMouseEnter={hoverSound}
+                    href={"/coordinator"}
+                    onClick={() => {
+                      clickSound();
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <li
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                        pathname === "coordinator" && "text-regalia"
+                      }`}
+                    >
+                      Volunteer
                     </li>
                   </Link>
                 )}
