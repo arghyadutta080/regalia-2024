@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <main className="mx-auto flex min-h-screen w-full flex-col gap-2">
-        <InfoPopup />
+        {/* <InfoPopup /> */}
         <Hero />
         <About />
         <Image
