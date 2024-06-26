@@ -10,6 +10,7 @@ import { events } from "@/utils/constants/Events";
 import Image from "next/image";
 import { EventCard } from "../event/EventCard";
 import { clickSound } from "@/utils/functions";
+import { Button } from "../ui/moving-border";
 
 const Events = () => {
   const router = useRouter();
@@ -17,9 +18,17 @@ const Events = () => {
   const [hover, setHover] = useState(false);
   return (
     <div className="relative  w-full lg:mt-10">
-      <div className="mx-auto flex max-w-full flex-col gap-10">
+      <div className="mx-auto my-5 flex flex-col items-center justify-center gap-10">
         <Heading text="Events" />
-
+        <Link target="_blank" href="https://drive.google.com/file/d/1aa7t9-pvrXudDaFqgOr7JO5vepqeX8Kj/view?usp=sharing">
+        <Button
+        borderRadius="1.75rem"
+        className={`text-white px-5 md:px-7 lg:px-10 py-1 md:py-2 lg:py-3 font-retrolight font-semibold text-lg bg-slate-800 hover:scale-95 hover:border-2 `}
+        onClick = {clickSound}
+      >
+       View Events Brochure
+      </Button>
+        </Link>
         <ul className="oveflow-x-scroll accordion relative mt-[10px] hidden h-full w-full justify-center gap-2 space-x-10 font-hollirood xl:flex">
           {events.map((event, index) => {
             return (
