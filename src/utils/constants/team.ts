@@ -107,12 +107,12 @@ export const teams = [
         image:
           "https://i.postimg.cc/RZSXH9vf/Whats-App-Image-2024-04-27-at-07-55-55-cf4c035b.jpg",
       },
-      {
-        name: "Arghya Dutta",
-        role: "Developer",
-        image:
-          "https://i.postimg.cc/7ZYnWRWb/PSX-20240504-000710.jpg",
-      },
+      // {
+      //   name: "Arghya Dutta",
+      //   role: "Developer",
+      //   image:
+      //     "https://i.postimg.cc/7ZYnWRWb/PSX-20240504-000710.jpg",
+      // },
       {
         name: "Bartick Maiti",
         role: "Developer",
