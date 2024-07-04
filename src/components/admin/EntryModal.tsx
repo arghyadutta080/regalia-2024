@@ -1,6 +1,7 @@
 "use client";
 
 import { User } from '@/utils/functions/enterStudent';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const EntryModal = ({
@@ -27,7 +28,7 @@ const EntryModal = ({
         <>
         {isOpen && (
           <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
-            <div className="flex h-[40%] w-[90%] flex-col justify-between items-start rounded-lg border-y-2 border-regalia bg-body p-4 font-hollirood tracking-widest md:w-[40%] lg:w-[30%]">
+            <div className="flex h-[40%] w-[90%] flex-col justify-between items-start rounded-lg border-y-2 border-regalia bg-body py-4 px-2 font-hollirood tracking-widest md:w-[40%] lg:w-[30%]">
 
               <div className="mb-2 flex w-full flex-row items-center justify-center">
                 <h2 className="text-lg font-semibold">Approve Entry</h2>
@@ -36,11 +37,14 @@ const EntryModal = ({
               {/* Show Data */}
 
               <div className="mx-auto my-1 h-full w-full flex flex-col justify-center items-start">
-                <h1 className="text-sm font-semibold">
+                <h1 className="text-sm font-semibold mb-2">
                   Name: <a className='text-white text-xs'>{data.full_name}</a>
                 </h1>
+                <h1 className="text-sm font-semibold mb-2">
+                  Email: <Link href={`mailto:${data.email}`} className='text-white text-xs'>{data.email}</Link>
+                </h1>
                 <h1 className="text-sm font-semibold">
-                  Roll: <a className='text-white text-xs'>{data.email}</a>
+                  Phone: <Link href={`tel:${data.phone}`} className='text-white text-xs'>{data.phone}</Link>
                 </h1>
                 <h1 className="text-sm font-semibold items-center flex justify-start mt-5">
                   Band No: <input 
@@ -48,7 +52,7 @@ const EntryModal = ({
                         inputMode="numeric"
                         placeholder="0"
                         onChange={(e) => setBand(e.target.value)}
-                        className="border-2 border-regalia p-[0.20rem] rounded-lg w-[30%] text-xs text-black"
+                        className="border-2 ml-2 border-regalia p-[0.20rem] bg-transparent rounded-lg w-[30%] text-xs text-white"
                     />
                 </h1>
               </div>
