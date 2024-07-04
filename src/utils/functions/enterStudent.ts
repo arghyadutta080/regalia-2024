@@ -18,9 +18,9 @@ export type User = {
 export const checkDayEntry = () => {
     const today = new Date().toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata' });
     switch (today) {
-        case '14/5/2024':
+        case '4/7/2024':
             return 'day1';
-        case '15/5/2024':
+        case '5/7/2024':
             return 'day2';
         default:
             return 'day_missed';
