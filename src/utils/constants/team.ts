@@ -304,12 +304,12 @@ export const teams = [
         image:
           "https://i.postimg.cc/LsjNVn2D/IMG-20240324-224141-653-Ariyan-Bhakat.jpg",
       },
-      {
-        name: "Sattamedha Chowdhury",
-        role: "Video Creator",
-        image:
-          "https://i.postimg.cc/L4jXBBW6/img-1-1692791400442.webp",
-      },
+      // {
+      //   name: "Sattamedha Chowdhury",
+      //   role: "Video Creator",
+      //   image:
+      //     "https://i.postimg.cc/L4jXBBW6/img-1-1692791400442.webp",
+      // },
       {
         name: "Sohom Sarkar",
         role: "",
