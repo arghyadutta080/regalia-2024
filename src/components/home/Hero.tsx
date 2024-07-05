@@ -55,9 +55,9 @@ const Hero = () => {
               <h1 className="mx-auto mt-3 w-full font-hollirood text-2xl">
                 Inter College Annual Cultural fest
               </h1>
-              <h1 className="mx-auto mt-3 w-full font-hollirood text-2xl tracking-wider">
+              {/* <h1 className="mx-auto mt-3 w-full font-hollirood text-2xl tracking-wider">
                 7th & 8th May 2024 (Prelims)
-              </h1>
+              </h1> */}
               <h1 className="mx-auto mt-3 w-full font-hollirood text-2xl tracking-wider">
                 10th & 11th July 2024 (Finals)
               </h1>
