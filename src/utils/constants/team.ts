@@ -93,7 +93,7 @@ export const teams = [
       },
       {
         name: "Shourya Shikhar Ghosh",
-        role: "Database Designer",
+        role: "Database Architect",
         image: "https://i.postimg.cc/D0TtD5DL/shourya.png",
       },
       {
@@ -118,6 +118,12 @@ export const teams = [
         role: "Developer",
         image:
           "https://i.postimg.cc/NfwXK4Qr/IMG-20231011-002726-222-bartick-maiti.jpg",
+      },
+      {
+        name: "Debanjan Malakar",
+        role: "Database Architect",
+        image:
+          "https://i.postimg.cc/m24v2Jm8/debanjan.jpg",
       },
       {
         name: "Shreya Sarkar",
