@@ -12,7 +12,7 @@ import { clickSound } from "@/utils/functions";
 import Link from "next/link";
 const SponsorCard = ({ name, logo, type }: partnerType) => {
   return (
-    <BackgroundGradient className="relative flex h-[320px] w-[300px] flex-col items-center justify-center p-8">
+    <BackgroundGradient className="relative flex h-[350px] w-[300px] flex-col items-center justify-center p-8">
       <div className=" flex flex-col items-center gap-8 ">
         <Image
           src={logo}
@@ -21,7 +21,7 @@ const SponsorCard = ({ name, logo, type }: partnerType) => {
           alt="partner"
           className="rounded-xl"
         />
-        <h1 className=" font-hollirood text-xl font-semibold tracking-widest ">
+        <h1 className=" font-hollirood text-center text-xl font-semibold tracking-widest ">
           {type}
         </h1>
       </div>
@@ -32,7 +32,7 @@ const Sponsors = () => {
   return (
     <div
       id="sponsors"
-      className="mx-auto flex flex-col items-center justify-center gap-10 py-14"
+      className="mx-auto flex flex-col xl:w-[70%] items-center justify-center gap-10 py-14"
     >
       <div className="mx-auto my-5 flex flex-col items-center justify-center gap-10">
         <Heading text="Sponsors" />
