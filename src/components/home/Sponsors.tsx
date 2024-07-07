@@ -10,10 +10,10 @@ import { BackgroundGradient } from "../ui/background-gradient";
 import { Button } from "../ui/moving-border";
 import { clickSound } from "@/utils/functions";
 import Link from "next/link";
-const SponsorCard = ({ name, logo, type }: partnerType) => {
+const SponsorCard = ({ name, logo, type, link }: partnerType) => {
   return (
     <BackgroundGradient className="relative flex h-[350px] w-[300px] flex-col items-center justify-center p-8">
-      <div className=" flex flex-col items-center gap-8 ">
+      <Link href={link} target="_blank" className=" flex flex-col items-center gap-8 ">
         <Image
           src={logo}
           width={250}
@@ -24,7 +24,7 @@ const SponsorCard = ({ name, logo, type }: partnerType) => {
         <h1 className=" font-hollirood text-center text-xl font-semibold tracking-widest ">
           {type}
         </h1>
-      </div>
+      </Link>
     </BackgroundGradient>
   );
 };
@@ -54,6 +54,7 @@ const Sponsors = () => {
                 name={sponsor.name}
                 logo={sponsor.logo}
                 type={sponsor.type}
+                link={sponsor.link}
               />
             );
           })}
