@@ -7,8 +7,15 @@ import RegFormElement from "../common/RegFormElement";
 import { clearSpaces, validateUserReg } from "@/utils/functions/validate";
 import FormElement from "../common/FormElement";
 import toast, { Toaster } from "react-hot-toast";
+import { Button } from "../ui/moving-border";
+import { clickSound } from "@/utils/functions";
+import { ClipLoader } from "react-spinners";
+import { checkSWC } from "@/utils/functions/checkSWC";
+import { generatePass } from "@/utils/functions/generatePass";
+import { updatePass } from "@/utils/functions/updatePass";
 
 const UserRegForm = () => {
+  const [isPassGenerated, setIsPassGenerated] = useState(true);
   const user = useUser((state) => state.user);
   const [inputs, setInputs] = useState({
     name: "",
@@ -85,9 +92,44 @@ const UserRegForm = () => {
       gender: user?.gender!,
     }));
   }, [user]);
+  const [generatedPass, setGeneratedPass] = useState("");
+  const handleGeneratePass = async () => {
+    clickSound();
+    setIsPassGenerated(false);
+    const res = await checkSWC(user?.email!);
+    if (res) {
+      const data = await generatePass(
+        inputs.name,
+        inputs.phone,
+        user?.email!,
+        inputs.roll,
+      );
+      setGeneratedPass(data?.response?.imgur_response?.data?.link);
+      const userData = await updatePass(
+        data?.response?.imgur_response?.data?.link,
+        user?.email!,
+      );
+      console.log(userData);
+    } else {
+      console.log("Good");
+    }
+    console.log(res);
+    setIsPassGenerated(true);
+  };
 
   return (
     <div className="flex w-full flex-col justify-center gap-6  rounded-xl border border-regalia bg-body p-6 font-hollirood  md:py-10">
+      {/* <Button
+        borderRadius="1.75rem"
+        className={`bg-slate-800 px-5 py-1 font-retrolight text-lg font-semibold text-white hover:scale-95 hover:border-2 md:px-7 md:py-2 lg:px-5 lg:py-3 `}
+        onClick={handleGeneratePass}
+      >
+        {isPassGenerated ? (
+          "View Pass"
+        ) : (
+          <ClipLoader color="#c9a747" size={20} />
+        )}
+      </Button> */}
       <FormElement
         name="Name"
         value={inputs.name}
@@ -189,7 +231,7 @@ const UserRegForm = () => {
       >
         Submit
       </button>
-      <Toaster position="bottom-right"  />
+      <Toaster position="bottom-right" />
     </div>
   );
 };
