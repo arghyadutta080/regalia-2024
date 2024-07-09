@@ -106,7 +106,6 @@ const EntryPage = () => {
         resetEntry();
         const dayEntry: DayEntry = {
             security: data.security,
-            band_no: band,
             time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
         }
         
@@ -140,7 +139,7 @@ const EntryPage = () => {
                                 {
                                     scanned ? (
                                         <div className={`text-base p-2 rounded-lg ${day?'text-red-600':'text-white'}`}>
-                                            {scanned} {day?'successfully':'has already'} entered the venue! {day?.band_no && `with band no ${day?.band_no}`}
+                                            {scanned} {day?'successfully':'has already'} entered the venue! 
                                         </div>
                                     ) : (
                                         <PuffLoader color="" size={30} />
