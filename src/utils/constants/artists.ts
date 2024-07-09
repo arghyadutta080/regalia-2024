@@ -22,6 +22,6 @@ export const artists:ArtistType[] = [
             name:'NIKHITA GANDHI',
             logo:'https://i.postimg.cc/9FMbftnw/nikita.jpg',
             link:'https://www.instagram.com/p/C9C1-yTSgN1/',
-            date:'6:30 PM ,  10th July 2024 ',
+            date:'6:30 PM ,  11th July 2024 ',
             },
 ]

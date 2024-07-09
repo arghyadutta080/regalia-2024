@@ -1,158 +1,169 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation'
-import { useState, useRef } from 'react';
+import { useRouter } from "next/navigation";
+import { useState, useRef } from "react";
 
-import { User, addStudent, checkDayEntry, getCurrentSession } from '@/utils/functions/enterStudent';
+import {
+  User,
+  addStudent,
+  checkDayEntry,
+  getCurrentSession,
+} from "@/utils/functions/enterStudent";
+import FormElement from "@/components/common/FormElement";
+import { ClipLoader, FadeLoader } from "react-spinners";
+import Image from "next/image";
 
 const EntryAddPage = () => {
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(true);
+  const [generatedPass, setGeneratedPass] = useState<string>("");
+  const [isEntry, setIsEntry] = useState<boolean>(false);
+  const [inputs, setInputs] = useState<any>({
+    name: "",
+    roll: "",
+    email: "",
+    phone: "",
+  });
 
-    const [name, setName] = useState<string>('');
-    const [roll, setRoll] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [phone, setPhone] = useState<string>('');
-    const [band, setBand] = useState<string>('');
+  const nameRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-    const nameRef = useRef<HTMLInputElement>(null);
-    const formRef = useRef<HTMLFormElement>(null);
+  const router = useRouter();
 
-    const router = useRouter();
+  function redirectToEntry() {
+    router.push("/entry");
+  }
 
-    function redirectToEntry() {
-        router.push('/entry');
+  async function handleAddStudent() {
+    const student: User | any = {
+      full_name: inputs.name,
+      college_roll: inputs.roll,
+      email: inputs.email,
+      phone: parseInt(inputs.phone),
+      day1: null,
+      day2: null,
     };
 
-    function resetForm() {
-        setName('');
-        setRoll('');
-        setEmail('');
-        setPhone('');
-        setBand('');
-        formRef.current?.reset();
-        nameRef.current?.focus();
+    setIsSubmitted(false);
+
+    if (isEntry) {
+      const day = checkDayEntry();
+      const security = await getCurrentSession();
+      student[day] = {
+        security: security,
+        time: new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" }),
+      };
     }
 
-    async function _addStudent() {
+    await addStudent(student);
 
-        const student: User  = {
-            full_name: name,
-            college_roll: roll,
-            email,
-            phone: parseInt(phone),
-            day1: null,
-            day2: null
-        }
+    try {
+      const res = await fetch("/api/sendPass", {
+        method: "POST",
+        body: JSON.stringify({
+          name: inputs.name,
+          roll: inputs.roll,
+          email: inputs.email,
+          phone: inputs.phone,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-        if(band) {
-            const day = checkDayEntry();
-            if (day==='day_missed') {
-                resetForm()
-                alert('Event days have already missed')
-                return;
-            }
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
 
-            const security = await getCurrentSession();
-
-            student[day] = {
-                security: security as string,
-                band_no: band,
-                time: new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })
-            }
-        }
-
-        // Add Student
-        await addStudent(student);
-        resetForm();
-
-        // Redirect to Entry Page
-        redirectToEntry();
+      const responseData = await res.json();
+      setGeneratedPass(responseData.response?.imgur_response?.data?.link);
+      setIsSubmitted(true);
+      alert(responseData.message);
+    } catch (error) {
+      console.error("Error in sending email:", error);
+      alert("Failed to send email. Please try again later.");
+      setIsSubmitted(true);
     }
+  }
 
-    function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setName(e.target.value.toUpperCase());
-    }
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | any>,
+  ) => {
+    const { name, value } = e.target;
+    setInputs((prevInputs: any) => ({
+      ...prevInputs,
+      [name]: value,
+    }));
+  };
 
-    function handleRollChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setRoll(e.target.value.toUpperCase());
-    }
-
-    function handleEmailChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setEmail(e.target.value);
-    }
-
-    function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setPhone(e.target.value);
-    }
-
-    function handleBandChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setBand(e.target.value);
-    }
-
-    return (
-        <div className="text-regalia font-hollirood w-full  min-h-[80vh]  text-center text-2xl font-bold flex justify-evenly flex-col items-center">
-            ---&nbsp;Add Students&nbsp;---
-
-            <form ref={formRef} className='w-full max-w-sm text-lg space-y-2'>
-                <div className="flex items-center justify-evenly">
-                    <label className='w-1/4'>Name:</label>
-                    <input 
-                    type="text"
-                    ref={nameRef}
-                    placeholder='Full Name'
-                    onChange={handleNameChange}
-                    className="w-1/2 border-2 border-regalia p-2 rounded-lg text-sm text-black" 
-                    />
-                </div>
-                <div className="flex items-center justify-evenly">
-                    <label className='w-1/4'>Roll:</label>
-                    <input 
-                    type="text"
-                    placeholder='Roll Number'
-                    onChange={handleRollChange}
-                    className="w-1/2 border-2 border-regalia p-2 rounded-lg text-sm text-black" 
-                    />
-                </div>
-                <div className="flex items-center justify-evenly">
-                    <label className='w-1/4'>Email:</label>
-                    <input 
-                    type="email"
-                    placeholder='Email Address'
-                    onChange={handleEmailChange}
-                    className="w-1/2 border-2 border-regalia p-2 rounded-lg text-sm text-black" 
-                    />
-                </div>
-                <div className="flex items-center justify-evenly">
-                    <label className='w-1/4'>Phone:</label>
-                    <input 
-                    type="number" 
-                    inputMode='tel'
-                    placeholder='Phone Number'
-                    onChange={handlePhoneChange}
-                    className="w-1/2 border-2 border-regalia p-2 rounded-lg text-sm text-black" 
-                    />
-                </div>
-                <div className="flex items-center justify-evenly pt-8">
-                    <label className='w-1/4'>Band No:</label>
-                    <input 
-                    type="number" 
-                    inputMode='numeric'
-                    placeholder='0'
-                    onChange={handleBandChange}
-                    className="w-1/4 border-2 border-regalia p-2 rounded-lg text-sm text-black" 
-                    />
-                </div>
-            </form>
-
-            <div>
-                <button 
-                className={`text-white bg-regalia p-2 rounded-lg ${(name && roll && email && phone) ? 'cursor-pointer' : 'cursor-not-allowed opacity-50'}`}
-                onClick={_addStudent}
-                disabled={!name || !roll || !email || !phone}
-                >Add Student
-                </button>
-            </div>
+  return (
+    <div className="mx-auto flex w-full flex-col items-start  justify-center gap-5 px-2 py-10">
+      <h1 className="w-full text-center font-hollirood text-2xl font-semibold tracking-wider text-regalia">
+        Add Entry
+      </h1>
+      <div className="mx-auto w-full max-w-md px-4">
+        <div className="mx-auto flex w-full flex-col justify-center gap-5">
+          <FormElement
+            id="name"
+            name="Name"
+            type="text"
+            value={inputs?.name}
+            onChange={handleInputChange}
+            width="100%"
+          />
+          <FormElement
+            id="email"
+            name="Email"
+            type="text"
+            value={inputs?.email}
+            onChange={handleInputChange}
+            width="100%"
+          />
+          <FormElement
+            id="roll"
+            name="College Roll"
+            type="text"
+            value={inputs?.roll}
+            onChange={handleInputChange}
+            width="100%"
+          />
+          <FormElement
+            id="phone"
+            name="Phone"
+            type="text"
+            value={inputs?.phone}
+            onChange={handleInputChange}
+            width="100%"
+          />
+          <div className="flex flex-row items-center gap-2">
+            <label htmlFor="entry">Entry</label>
+            <input
+              type="checkbox"
+              id="entry"
+              name="Entry"
+              checked={isEntry}
+              className="checked:bg-regalia focus:ring-0 active:ring-0"
+              onChange={() => setIsEntry(!isEntry)}
+            />
+          </div>
         </div>
-    );
+      </div>
+      <button
+        onClick={handleAddStudent}
+        disabled={!isSubmitted}
+        className=" mx-auto w-1/2 cursor-pointer rounded-full border-2 border-regalia bg-regalia px-2 py-1 font-semibold text-black hover:border-regalia hover:bg-black hover:text-regalia md:w-1/3 md:text-xl"
+      >
+        {isSubmitted ? "Submit" : <ClipLoader color="#c9a747" size={20} />}
+      </button>
+      {generatedPass && (
+        <Image
+          src={generatedPass}
+          alt="Generated Pass"
+          width={200}
+          height={200}
+        />
+      )}
+    </div>
+  );
 };
 
 export default EntryAddPage;
