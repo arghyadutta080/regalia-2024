@@ -10,8 +10,13 @@ export type User = {
     full_name: string;
     college_roll: string;
     phone: number;
-    day1: DayEntry | null;
-    day2: DayEntry | null;
+    day1: DayEntry[] | null;
+    day2: DayEntry[] | null;
+}
+
+export type Security = {
+    name: string;
+    time: string;   
 }
 
 export const checkDayEntry = () => {
@@ -62,7 +67,7 @@ export const getStudent = async (inputs: {
     const { data: users, error: usersError } = await supabase
         .from("SWC")
         .select("*")
-        .or(`email.eq.${inputs.email},phone.eq.${inputs.phone || '0'},college_roll.eq.${inputs.college_roll}`)
+        .or(`email.eq.${inputs.email},phone.eq.${inputs.phone || '0'},college_roll.eq.${inputs.college_roll}`);
 
         if (usersError) {
             return;
@@ -77,7 +82,7 @@ export const getStudent = async (inputs: {
 };
 
 export const enterStudent = async(input: {
-    userEntry: DayEntry;
+    userEntry: DayEntry[];
     email: string;
     day: string;
 }): Promise<boolean> => {
@@ -105,3 +110,32 @@ export const addStudent = async (input: User): Promise<boolean> => {
 
     return true;
 };
+
+export const getSecurityDetails = async (securityData: { security: string, time: string }[]): Promise<{ security: string, time: string }[]> => {
+    const securityIds = securityData.map(item => item.security);
+  
+    // Fetch security details from Supabase based on IDs
+    const { data, error } = await supabase
+      .from("users")
+      .select("id, name")
+      .in("id", securityIds);
+  
+    if (error) {
+      console.error("Error fetching security details:", error.message);
+      return securityData; // Return original data in case of error
+    }
+  
+    // Create a map for faster lookup
+    const securityMap: Record<string, string> = {};
+    data?.forEach(security => {
+      securityMap[security.id] = security.name;
+    });
+  
+    // Replace security IDs with names in securityData
+    const updatedSecurityData = securityData.map(item => ({
+      security: securityMap[item.security] || item.security, // Use original ID if name not found
+      time: item.time
+    }));
+    
+    return updatedSecurityData;
+  }

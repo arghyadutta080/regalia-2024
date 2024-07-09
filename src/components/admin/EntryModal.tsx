@@ -11,17 +11,13 @@ const EntryModal = ({
     data
   }: {
     isOpen: boolean;
-    accept: (band: string, data: User & {security: string}) => void;
+    accept: (data: User & {security: string}) => void;
     reject: () => void;
     data: User & {security: string};
   }) => {
 
-    const [band, setBand] = useState<string | undefined>(undefined);
-
     const handleAccept = () => {
-      if (!band) return;
-      accept(band, data);
-      setBand(undefined);
+      accept( data);
     }
 
     return (
@@ -46,22 +42,12 @@ const EntryModal = ({
                 <h1 className="text-sm font-semibold">
                   Phone: <Link href={`tel:${data.phone}`} className='text-white text-xs'>{data.phone}</Link>
                 </h1>
-                <h1 className="text-sm font-semibold items-center flex justify-start mt-5">
-                  Band No: <input 
-                        type="number"
-                        inputMode="numeric"
-                        placeholder="0"
-                        onChange={(e) => setBand(e.target.value)}
-                        className="border-2 ml-2 border-regalia p-[0.20rem] bg-transparent rounded-lg w-[30%] text-xs text-white"
-                    />
-                </h1>
               </div>
 
               <div className='flex w-full flex-row items-center justify-center gap-5'>
                 <button 
-                className={`w-full rounded-md bg-green-400 px-4 py-2 text-white shadow-md hover:cursor-pointer hover:bg-green-600 text-sm ${!band?'cursor-not-allowed opacity-50':''}`}
+                className={`w-full rounded-md bg-green-400 px-4 py-2 text-white shadow-md hover:cursor-pointer hover:bg-green-600 text-sm`}
                 onClick={handleAccept}
-                disabled={!band}
                 >
                   Approve
                 </button>

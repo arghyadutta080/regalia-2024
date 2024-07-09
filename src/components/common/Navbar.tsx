@@ -28,6 +28,7 @@ const Navbar = () => {
   const [showRegisterDashboard, setShowRegisterDashboard] = useState(false);
   const [showConvenorDashboard, setShowConvenorDashboard] = useState(false);
   const [showVolunteerDashboard, setShowVolunteerDashboard] = useState(false);
+  const [showSecurityDashboard, setShowSecurityDashboard] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
   const [showCoordinatorDashboard, setShowCoordinatorDashboard] =
     useState(false);
@@ -35,6 +36,7 @@ const Navbar = () => {
     setShowAdminDashboard(false);
     setShowCoordinatorDashboard(false);
     setShowDashboard(false);
+    setShowSecurityDashboard(false);
     await supabase.auth.signOut();
     router.refresh();
 
@@ -68,11 +70,13 @@ const Navbar = () => {
       let isVolunteer = false;
       let isConvenor = false;
       let isRegistrar = false;
+      let isSecurity = false;
       console.log(roleData);
       if (roleData) {
         for (const obj of roleData!) {
           if (obj.role === "super_admin") {
             isSuperAdmin = true;
+            isSecurity = true;
           }
           if (obj.role === "event_coordinator") {
             if (
@@ -104,6 +108,9 @@ const Navbar = () => {
           if (obj.role === "registrar") {
             isRegistrar = true;
           }
+          if (obj.role === "security" || obj.role === "security_admin") {
+            isSecurity = true;
+          }
         }
 
         if (isSuperAdmin) {
@@ -111,11 +118,13 @@ const Navbar = () => {
           setShowConvenorDashboard(true);
           setShowRegisterDashboard(true);
           setShowCoordinatorDashboard(false);
+          setShowSecurityDashboard(true);
         } else {
           if (isConvenor) {
             setShowConvenorDashboard(true);
             setShowRegisterDashboard(true);
             setShowCoordinatorDashboard(false);
+            setShowSecurityDashboard(false);
             return;
           } else {
             if (isCoordinator) {
@@ -123,15 +132,21 @@ const Navbar = () => {
               setShowRegisterDashboard(true);
               setShowCoordinatorDashboard(true);
               setShowVolunteerDashboard(false);
+              setShowSecurityDashboard(false);
             }
             if (isVolunteer) {
               !isConvenor && setShowConvenorDashboard(false);
               setShowRegisterDashboard(true);
               !isCoordinator && setShowCoordinatorDashboard(false);
               !isCoordinator && setShowVolunteerDashboard(true);
-            } else if (!isSuperAdmin && !isCoordinator && !isConvenor) {
+              setShowSecurityDashboard(false);
+            }else if(isSecurity){
+              setShowSecurityDashboard(true);
+            }
+             else if (!isSuperAdmin && !isCoordinator && !isConvenor && !isRegistrar && !isSecurity) {
               setShowCoordinatorDashboard(false);
               setShowConvenorDashboard(false);
+              setShowSecurityDashboard(false);
             }
           }
         }
@@ -312,6 +327,24 @@ const Navbar = () => {
                   </li>
                 </Link>
               )}
+               {user && showSecurityDashboard && (
+                  <Link
+                    // onMouseEnter={hoverSound}
+                    href={"/entry"}
+                    onClick={() => {
+                      clickSound();
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    <li
+                      className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
+                        pathname === "/entry" && "text-regalia"
+                      }`}
+                    >
+                      Security
+                    </li>
+                  </Link>
+                )}
               <div className=" block flex-row items-center md:hidden xl:flex">
                 {user && showCoordinatorDashboard && (
                   <Link
@@ -324,7 +357,7 @@ const Navbar = () => {
                   >
                     <li
                       className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
-                        pathname === "coordinator" && "text-regalia"
+                        pathname === "/coordinator" && "text-regalia"
                       }`}
                     >
                       Coordinator
@@ -343,7 +376,7 @@ const Navbar = () => {
                   >
                     <li
                       className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
-                        pathname === "coordinator" && "text-regalia"
+                        pathname === "/coordinator" && "text-regalia"
                       }`}
                     >
                       Convenor
@@ -362,7 +395,7 @@ const Navbar = () => {
                   >
                     <li
                       className={`my-2 cursor-pointer rounded-xl px-2 py-1 pt-2 font-retrolight text-sm font-semibold duration-200 ease-linear  hover:text-yellow-400  md:my-0 md:ml-2 md:mt-2 md:text-xs md:hover:scale-105 lg:ml-4 lg:text-sm  xl:mt-0 2xl:text-[18px] ${
-                        pathname === "coordinator" && "text-regalia"
+                        pathname === "/coordinator" && "text-regalia"
                       }`}
                     >
                       Volunteer

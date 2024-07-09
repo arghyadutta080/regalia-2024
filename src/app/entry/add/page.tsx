@@ -56,33 +56,33 @@ const EntryAddPage = () => {
 
     await addStudent(student);
 
-    try {
-      const res = await fetch("/api/sendPass", {
-        method: "POST",
-        body: JSON.stringify({
-          name: inputs.name,
-          roll: inputs.roll,
-          email: inputs.email,
-          phone: inputs.phone,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    // try {
+    //   const res = await fetch("/api/sendPass", {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       name: inputs.name,
+    //       roll: inputs.roll,
+    //       email: inputs.email,
+    //       phone: inputs.phone,
+    //     }),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
 
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
+    //   if (!res.ok) {
+    //     throw new Error(`HTTP error! Status: ${res.status}`);
+    //   }
 
-      const responseData = await res.json();
-      setGeneratedPass(responseData.response?.imgur_response?.data?.link);
-      setIsSubmitted(true);
-      alert(responseData.message);
-    } catch (error) {
-      console.error("Error in sending email:", error);
-      alert("Failed to send email. Please try again later.");
-      setIsSubmitted(true);
-    }
+    //   const responseData = await res.json();
+    //   setGeneratedPass(responseData.response?.imgur_response?.data?.link);
+    //   alert(responseData.message);
+    // } catch (error) {
+    //   console.error("Error in sending email:", error);
+    //   alert("Failed to send email. Please try again later.");
+
+    // }
+    setIsSubmitted(true);
   }
 
   const handleInputChange = (

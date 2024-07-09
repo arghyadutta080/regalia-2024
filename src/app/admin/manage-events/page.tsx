@@ -2,6 +2,7 @@
 import AddCoordinator from "@/components/admin/AddCoordinator";
 import EventPreview from "@/components/admin/EventPreview";
 import RegistrarModal from "@/components/admin/RegistrarModal";
+import SecurityModal from "@/components/admin/SecurityModal";
 import Heading from "@/components/common/Heading";
 import { getEvents } from "@/utils/functions/getEvent";
 import Link from "next/link";
@@ -16,6 +17,7 @@ const Page = () => {
   const [isRegistrarOpen, setIsRegistrarOpen] = useState(false);
   const onClose = () => {
     setIsOpen(false);
+    setIsRegistrarOpen(false);
     setIsSecurityOpen(false);
   };
   const [events, setEvents] = useState<any>([]);
@@ -100,6 +102,10 @@ const Page = () => {
       <RegistrarModal
         isOpen={isRegistrarOpen}
         onClose={() => setIsRegistrarOpen(false)}
+      />
+      <SecurityModal
+        isOpen={isSecurityOpen}
+        onClose={() => setIsSecurityOpen(false)}
       />
     </div>
   );
