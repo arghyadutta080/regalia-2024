@@ -99,9 +99,9 @@ const Hero = () => {
           <h1 className="text-md mx-auto mt-2 w-full font-hollirood text-regalia md:text-2xl">
             Inter College Annual Cultural fest
           </h1>
-          <h1 className="mt-1 flex self-start tracking-wider md:text-xl lg:text-2xl">
+          {/* <h1 className="mt-1 flex self-start tracking-wider md:text-xl lg:text-2xl">
             7th & 8th May 2024 (Prelims)
-          </h1>
+          </h1> */}
           <h1 className="mt-1 flex  text-center tracking-wider md:text-xl lg:text-2xl">
             10th & 11th July 2024 (Finals)
           </h1>
