@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PuffLoader } from "react-spinners";
-
 import QrReader from "./_components/QrCodePlugin";
 import {
   checkDayEntry,
@@ -16,6 +15,7 @@ import {
 import EntryModal from "@/components/admin/EntryModal";
 import InfoModal from "./_components/InfoModal";
 import Link from "next/link";
+import { getEntryCount } from "@/utils/functions/getEntryCount";
 
 const EntryPage = () => {
   const [specialMessage, setSpecialMessage] = useState<string>("");
@@ -24,6 +24,7 @@ const EntryPage = () => {
   const [rollNumber, setRollNumber] = useState("");
   const [startScan, setStartScan] = useState<boolean>(false);
   const [day, setDay] = useState<DayEntry | null>(null);
+  const [entryCount, setEntryCount] = useState<number>(0);
   const [studentDetails, setStudentDetails] = useState<User | undefined>(
     undefined,
   );
@@ -40,6 +41,12 @@ const EntryPage = () => {
         setCanAddUser(true);
       }
     });
+    const getEntries = async () => {
+      const data:any = await  getEntryCount();
+     setEntryCount(data?.length);
+
+    }
+    getEntries();
   }, []);
 
   function resetEntry() {
@@ -327,6 +334,7 @@ const EntryPage = () => {
         data={data as User & { security: string }}
       />
       <div className="mt-5 flex flex-col items-center gap-2 text-sm tracking-wider">
+        {canAddUser && <h1>Total Entries for Day 2 : {entryCount}</h1>}
         <h1 className="tracking-widest text-red-500">
           For Emergency Issues : Contact
         </h1>
