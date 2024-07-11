@@ -306,7 +306,6 @@ const EntryPage = () => {
       </button>
       <input
         type="text"
-        inputMode="numeric"
         placeholder="Enter Roll Number"
         value={rollNumber}
         onChange={handleInputRollNumber}
