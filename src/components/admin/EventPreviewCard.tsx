@@ -8,7 +8,6 @@ import { supabase } from "@/lib/supabase-client";
 import RulesModal from "./RulesModal";
 import { deleteEvent } from "@/utils/functions/deleteEvent";
 
-
 const EventPreviewCard = ({ event }: { event: any }) => {
   const [eventRegistrationOpen, setEventRegistrationOpen] =
     useState<any>(false);
@@ -35,33 +34,35 @@ const EventPreviewCard = ({ event }: { event: any }) => {
 
   return (
     <>
-      <div className="border-2 border-regalia rounded-xl flex flex-col-reverse lg:flex-row  items-center lg:items-start px-5 py-5 gap-10 justify-between w-[95%] mx-1 md:w-[80%]">
+      <div className="mx-1 flex w-[95%] flex-col-reverse items-center justify-between  gap-10 rounded-xl border-2 border-regalia px-5 py-5 md:w-[80%] lg:flex-row lg:items-start">
         <div className="flex flex-col items-start gap-5 font-semibold">
-          <div className="flex flex-col  w-full justify-between">
+          <div className="flex w-full  flex-col justify-between">
             <h1 className="text-3xl  tracking-wider">{event.event_name}</h1>
 
-            <label className="inline-flex items-center gap-2 cursor-pointer">
+            <label className="inline-flex cursor-pointer items-center gap-2">
               <h1 className="text-lg">Registration Open :</h1>
               <input
                 checked={eventRegistrationOpen == true ? true : false}
                 onChange={toggleRegistrationOpen}
                 value={eventRegistrationOpen}
                 type="checkbox"
-                className="sr-only peer"
+                className="peer sr-only"
               />
-              <div className="relative w-11 h-6 bg-regalia peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] before:bg-regalia after:bg-black after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-regalia"></div>
+              <div className="peer relative h-6 w-11 rounded-full bg-regalia  before:bg-regalia after:absolute  after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-black after:transition-all after:content-[''] peer-checked:bg-regalia peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none peer-focus:ring-4  rtl:peer-checked:after:-translate-x-full"></div>
             </label>
           </div>
-          <div className="flex flex-row items-center gap-2 md:gap-10 w-full justify-between flex-wrap">
+          <div className="flex w-full flex-row flex-wrap items-center justify-between gap-2 md:gap-10">
             <h1>{parse(event?.schedule)}</h1>
           </div>
-          <div className="flex flex-row items-center gap-2 w-full justify-between flex-wrap">
+          <div className="flex w-full flex-row flex-wrap items-center justify-between gap-2">
             <h1>Fees: {event.registration_fees} /-</h1>
             <h1>Prize : {event.prize} /-</h1>
           </div>
 
-          <div className="flex flex-col items-start gap-2 w-full justify-between flex-wrap">
-           <h1>Team Size : {event.min_team_member} - {event.max_team_member}</h1>
+          <div className="flex w-full flex-col flex-wrap items-start justify-between gap-2">
+            <h1>
+              Team Size : {event.min_team_member} - {event.max_team_member}
+            </h1>
           </div>
 
           <div>
@@ -71,21 +72,21 @@ const EventPreviewCard = ({ event }: { event: any }) => {
               dangerouslySetInnerHTML={{ __html: event.desc }}
             ></div>
           </div>
-          <div className="flex flex-row  items-center justify-center max-md:gap-5 md:justify-between flex-wrap w-full">
+          <div className="flex w-full  flex-row flex-wrap items-center justify-center max-md:gap-5 md:justify-between">
             <button
               onClick={() => setIsOpen(true)}
-              className="border-2 border-black px-5 py-1 rounded-full bg-regalia text-black hover:bg-black hover:border-regalia hover:text-regalia"
+              className="rounded-full border-2 border-black bg-regalia px-5 py-1 text-black hover:border-regalia hover:bg-black hover:text-regalia"
             >
               View Rules
             </button>
             <Link href={`/admin/manage-events/${event.id}`}>
-              <button className="border-2 border-black px-5 py-1 rounded-full bg-regalia text-black hover:bg-black hover:border-regalia hover:text-regalia">
+              <button className="rounded-full border-2 border-black bg-regalia px-5 py-1 text-black hover:border-regalia hover:bg-black hover:text-regalia">
                 Edit Event
               </button>
             </Link>
             <button
               onClick={() => setConfirmOpen(true)}
-              className="border-2 border-black px-5 py-1 rounded-full bg-red-500 text-black hover:bg-white hover:text-black"
+              className="rounded-full border-2 border-black bg-red-500 px-5 py-1 text-black hover:bg-white hover:text-black"
             >
               Delete
             </button>
@@ -128,19 +129,25 @@ const ConfirmModal = ({
   return (
     <>
       {isOpen && (
-        <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 z-[50]">
+        <div className="fixed  inset-0 z-[50] flex items-center justify-center bg-black bg-opacity-50">
           <div
-            className={`bg-gray-100 p-4 rounded-lg  h-auto
-             w-[90%] flex flex-col items-start md:w-auto `}
+            className={`flex h-auto w-[90%] flex-col  items-start
+             rounded-lg bg-body p-4 text-regalia md:w-auto `}
           >
-            <div className="w-full flex flex-row mb-2 gap-5 items-center justify-between">
+            <div className="mb-2 flex w-full flex-row items-center justify-between gap-5">
               <h2 className="text-lg font-semibold">
                 Are you sure to delete this event ?
               </h2>
             </div>
-            <div className="flex flex-row items-center gap-2 w-full justify-between flex-wrap">
+            <div className="flex w-full flex-row flex-wrap items-center justify-between gap-2">
               <button
-                className="border-2 border-black px-5 py-1 rounded-full bg-red-600  font-semibold text-white hover:bg-white hover:text-black"
+                className="mt-3 rounded-full border-2 border-black bg-black px-5 py-1 font-semibold text-white hover:bg-white hover:text-black"
+                onClick={onClose}
+              >
+                Go Back
+              </button>
+              <button
+                className="rounded-full border-2 border-black bg-red-600 px-5 py-1  font-semibold text-white hover:bg-white hover:text-black"
                 onClick={() => {
                   deleteEvent(eventId!);
                   onClose();
@@ -148,12 +155,6 @@ const ConfirmModal = ({
                 }}
               >
                 Delete
-              </button>
-              <button
-                className="border-2 mt-3 border-black px-5 py-1 rounded-full font-semibold bg-black text-white hover:bg-white hover:text-black"
-                onClick={onClose}
-              >
-                Go Back
               </button>
             </div>
           </div>
